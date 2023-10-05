@@ -3,6 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 
 export default function App() {
+  const [DrinkedAgo, setDrinkedAgo] = useState(0.5);
+  const MinusPerHour = 0.15;
+  const losen = MinusPerHour*DrinkedAgo;
   
   const [WeightOfPerson, setWeightOfPerson] = useState(75);
   const [Gender, setGender] = useState(0.7);
@@ -13,9 +16,10 @@ export default function App() {
   
   const [AlcoholInBlood, setAlcoholInBlood] = useState(PureAlcohol/(WeightOfPerson*Gender));
   const [RealAlcoholInBlood, setRealAlcoholInBlood] = useState(AlcoholInBlood-(AlcoholInBlood/100)*8);
+  const [LeftAlcohol, setLeftAlcohol] = useState(RealAlcoholInBlood-losen);
   return (
     <View style={styles.container}>
-      <Text>{RealAlcoholInBlood.toFixed(1)}</Text>
+      <Text>{LeftAlcohol.toFixed(1)}</Text>
       <StatusBar style="auto" />
     </View>
   );
