@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 
 export default function App() {
-  const [DrinkedAgo, setDrinkedAgo] = useState(5);
+  const [DrinkedAgo, setDrinkedAgo] = useState(0);
   const MinusPerHour = 0.1;
   const losen = MinusPerHour*DrinkedAgo;
   
@@ -23,7 +23,7 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-      <Text>{LeftAlcohol.toFixed(1)}</Text>
+      <Text>{LeftAlcohol.toFixed(2)}</Text>
       <StatusBar style="auto" />
     </View>
   );
