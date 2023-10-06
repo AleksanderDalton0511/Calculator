@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import React, { useState, useEffect } from 'react';
 
 export default function App() {
   const [DrinkedAgo, setDrinkedAgo] = useState(0);
@@ -12,10 +12,10 @@ export default function App() {
 
   const [DrinkenMl, setDrinkenMl] = useState(50);
   const [Strongness, setStrongness] = useState(40);
-  const [PureAlcohol, setPureAlcohol] = useState(((DrinkenMl/100)*Strongness));
+  const PureAlcohol = (DrinkenMl/100)*Strongness;
   
-  const [AlcoholInBlood, setAlcoholInBlood] = useState(PureAlcohol/(WeightOfPerson*Gender));
-  const [RealAlcoholInBlood, setRealAlcoholInBlood] = useState(AlcoholInBlood-(AlcoholInBlood/100)*6);
+  const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
+  const RealAlcoholInBlood= AlcoholInBlood-(AlcoholInBlood/100)*6;
   const [LeftAlcohol, setLeftAlcohol] = useState(RealAlcoholInBlood-losen);
 
   const OutIn = LeftAlcohol/MinusPerHour;
@@ -26,10 +26,23 @@ export default function App() {
   if(LeftAlcohol<0){
     setLeftAlcohol(0);
   }
+
+  useEffect(() => {
+    (async () => {
+      setLeftAlcohol(RealAlcoholInBlood-losen);
+    })();
+  }, [Strongness]);
+
   return (
     <View style={styles.container}>
       <Text>{LeftAlcohol.toFixed(4)}</Text>
-      <Text>Sober after {PureHours|0} hours and {PureMins.toFixed(0)} minutes.</Text>
+      <Text>Sober after {PureHours|0} hours and {PureMins.toFixed(0)} minutes</Text>
+
+      <TextInput
+        onChangeText={newText => setStrongness(newText)}
+        value={Strongness}
+      />
+
       <StatusBar style="auto" />
     </View>
   );
