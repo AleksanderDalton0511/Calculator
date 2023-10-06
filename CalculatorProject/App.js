@@ -21,7 +21,7 @@ export default function App() {
   const OutIn = LeftAlcohol/MinusPerHour;
   const OutInMin = OutIn*60;
   const PureHours = OutInMin/60;
-  const PureMins = OutInMin-PureHours;
+  const PureMins = OutInMin% 60;
 
   if(LeftAlcohol<0){
     setLeftAlcohol(0);
@@ -29,9 +29,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>{LeftAlcohol.toFixed(4)}</Text>
-      <Text>Трезв через {OutIn.toFixed(1)} часов</Text>
-      <Text>Трезв через {OutInMin.toFixed(0)} минут</Text>
-      <Text>Трезв через {PureHours} часов и {PureMins} минут</Text>
+      <Text>Sober after {PureHours|0} hours and {PureMins.toFixed(0)} minutes.</Text>
       <StatusBar style="auto" />
     </View>
   );
