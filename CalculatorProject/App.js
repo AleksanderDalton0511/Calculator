@@ -41,10 +41,12 @@ export default function App() {
       <TextInput
         onChangeText={newText => setStrongness(newText)}
         value={Strongness}
+        keyboardType="numeric"
       />
       <TextInput
         onChangeText={newText => setDrinkenMl(newText)}
         value={DrinkenMl}
+        keyboardType="numeric"
       />
 
       <StatusBar style="auto" />
