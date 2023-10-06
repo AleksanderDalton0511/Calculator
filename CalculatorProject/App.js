@@ -31,7 +31,7 @@ export default function App() {
     (async () => {
       setLeftAlcohol(RealAlcoholInBlood-losen);
     })();
-  }, [Strongness]);
+  }, [Strongness, DrinkenMl]);
 
   return (
     <View style={styles.container}>
@@ -41,6 +41,10 @@ export default function App() {
       <TextInput
         onChangeText={newText => setStrongness(newText)}
         value={Strongness}
+      />
+      <TextInput
+        onChangeText={newText => setDrinkenMl(newText)}
+        value={DrinkenMl}
       />
 
       <StatusBar style="auto" />
