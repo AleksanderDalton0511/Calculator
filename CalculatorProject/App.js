@@ -18,12 +18,20 @@ export default function App() {
   const [RealAlcoholInBlood, setRealAlcoholInBlood] = useState(AlcoholInBlood-(AlcoholInBlood/100)*6);
   const [LeftAlcohol, setLeftAlcohol] = useState(RealAlcoholInBlood-losen);
 
+  const OutIn = LeftAlcohol/MinusPerHour;
+  const OutInMin = OutIn*60;
+  const PureHours = OutInMin/60;
+  const PureMins = OutInMin-PureHours;
+
   if(LeftAlcohol<0){
     setLeftAlcohol(0);
   }
   return (
     <View style={styles.container}>
-      <Text>{LeftAlcohol.toFixed(2)}</Text>
+      <Text>{LeftAlcohol.toFixed(4)}</Text>
+      <Text>Трезв через {OutIn.toFixed(1)} часов</Text>
+      <Text>Трезв через {OutInMin.toFixed(0)} минут</Text>
+      <Text>Трезв через {PureHours} часов и {PureMins} минут</Text>
       <StatusBar style="auto" />
     </View>
   );
