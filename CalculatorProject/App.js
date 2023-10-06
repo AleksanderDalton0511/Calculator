@@ -36,18 +36,23 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>{LeftAlcohol.toFixed(4)}</Text>
-      <Text>Sober after {PureHours|0} hours and {PureMins.toFixed(0)} minutes</Text>
+      <Text>Sober after {PureHours|0} hours and {PureMins.toFixed(0)} minutes.</Text>
 
       <TextInput
+        style={{backgroundColor: "red"}}
         onChangeText={newText => setStrongness(newText)}
         value={Strongness}
         keyboardType="numeric"
       />
       <TextInput
+        style={{backgroundColor: "blue"}}
         onChangeText={newText => setDrinkenMl(newText)}
         value={DrinkenMl}
         keyboardType="numeric"
       />
+
+    <Text>Can drink in ml:</Text>
+    
 
       <StatusBar style="auto" />
     </View>
