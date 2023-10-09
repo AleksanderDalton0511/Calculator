@@ -31,28 +31,33 @@ export default function App() {
     (async () => {
       setLeftAlcohol(RealAlcoholInBlood-losen);
     })();
-  }, [Strongness, DrinkenMl]);
+  }, [Strongness, DrinkenMl, DrinkedAgo]);
 
   return (
     <View style={styles.container}>
       <Text>{LeftAlcohol.toFixed(4)}</Text>
       <Text>Sober after {PureHours|0} hours and {PureMins.toFixed(0)} minutes.</Text>
-
+      <Text>Strongness:</Text>
       <TextInput
         style={{backgroundColor: "red"}}
         onChangeText={newText => setStrongness(newText)}
         value={Strongness}
         keyboardType="numeric"
       />
+      <Text>Amount:</Text>
       <TextInput
         style={{backgroundColor: "blue"}}
         onChangeText={newText => setDrinkenMl(newText)}
         value={DrinkenMl}
         keyboardType="numeric"
       />
-
-    <Text>Can drink in ml:</Text>
-    
+      <Text>Drinked ago:</Text>
+      <TextInput
+        style={{backgroundColor: "green"}}
+        onChangeText={newText => setDrinkedAgo(newText)}
+        value={DrinkedAgo}
+        keyboardType="numeric"
+      />
 
       <StatusBar style="auto" />
     </View>
