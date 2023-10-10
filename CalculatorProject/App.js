@@ -41,21 +41,21 @@ export default function App() {
       <TextInput
         style={{backgroundColor: "red"}}
         onChangeText={newText => setStrongness(newText)}
-        value={Strongness}
+        value={Strongness.toString()}
         keyboardType="numeric"
       />
       <Text>Amount:</Text>
       <TextInput
         style={{backgroundColor: "blue"}}
         onChangeText={newText => setDrinkenMl(newText)}
-        value={DrinkenMl}
+        value={DrinkenMl.toString()}
         keyboardType="numeric"
       />
       <Text>Drinked ago:</Text>
       <TextInput
         style={{backgroundColor: "green"}}
         onChangeText={newText => setDrinkedAgo(newText)}
-        value={DrinkedAgo}
+        value={DrinkedAgo.toString()}
         keyboardType="numeric"
       />
 
