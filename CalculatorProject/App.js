@@ -15,7 +15,7 @@ export default function App() {
   const PureAlcohol = (DrinkenMl/100)*Strongness;
   
   const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
-  const RealAlcoholInBlood= AlcoholInBlood-(AlcoholInBlood/100);
+  const RealAlcoholInBlood= AlcoholInBlood-(AlcoholInBlood/100*5);
   const [LeftAlcohol, setLeftAlcohol] = useState(RealAlcoholInBlood-losen);
 
   const OutIn = LeftAlcohol/MinusPerHour;
