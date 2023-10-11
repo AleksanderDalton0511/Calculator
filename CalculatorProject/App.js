@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import React, { useState, useEffect } from 'react';
+import users from '/users.json';
 
 export default function App() {
   const [DrinkedAgo, setDrinkedAgo] = useState(0);
@@ -22,6 +23,10 @@ export default function App() {
   const OutInMin = OutIn*60;
   const PureHours = OutInMin/60;
   const PureMins = OutInMin% 60;
+
+  localStorage.setItem("userData", JSON.stringify(users));
+  const data = localStorage.getItem("userData");
+  console.log("data: ", JSON.parse(data));
 
   if(LeftAlcohol<0){
     setLeftAlcohol(0);
