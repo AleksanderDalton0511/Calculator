@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import users from '/users.json';
 
 export default function App() {
@@ -24,18 +24,13 @@ export default function App() {
   const PureHours = OutInMin/60;
   const PureMins = OutInMin% 60;
 
-  users.push({
+  const [memory, setMemory] = useState({
     "username": "test2",
     "email": "stets",
     "password": "iy@test"
   });
-  users.push({
-    "username": "test3",
-    "email": "stets",
-    "password": "iy@test"
-  });
 
-  localStorage.setItem("userData", JSON.stringify(users));
+  localStorage.setItem("userData", JSON.stringify(memory));
   const data = localStorage.getItem("userData");
   console.log("data: ", JSON.parse(data));
 
@@ -73,6 +68,12 @@ export default function App() {
         onChangeText={newText => setDrinkedAgo(newText)}
         value={DrinkedAgo.toString()}
         keyboardType="numeric"
+      />
+
+      <Text>Saving:</Text>
+      <TextInput
+        style={{backgroundColor: "lightblue"}}
+        onChangeText={newText => setMemory(memory+newText)}
       />
 
       <StatusBar style="auto" />
