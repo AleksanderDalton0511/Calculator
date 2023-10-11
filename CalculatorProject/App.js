@@ -24,7 +24,13 @@ export default function App() {
   const PureHours = OutInMin/60;
   const PureMins = OutInMin% 60;
 
-  localStorage.setItem("userData", JSON.stringify(users));
+  /*users.push({
+    "username": "tere",
+    "email": "stet",
+    "password": "iy@test"
+  });*/
+
+  //localStorage.setItem("userData", JSON.stringify(users));
   const data = localStorage.getItem("userData");
   console.log("data: ", JSON.parse(data));
 
