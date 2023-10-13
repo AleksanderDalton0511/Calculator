@@ -1,88 +1,26 @@
-const express = require("express");
-const accountRoutes = express.Router();
-const fs = require('fs');
-import * as RNFS from 'react-native-fs'; 
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import React, { useState, useEffect } from 'react';
 
-const dataPath = './account.json' 
-
-readFile = () => { 
-  RNFS.readFile('/users.json') 
-    .then((res) => { 
-      console.log(res); 
-      const d = JSON.parse(res); 
-      this.setState({ content: res, fruitType: d.type }); 
-    }) 
-    .catch((err) => { 
-      console.log(err.message, err.code); 
-    }); 
-}; 
-
-// util functions 
-
-const saveAccountData = (data) => {
-    const stringifyData = JSON.stringify(data)
-    fs.writeFileSync(dataPath, stringifyData)
-}
-
-const getAccountData = () => {
-    const jsonData = fs.readFileSync(dataPath)
-    return JSON.parse(jsonData)    
-}
-
-
-// reading the data
-accountRoutes.get('/account', (req, res) => {
-    fs.readFile(dataPath, 'utf8', (err, data) => {
-      if (err) {
-        throw err;
-      }
-
-      res.send(JSON.parse(data));
-    });
+export default function users(){
+    const [memory, setMemory] = useState({
+    "username": "test2",
+    "email": "stets",
+    "password": "iy@test"
   });
-
-
-  accountRoutes.post('/account/addaccount', (req, res) => {
-   
-    var existAccounts = getAccountData()
-    const newAccountId = Math.floor(100000 + Math.random() * 900000)
-   
-    existAccounts[newAccountId] = req.body
-     
-    console.log(existAccounts);
-
-    saveAccountData(existAccounts);
-    res.send({success: true, msg: 'account data added successfully'})
-})
-
-// Read - get all accounts from the json file
-accountRoutes.get('/account/list', (req, res) => {
-  const accounts = getAccountData()
-  res.send(accounts)
-})
-
-// Update - using Put method
-accountRoutes.put('/account/:id', (req, res) => {
-   var existAccounts = getAccountData()
-   fs.readFile(dataPath, 'utf8', (err, data) => {
-    const accountId = req.params['id'];
-    existAccounts[accountId] = req.body;
-
-    saveAccountData(existAccounts);
-    res.send(`accounts with id ${accountId} has been updated`)
-  }, true);
-});
-
-//delete - using delete method
-accountRoutes.delete('/account/delete/:id', (req, res) => {
-   fs.readFile(dataPath, 'utf8', (err, data) => {
-    var existAccounts = getAccountData()
-
-    const userId = req.params['id'];
-
-    delete existAccounts[userId];  
-    saveAccountData(existAccounts);
-    res.send(`accounts with id ${userId} has been deleted`)
-  }, true);
-})
-module.exports = accountRoutes
+  localStorage.setItem("userData", JSON.stringify(memory));
+  const data = localStorage.getItem("userData");
+  console.log("data: ", JSON.parse(data));
+  return(
+    <View>
+    <Text>user2:</Text>
+      <TextInput
+        style={{backgroundColor: "lightblue"}}
+        onChangeText={newText => setMemory(
+        {"username": {newText},
+        "email": "stets",
+        "password": "iy@test"})}
+      />
+      </View>
+  )
+}

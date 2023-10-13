@@ -1,12 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import React, { useState, useEffect } from 'react';
-import Calculator from "/calculator.js"; 
-import users from "/users.js"; 
-import { NavigationContainer, useNavigation  } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-const Stack = createNativeStackNavigator();
+import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 
 export default function App() {
   const [DrinkedAgo, setDrinkedAgo] = useState(0);
@@ -40,15 +35,42 @@ export default function App() {
   }, [Strongness, DrinkenMl, DrinkedAgo]);
 
   return (
-    <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen
-                    name="Calculator"
-                    component={Calculator}
-                />
-                <Stack.Screen name="Users" component={users} />
-            </Stack.Navigator>
-        </NavigationContainer>
+    <View style={styles.container}>
+      <Text>{LeftAlcohol.toFixed(4)}</Text>
+      <Text>Sober after {PureHours|0} hours and {PureMins.toFixed(0)} minutes.</Text>
+      <Text>Strongness:</Text>
+      <TextInput
+        style={{backgroundColor: "red"}}
+        onChangeText={newText => setStrongness(newText)}
+        value={Strongness.toString()}
+        keyboardType="numeric"
+      />
+      <Text>Amount:</Text>
+      <TextInput
+        style={{backgroundColor: "blue"}}
+        onChangeText={newText => setDrinkenMl(newText)}
+        value={DrinkenMl.toString()}
+        keyboardType="numeric"
+      />
+      <Text>Drinked ago:</Text>
+      <TextInput
+        style={{backgroundColor: "green"}}
+        onChangeText={newText => setDrinkedAgo(newText)}
+        value={DrinkedAgo.toString()}
+        keyboardType="numeric"
+      />
+
+      <Text>user1:</Text>
+      <TextInput
+        style={{backgroundColor: "lightblue"}}
+        onChangeText={newText => setMemory(
+        {"username": {newText},
+        "email": "stets",
+        "password": "iy@test"})}
+      />
+
+      <StatusBar style="auto" />
+    </View>
   );
 }
 
