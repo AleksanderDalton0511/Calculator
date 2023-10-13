@@ -1,7 +1,10 @@
 import { Text, View, TextInput, TouchableOpacity } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 export default function users(){
+    const navigation = useNavigation();
+
     const [memory, setMemory] = useState({
     "Name": {name},
     "Gender": {gender},
@@ -22,6 +25,7 @@ export default function users(){
       "Gender": {gender},
       "Weight": {weight},
     });
+    navigation.navigate("Calculator");
   }
 
   return(

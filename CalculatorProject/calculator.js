@@ -33,6 +33,9 @@ export default function App() {
     })();
   }, [Strongness, DrinkenMl, DrinkedAgo]);
 
+  const data = localStorage.getItem("userData");
+  console.log("data: ", JSON.parse(data));
+
   return (
     <View style={styles.container}>
       <Text>{LeftAlcohol.toFixed(4)}</Text>
@@ -58,6 +61,10 @@ export default function App() {
         value={DrinkedAgo.toString()}
         keyboardType="numeric"
       />
+
+      <Text>Name:{data}</Text>
+      <Text>Gender:</Text>
+      <Text>Weight:</Text>
 
       <StatusBar style="auto" />
     </View>
