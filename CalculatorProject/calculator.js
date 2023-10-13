@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 
 export default function App() {
   const [DrinkedAgo, setDrinkedAgo] = useState(0);
@@ -58,15 +57,6 @@ export default function App() {
         onChangeText={newText => setDrinkedAgo(newText)}
         value={DrinkedAgo.toString()}
         keyboardType="numeric"
-      />
-
-      <Text>user1:</Text>
-      <TextInput
-        style={{backgroundColor: "lightblue"}}
-        onChangeText={newText => setMemory(
-        {"username": {newText},
-        "email": "stets",
-        "password": "iy@test"})}
       />
 
       <StatusBar style="auto" />
