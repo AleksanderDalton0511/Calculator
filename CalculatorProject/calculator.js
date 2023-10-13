@@ -35,6 +35,8 @@ export default function App() {
 
   const data = localStorage.getItem("userData");
   console.log("data: ", JSON.parse(data));
+  const data2 = JSON.parse(data);
+  console.log("test:"+data2.Name.name);
 
   return (
     <View style={styles.container}>
@@ -62,9 +64,9 @@ export default function App() {
         keyboardType="numeric"
       />
 
-      <Text>Name:{data}</Text>
-      <Text>Gender:</Text>
-      <Text>Weight:</Text>
+      <Text>Name:{data2.Name.name}</Text>
+      <Text>Gender:{data2.Gender.gender}</Text>
+      <Text>Weight:{data2.Weight.weight}</Text>
 
       <StatusBar style="auto" />
     </View>
