@@ -8,7 +8,9 @@ export default function calculator() {
 
   const navigation = useNavigation();
 
-  const data = localStorage.getItem("userData");
+  const number = localStorage.getItem("number");
+
+  const data = localStorage.getItem("userData"+number);
   console.log("data: ", JSON.parse(data));
   const data2 = JSON.parse(data);
   console.log("test:"+data2.Name.name);

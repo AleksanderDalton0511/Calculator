@@ -14,12 +14,31 @@ export default function selection(){
   const user3 = localStorage.getItem("userData3");
   console.log("data: ", JSON.parse(user3));
   const data3 = JSON.parse(user3);
+
+  const navigation = useNavigation();
+
+  function Select1(){
+    localStorage.setItem("number", 1);
+    const data = localStorage.getItem("number");
+    console.log("number: ", JSON.parse(data));
+  }
+  function Select2(){
+    localStorage.setItem("number", 2);
+    const data = localStorage.getItem("number");
+    console.log("number: ", JSON.parse(data));
+  }
+  function Select3(){
+    localStorage.setItem("number", 3);
+    const data = localStorage.getItem("number");
+    console.log("number: ", JSON.parse(data));
+  }
+
   return(
   <View>
   <Text>Select profile:</Text>
-  <Text>{data.Name.name}</Text>
-  <Text>{data2.Name.name}</Text>
-  <Text>{data3.Name.name}</Text>
+  <TouchableOpacity onPress={Select1}><Text>User1: {data.Name.name}</Text></TouchableOpacity>
+  <TouchableOpacity onPress={Select2}><Text>User2: {data2.Name.name}</Text></TouchableOpacity>
+  <TouchableOpacity onPress={Select3}><Text>User3: {data3.Name.name}</Text></TouchableOpacity>
   </View>
   )
 }
