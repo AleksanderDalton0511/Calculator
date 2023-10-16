@@ -1,13 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
-export default function App() {
+
+export default function calculator() {
+
+  const navigation = useNavigation();
+
+  const data = localStorage.getItem("userData");
+  console.log("data: ", JSON.parse(data));
+  const data2 = JSON.parse(data);
+  console.log("test:"+data2.Name.name);
+
   const [DrinkedAgo, setDrinkedAgo] = useState(0);
   const MinusPerHour = 0.1;
   const losen = MinusPerHour*DrinkedAgo;
   
-  const [WeightOfPerson, setWeightOfPerson] = useState(75);
+  const WeightOfPerson = data2.Weight.weight;
   const [Gender, setGender] = useState(0.7);
 
   const [DrinkenMl, setDrinkenMl] = useState(50);
@@ -33,10 +43,9 @@ export default function App() {
     })();
   }, [Strongness, DrinkenMl, DrinkedAgo]);
 
-  const data = localStorage.getItem("userData");
-  console.log("data: ", JSON.parse(data));
-  const data2 = JSON.parse(data);
-  console.log("test:"+data2.Name.name);
+  function Selection(){
+    navigation.navigate("Selection")
+  }
 
   return (
     <View style={styles.container}>
@@ -67,6 +76,8 @@ export default function App() {
       <Text>Name:{data2.Name.name}</Text>
       <Text>Gender:{data2.Gender.gender}</Text>
       <Text>Weight:{data2.Weight.weight}</Text>
+
+      <TouchableOpacity onPress={Selection} style={{backgroundColor: "orange"}}><Text>Users</Text></TouchableOpacity>
 
       <StatusBar style="auto" />
     </View>
