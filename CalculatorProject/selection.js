@@ -33,9 +33,9 @@ export default function selection(){
   return(
   <View>
   <Text>Select profile:</Text>
-  <TouchableOpacity onPress={Select1}><Text>User1: {data.Name.name}</Text></TouchableOpacity>
-  <TouchableOpacity onPress={Select2}><Text>User2: {data2.Name.name}</Text></TouchableOpacity>
-  <TouchableOpacity onPress={Select3}><Text>User3: {data3.Name.name}</Text></TouchableOpacity>
+  <TouchableOpacity onPress={Select1}><Text>User1: {data.Name.name} </Text><TouchableOpacity style={{backgroundColor:"red"}}><Text>EDIT</Text></TouchableOpacity></TouchableOpacity>
+  <TouchableOpacity onPress={Select2}><Text>User2: {data2.Name.name}</Text><TouchableOpacity style={{backgroundColor:"red"}}><Text>EDIT</Text></TouchableOpacity></TouchableOpacity>
+  <TouchableOpacity onPress={Select3}><Text>User3: {data3.Name.name}</Text><TouchableOpacity style={{backgroundColor:"red"}}><Text>EDIT</Text></TouchableOpacity></TouchableOpacity>
   </View>
   )
 }
