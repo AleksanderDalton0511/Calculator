@@ -18,19 +18,16 @@ export default function selection(){
   const navigation = useNavigation();
 
   function Select1(){
-    localStorage.setItem("number", 1);
-    const data = localStorage.getItem("number");
-    console.log("number: ", JSON.parse(data));
+    localStorage.setItem("number", "");
+    navigation.navigate("Calculator");
   }
   function Select2(){
     localStorage.setItem("number", 2);
-    const data = localStorage.getItem("number");
-    console.log("number: ", JSON.parse(data));
+    navigation.navigate("Calculator");
   }
   function Select3(){
     localStorage.setItem("number", 3);
-    const data = localStorage.getItem("number");
-    console.log("number: ", JSON.parse(data));
+    navigation.navigate("Calculator");
   }
 
   return(
