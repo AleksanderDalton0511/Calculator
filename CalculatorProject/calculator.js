@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-
 export default function calculator() {
 
   const navigation = useNavigation();
@@ -84,7 +83,6 @@ export default function calculator() {
 
       <TouchableOpacity onPress={Selection} style={{backgroundColor: "orange"}}><Text>Users</Text></TouchableOpacity>
       <TouchableOpacity onPress={Backwards} style={{backgroundColor: "green"}}><Text>Backwards</Text></TouchableOpacity>
-
 
       <StatusBar style="auto" />
     </View>

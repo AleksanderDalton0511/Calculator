@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 export default function backwards() {
@@ -23,12 +23,6 @@ export default function backwards() {
   const AllowedAlcoholInblood = 0 + 0.1 * hoursToDrive;
   const allowedToDrinkPureAlcohol = AllowedAlcoholInblood * WeightOfPerson * Gender;
   const AllowedToDrinkMl = allowedToDrinkPureAlcohol * 100 / (Strongness * 0.789);
-
-  useEffect(() => {
-    (async () => {
-      //setLeftAlcohol(RealAlcoholInBlood-losen);
-    })();
-  }, [Strongness]);
 
   return (
     <View style={styles.container}>
