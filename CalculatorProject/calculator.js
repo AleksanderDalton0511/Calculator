@@ -27,8 +27,7 @@ export default function calculator() {
   const PureAlcohol = (DrinkenMl/100)*Strongness*0.789;
   
   const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
-  const RealAlcoholInBlood= AlcoholInBlood-(AlcoholInBlood/100)*5;
-  const [LeftAlcohol, setLeftAlcohol] = useState(RealAlcoholInBlood-losen);
+  const [LeftAlcohol, setLeftAlcohol] = useState(AlcoholInBlood-losen);
 
   const OutIn = LeftAlcohol/MinusPerHour;
   const OutInMin = OutIn*60;
@@ -41,12 +40,16 @@ export default function calculator() {
 
   useEffect(() => {
     (async () => {
-      setLeftAlcohol(RealAlcoholInBlood-losen);
+      setLeftAlcohol(AlcoholInBlood-losen);
     })();
   }, [Strongness, DrinkenMl, DrinkedAgo]);
 
   function Selection(){
-    navigation.navigate("Selection")
+    navigation.navigate("Selection");
+  }
+
+  function Backwards(){
+    navigation.navigate("Backwards");
   }
 
   return (
@@ -80,6 +83,8 @@ export default function calculator() {
       <Text>Weight:{data2.Weight.weight}</Text>
 
       <TouchableOpacity onPress={Selection} style={{backgroundColor: "orange"}}><Text>Users</Text></TouchableOpacity>
+      <TouchableOpacity onPress={Backwards} style={{backgroundColor: "green"}}><Text>Backwards</Text></TouchableOpacity>
+
 
       <StatusBar style="auto" />
     </View>
