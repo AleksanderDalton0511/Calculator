@@ -24,7 +24,7 @@ export default function calculator() {
 
   const [DrinkenMl, setDrinkenMl] = useState(50);
   const [Strongness, setStrongness] = useState(40);
-  const PureAlcohol = (DrinkenMl/100)*Strongness;
+  const PureAlcohol = (DrinkenMl/100)*Strongness*0.789;
   
   const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
   const RealAlcoholInBlood= AlcoholInBlood-(AlcoholInBlood/100)*5;
