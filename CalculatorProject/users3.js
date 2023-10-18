@@ -2,7 +2,7 @@ import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-export default function users3(){
+export default function Users3(){
     const navigation = useNavigation();
 
     const [memory, setMemory] = useState({

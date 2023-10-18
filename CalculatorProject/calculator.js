@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-export default function calculator() {
+export default function Calculator() {
 
   const navigation = useNavigation();
 

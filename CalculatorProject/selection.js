@@ -2,7 +2,7 @@ import { Text, View, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-export default function selection(){
+export default function Selection(){
   const user = localStorage.getItem("userData");
   console.log("data: ", JSON.parse(user));
   const data = JSON.parse(user);

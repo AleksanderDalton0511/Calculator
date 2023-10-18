@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
-export default function backwards() {
+export default function Backwards() {
 
   const navigation = useNavigation();
 
