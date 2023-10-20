@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Users(){
   const navigation = useNavigation();
-
+  
   const storage = new Storage({
     // maximum capacity, default 1000
     size: 1000,
@@ -33,7 +33,7 @@ export default function Users(){
   // load
   storage
     .load({
-      key: 'loginState',
+      key: 'user',
    
       // autoSync (default: true) means if data is not found or has expired,
       // then invoke the corresponding sync method
@@ -57,7 +57,6 @@ export default function Users(){
     })
     .then(ret => {
       // found data go to then()
-      console.log(ret);
     })
     .catch(err => {
       // any exception including data not found
@@ -79,18 +78,17 @@ export default function Users(){
 
   function Save(){
     storage.save({
-      key: 'loginState', // Note: Do not use underscore("_") in key!
+      key: 'user', // Note: Do not use underscore("_") in key!
       data: {
         Name: {name},
         Gender: {gender},
         Weight: {weight}
       },
-     
       // if expires not specified, the defaultExpires will be applied instead.
       // if set to null, then it will never expire.
       expires: null
     });
-    //navigation.navigate("Calculator");
+    navigation.navigate("Calculator");
   }
 
   return(

@@ -2,23 +2,60 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import Storage from 'react-native-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
-export default function Calculator() {
+export default function Calculator({myName, myWeight}) {
+
+  const [memoName, setName] = useState("");
+  const [memoWeight, setWeight] = useState("");
 
   const navigation = useNavigation();
 
-  const number = localStorage.getItem("number");
+  
 
-  const data = localStorage.getItem("userData"+number);
-  console.log("data: ", JSON.parse(data));
-  const data2 = JSON.parse(data);
-  console.log("test:"+data2.Name.name);
+    useEffect(() => {
+      const storage = new Storage({
+        size: 1000,
+        storageBackend: AsyncStorage,
+        defaultExpires: null,
+        enableCache: true,
+        sync: {
+        }
+      });
+    
+      // load
+      storage
+        .load({
+          key: 'user',
+          autoSync: true,
+          syncInBackground: true,
+          syncParams: {
+            extraFetchOptions: {
+              // blahblah
+            },
+            someFlag: true
+          }
+        })
+        .then(ret => {
+          setWeight(ret.Weight);
+          setName(ret.Name);
+        })
+        .catch(err => {
+          switch (err.name) {
+            case 'NotFoundError':
+              break;
+            case 'ExpiredError':
+              break;
+          }
+        })
+    }, []);
 
   const [DrinkedAgo, setDrinkedAgo] = useState(0);
   const MinusPerHour = 0.1;
   const losen = MinusPerHour*DrinkedAgo;
   
-  const WeightOfPerson = data2.Weight.weight;
+  const WeightOfPerson = memoWeight.weight;
   const [Gender, setGender] = useState(0.7);
 
   const [DrinkenMl, setDrinkenMl] = useState(50);
@@ -77,9 +114,9 @@ export default function Calculator() {
         keyboardType="numeric"
       />
 
-      <Text>Name:{data2.Name.name}</Text>
-      <Text>Gender:{data2.Gender.gender}</Text>
-      <Text>Weight:{data2.Weight.weight}</Text>
+      <Text>Name:{memoName.Name}</Text>
+      <Text>Gender:</Text>
+      <Text>Weight:{memoWeight.weight}</Text>
 
       <TouchableOpacity onPress={Selection} style={{backgroundColor: "orange"}}><Text>Users</Text></TouchableOpacity>
       <TouchableOpacity onPress={Backwards} style={{backgroundColor: "green"}}><Text>Backwards</Text></TouchableOpacity>
