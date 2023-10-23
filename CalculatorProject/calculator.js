@@ -5,16 +5,53 @@ import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
 
-export default function Calculator({myName, myWeight}) {
+export default function Calculator() {
 
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
+  const [number, setNumber] = useState("");
+  const [ready, setReady] = useState(false);
 
   const navigation = useNavigation();
 
+  useEffect(() => {
+    const storage2 = new Storage({
+      size: 1000,
+      storageBackend: AsyncStorage,
+      defaultExpires: null,
+      enableCache: true,
+      sync: {
+      }
+    });
   
+    // load
+    storage2
+      .load({
+        key: 'number',
+        autoSync: true,
+        syncInBackground: true,
+        syncParams: {
+          extraFetchOptions: {
+            // blahblah
+          },
+          someFlag: true
+        }
+      })
+      .then(ret => {
+        setNumber(ret);
+        setReady(true);
+      })
+      .catch(err => {
+        switch (err.name) {
+          case 'NotFoundError':
+            break;
+          case 'ExpiredError':
+            break;
+        }
+      });
+  }, []);
 
-    useEffect(() => {
+  useEffect(() => {
       const storage = new Storage({
         size: 1000,
         storageBackend: AsyncStorage,
@@ -23,11 +60,13 @@ export default function Calculator({myName, myWeight}) {
         sync: {
         }
       });
-    
+
+      if(ready){
+
       // load
       storage
         .load({
-          key: 'user',
+          key: 'user'+{number},
           autoSync: true,
           syncInBackground: true,
           syncParams: {
@@ -48,18 +87,20 @@ export default function Calculator({myName, myWeight}) {
             case 'ExpiredError':
               break;
           }
-        })
+        });
+      }
+
     }, []);
 
-  const [DrinkedAgo, setDrinkedAgo] = useState(0);
+  const [DrinkedAgo, setDrinkedAgo] = useState("");
   const MinusPerHour = 0.1;
   const losen = MinusPerHour*DrinkedAgo;
   
   const WeightOfPerson = memoWeight.weight;
   const [Gender, setGender] = useState(0.7);
 
-  const [DrinkenMl, setDrinkenMl] = useState(50);
-  const [Strongness, setStrongness] = useState(40);
+  const [DrinkenMl, setDrinkenMl] = useState("");
+  const [Strongness, setStrongness] = useState("");
   const PureAlcohol = (DrinkenMl/100)*Strongness*0.789;
   
   const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
@@ -114,7 +155,7 @@ export default function Calculator({myName, myWeight}) {
         keyboardType="numeric"
       />
 
-      <Text>Name:{memoName.Name}</Text>
+      <Text>Name:{memoName.name}</Text>
       <Text>Gender:</Text>
       <Text>Weight:{memoWeight.weight}</Text>
 
