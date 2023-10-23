@@ -10,45 +10,43 @@ export default function Calculator() {
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
   const [number, setNumber] = useState("");
-  const [ready, setReady] = useState(false);
 
   const navigation = useNavigation();
 
+  const storage2 = new Storage({
+    size: 1000,
+    storageBackend: AsyncStorage,
+    defaultExpires: null,
+    enableCache: true,
+    sync: {
+    }
+  });
+
   useEffect(() => {
-    const storage2 = new Storage({
-      size: 1000,
-      storageBackend: AsyncStorage,
-      defaultExpires: null,
-      enableCache: true,
-      sync: {
-      }
-    });
-  
     // load
-    storage2
-      .load({
-        key: 'number',
-        autoSync: true,
-        syncInBackground: true,
-        syncParams: {
-          extraFetchOptions: {
-            // blahblah
-          },
-          someFlag: true
-        }
-      })
-      .then(ret => {
-        setNumber(ret);
-        setReady(true);
-      })
-      .catch(err => {
-        switch (err.name) {
-          case 'NotFoundError':
-            break;
-          case 'ExpiredError':
-            break;
-        }
-      });
+  storage2
+  .load({
+    key: 'number',
+    autoSync: true,
+    syncInBackground: true,
+    syncParams: {
+      extraFetchOptions: {
+        // blahblah
+      },
+      someFlag: true
+    }
+  })
+  .then(ret => {
+    setNumber(ret);
+  })
+  .catch(err => {
+    switch (err.name) {
+      case 'NotFoundError':
+        break;
+      case 'ExpiredError':
+        break;
+    }
+  });
   }, []);
 
   useEffect(() => {
@@ -61,12 +59,10 @@ export default function Calculator() {
         }
       });
 
-      if(ready){
-
       // load
       storage
         .load({
-          key: 'user'+{number},
+          key: 'user'+number,
           autoSync: true,
           syncInBackground: true,
           syncParams: {
@@ -88,9 +84,9 @@ export default function Calculator() {
               break;
           }
         });
-      }
+      
 
-    }, []);
+    }, [number]);
 
   const [DrinkedAgo, setDrinkedAgo] = useState("");
   const MinusPerHour = 0.1;
