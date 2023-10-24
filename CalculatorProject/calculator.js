@@ -9,6 +9,7 @@ export default function Calculator() {
 
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
+  const [memoGender, setMemoGender] = useState("");
   const [number, setNumber] = useState("");
 
   const navigation = useNavigation();
@@ -75,6 +76,7 @@ export default function Calculator() {
         .then(ret => {
           setWeight(ret.Weight);
           setName(ret.Name);
+          setMemoGender(ret.Gender)
         })
         .catch(err => {
           switch (err.name) {
@@ -85,7 +87,6 @@ export default function Calculator() {
           }
         });
       
-
     }, [number]);
 
   const [DrinkedAgo, setDrinkedAgo] = useState("");
@@ -93,7 +94,7 @@ export default function Calculator() {
   const losen = MinusPerHour*DrinkedAgo;
   
   const WeightOfPerson = memoWeight.weight;
-  const [Gender, setGender] = useState(0.7);
+  const [Gender, setGender] = useState("");
 
   const [DrinkenMl, setDrinkenMl] = useState("");
   const [Strongness, setStrongness] = useState("");
@@ -125,6 +126,16 @@ export default function Calculator() {
     navigation.navigate("Backwards");
   }
 
+  useEffect(() => {
+    if (memoGender.gender!="Male"){
+      setGender(0.6);
+      console.log(memoGender.gender)
+    }
+    else{
+      setGender(0.7);
+    }
+  }, [memoGender]);
+
   return (
     <View style={styles.container}>
       <Text>{LeftAlcohol.toFixed(4)}</Text>
@@ -152,8 +163,9 @@ export default function Calculator() {
       />
 
       <Text>Name:{memoName.name}</Text>
-      <Text>Gender:</Text>
+      <Text>Gender:{memoGender.gender}</Text>
       <Text>Weight:{memoWeight.weight}</Text>
+      <Text>Gender coefficent:{Gender}</Text>
 
       <TouchableOpacity onPress={Selection} style={{backgroundColor: "orange"}}><Text>Users</Text></TouchableOpacity>
       <TouchableOpacity onPress={Backwards} style={{backgroundColor: "green"}}><Text>Backwards</Text></TouchableOpacity>
