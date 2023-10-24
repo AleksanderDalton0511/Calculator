@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function Users(){
   const navigation = useNavigation();
@@ -49,6 +50,12 @@ export default function Users(){
     navigation.navigate("Calculator");
   }
 
+  const [open, setOpen] = useState(false);
+  const [items, setItems] = useState([
+    {label: 'Male', value: 'Male'},
+    {label: 'Female', value: 'Female'}
+  ]);
+
   return(
     <View>
     <Text>Name</Text>
@@ -57,10 +64,14 @@ export default function Users(){
         onChangeText={newText => setName(newText)}
       />
       <Text>Gender</Text>
-      <TextInput
-        style={{backgroundColor: "lightblue"}}
-        onChangeText={newText => setGender(newText)}
-      />
+      <DropDownPicker
+      open={open}
+      value={gender}
+      items={items}
+      setOpen={setOpen}
+      setValue={setGender}
+      setItems={setItems}
+    />
       <Text>Weight</Text>
       <TextInput
         style={{backgroundColor: "lightblue"}}
