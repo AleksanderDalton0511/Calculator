@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -136,14 +136,27 @@ export default function Calculator() {
   }, [memoGender]);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+    
 
-      <TouchableOpacity onPress={Selection} style={{backgroundColor: "#4CBB17", marginBottom: "55%", marginLeft: "80%"}}><Image style={{width: 30, height: 30}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity>
+      <TouchableOpacity onPress={Selection} style={{backgroundColor: "#4CBB17", marginLeft: "80%", paddingBottom: "5%", marginTop: "15%"}}><Image style={{width: 30, height: 30}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity>
+
+      <View style={styles.parent}>
+
+      <TouchableOpacity style={{backgroundColor: "white", borderLeftWidth: 2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8, height: "15%", width: "30%"}}>
+      <Text>REAL TIME</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{backgroundColor:"#4CBB17",borderRightWidth:2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopRightRadius:8, borderBottomRightRadius:8, height: "15%", width: "30%"}}>
+      <Text>PLAN</Text>
+      </TouchableOpacity>
+
+      </View>
 
       <Text style={{fontSize: 50, color: "white"}}>{LeftAlcohol.toFixed(4)}‰</Text>
       <Text style={{color: "lightgrey"}}>Current level</Text>
-      <Text style={{color: "white", fontSize: 18}}>Allowed level 0.2‰</Text>
-      <Text style={{color:"white", fontSize: 26}}>DRIVE IN: <Text style={{color: "black"}}>hrs:<Text style={{color: "white"}}>{PureHours|0} <Text style={{color: "black"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text>
+      <Text style={{color: "white", fontSize: 18}}>Allowed level 0.20‰</Text>
+      <Text style={{color:"white", fontSize: 26, marginTop: "8%"}}>DRIVE IN: <Text style={{color: "black"}}>hrs:<Text style={{color: "white"}}>{PureHours|0} <Text style={{color: "black"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text>
       
       <TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginTop: "8%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity>
 
@@ -177,16 +190,20 @@ export default function Calculator() {
       <TouchableOpacity onPress={Backwards} style={{backgroundColor: "green"}}><Text>Backwards</Text></TouchableOpacity>
 
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: "#4CBB17"
+  },
+  parent: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
 });
