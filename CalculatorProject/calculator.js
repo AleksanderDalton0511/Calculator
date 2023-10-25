@@ -142,11 +142,11 @@ export default function Calculator() {
 
       <View style={styles.parent}>
 
-      <TouchableOpacity style={{backgroundColor: "white", borderLeftWidth: 2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8, height: "15%", width: "30%"}}>
+      <TouchableOpacity style={{backgroundColor: "white", borderLeftWidth: 2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8, width: "30%"}}>
       <Text>REAL TIME</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={Backwards} style={{backgroundColor:"#4CBB17",borderRightWidth:2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopRightRadius:8, borderBottomRightRadius:8, height: "15%", width: "30%"}}>
+      <TouchableOpacity onPress={Backwards} style={{backgroundColor:"#4CBB17",borderRightWidth:2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopRightRadius:8, borderBottomRightRadius:8, width: "30%"}}>
       <Text>PLAN</Text>
       </TouchableOpacity>
 
@@ -157,30 +157,39 @@ export default function Calculator() {
       <Text style={{color: "white", fontSize: 18}}>Allowed level 0.20‰</Text>
       <Text style={{color:"white", fontSize: 26, marginTop: "8%"}}>DRIVE IN: <Text style={{color: "black"}}>hrs:<Text style={{color: "white"}}>{PureHours|0} <Text style={{color: "black"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text>
       
-      <TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginTop: "8%", marginBottom: "15%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity>
+      <TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginTop: "8%", marginBottom: "45%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity>
 
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer1.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer2.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer3.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer4.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer5.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer6.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer7.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer30.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer31.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer40.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer41.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer43.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer50.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer52.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer53.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer60.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer62.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer63.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer70.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer72.png")}>
-      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer73.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer1.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer2.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer3.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer4.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer5.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer6.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer7.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer30.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer31.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer40.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer41.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer43.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer50.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer52.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer53.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer60.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer62.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer63.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer70.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer72.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer73.png")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer1.svg")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer2.svg")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer3.svg")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer4.svg")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer5.svg")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer6.svg")}>
+      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer7.svg")}>
 
+      <Text style={{fontSize: 24}}>{memoName.name}</Text>
+      
       <Text>Strongness:</Text>
       <TextInput
         style={{backgroundColor: "red"}}
@@ -203,11 +212,17 @@ export default function Calculator() {
         keyboardType="numeric"
       />
 
-      <Text>Name:{memoName.name}</Text>
       <Text>Gender:{memoGender.gender}</Text>
       <Text>Weight:{memoWeight.weight}</Text>
       <Text>Gender coefficent:{Gender}</Text>
 
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
       </ImageBackground>
       </ImageBackground>
       </ImageBackground>
