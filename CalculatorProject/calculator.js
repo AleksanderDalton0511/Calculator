@@ -138,7 +138,6 @@ export default function Calculator() {
   return (
     <SafeAreaView style={styles.container}>
     
-
       <TouchableOpacity onPress={Selection} style={{backgroundColor: "#4CBB17", marginLeft: "80%", paddingBottom: "5%", marginTop: "15%"}}><Image style={{width: 30, height: 30}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity>
 
       <View style={styles.parent}>
@@ -147,7 +146,7 @@ export default function Calculator() {
       <Text>REAL TIME</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={{backgroundColor:"#4CBB17",borderRightWidth:2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopRightRadius:8, borderBottomRightRadius:8, height: "15%", width: "30%"}}>
+      <TouchableOpacity onPress={Backwards} style={{backgroundColor:"#4CBB17",borderRightWidth:2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopRightRadius:8, borderBottomRightRadius:8, height: "15%", width: "30%"}}>
       <Text>PLAN</Text>
       </TouchableOpacity>
 
@@ -186,8 +185,6 @@ export default function Calculator() {
       <Text>Gender:{memoGender.gender}</Text>
       <Text>Weight:{memoWeight.weight}</Text>
       <Text>Gender coefficent:{Gender}</Text>
-
-      <TouchableOpacity onPress={Backwards} style={{backgroundColor: "green"}}><Text>Backwards</Text></TouchableOpacity>
 
       <StatusBar style="auto" />
     </SafeAreaView>

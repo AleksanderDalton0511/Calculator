@@ -1,21 +1,96 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import Storage from 'react-native-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default function Backwards() {
 
+  const [memoName, setName] = useState("");
+  const [memoWeight, setWeight] = useState("");
+  const [memoGender, setMemoGender] = useState("");
+  const [number, setNumber] = useState("");
+
   const navigation = useNavigation();
 
-  const number = localStorage.getItem("number");
+  const storage2 = new Storage({
+    size: 1000,
+    storageBackend: AsyncStorage,
+    defaultExpires: null,
+    enableCache: true,
+    sync: {
+    }
+  });
 
-  const data = localStorage.getItem("userData"+number);
-  console.log("data: ", JSON.parse(data));
-  const data2 = JSON.parse(data);
-  console.log("test:"+data2.Name.name);
+  useEffect(() => {
+    // load
+  storage2
+  .load({
+    key: 'number',
+    autoSync: true,
+    syncInBackground: true,
+    syncParams: {
+      extraFetchOptions: {
+        // blahblah
+      },
+      someFlag: true
+    }
+  })
+  .then(ret => {
+    setNumber(ret);
+  })
+  .catch(err => {
+    switch (err.name) {
+      case 'NotFoundError':
+        break;
+      case 'ExpiredError':
+        break;
+    }
+  });
+  }, []);
+
+  useEffect(() => {
+      const storage = new Storage({
+        size: 1000,
+        storageBackend: AsyncStorage,
+        defaultExpires: null,
+        enableCache: true,
+        sync: {
+        }
+      });
+
+      // load
+      storage
+        .load({
+          key: 'user'+number,
+          autoSync: true,
+          syncInBackground: true,
+          syncParams: {
+            extraFetchOptions: {
+              // blahblah
+            },
+            someFlag: true
+          }
+        })
+        .then(ret => {
+          setWeight(ret.Weight);
+          setName(ret.Name);
+          setMemoGender(ret.Gender)
+        })
+        .catch(err => {
+          switch (err.name) {
+            case 'NotFoundError':
+              break;
+            case 'ExpiredError':
+              break;
+          }
+        });
+      
+    }, [number]);
 
   const [Strongness, setStrongness] = useState(40);
-  const WeightOfPerson = data2.Weight.weight;
+  const WeightOfPerson = memoWeight.weight;
   const [Gender, setGender] = useState(0.7);
   const [hoursToDrive, setHoursToDrive] = useState(5);
 
@@ -24,8 +99,30 @@ export default function Backwards() {
   const allowedToDrinkPureAlcohol = AllowedAlcoholInblood * WeightOfPerson * Gender;
   const AllowedToDrinkMl = allowedToDrinkPureAlcohol * 100 / (Strongness * 0.789);
 
+  function BackToCalc(){
+    navigation.navigate("Calculator");
+  }
+
+  function Selection(){
+    navigation.navigate("Selection");
+  }
+
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+
+    <TouchableOpacity onPress={Selection} style={{backgroundColor: "#4CBB17", marginLeft: "80%", paddingBottom: "5%", marginTop: "15%"}}><Image style={{width: 30, height: 30}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity>
+
+<   View style={styles.parent}>
+
+    <TouchableOpacity onPress={BackToCalc} style={{backgroundColor: "#4CBB17", borderLeftWidth: 2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8, height: "15%", width: "30%"}}>
+    <Text>REAL TIME</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity style={{backgroundColor:"white",borderRightWidth:2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopRightRadius:8, borderBottomRightRadius:8, height: "15%", width: "30%"}}>
+    <Text>PLAN</Text>
+    </TouchableOpacity>
+
+</View>
 
       <Text>Can drink {AllowedToDrinkMl.toFixed(0)} ml</Text>
 
@@ -44,20 +141,26 @@ export default function Backwards() {
         keyboardType="numeric"
       />
       
-      <Text>Name:{data2.Name.name}</Text>
-      <Text>Gender:{data2.Gender.gender}</Text>
-      <Text>Weight:{data2.Weight.weight}</Text>
+      <Text>Name:{memoName.name}</Text>
+      <Text>Gender:{memoGender.gender}</Text>
+      <Text>Weight:{memoWeight.weight}</Text>
+      <Text>Gender coefficent:{Gender}</Text>
 
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: "#4CBB17"
+  },
+  parent: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
 });
