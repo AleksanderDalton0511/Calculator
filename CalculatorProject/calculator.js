@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -129,7 +129,6 @@ export default function Calculator() {
   useEffect(() => {
     if (memoGender.gender!="Male"){
       setGender(0.6);
-      console.log(memoGender.gender)
     }
     else{
       setGender(0.7);
@@ -138,8 +137,16 @@ export default function Calculator() {
 
   return (
     <View style={styles.container}>
-      <Text>{LeftAlcohol.toFixed(4)}</Text>
-      <Text>Sober after {PureHours|0} hours and {PureMins.toFixed(0)} minutes.</Text>
+
+      <TouchableOpacity onPress={Selection} style={{backgroundColor: "#4CBB17", marginBottom: "55%", marginLeft: "80%"}}><Image style={{width: 30, height: 30}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity>
+
+      <Text style={{fontSize: 50, color: "white"}}>{LeftAlcohol.toFixed(4)}‰</Text>
+      <Text style={{color: "lightgrey"}}>Current level</Text>
+      <Text style={{color: "white", fontSize: 18}}>Allowed level 0.2‰</Text>
+      <Text style={{color:"white", fontSize: 26}}>DRIVE IN: <Text style={{color: "black"}}>hrs:<Text style={{color: "white"}}>{PureHours|0} <Text style={{color: "black"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text>
+      
+      <TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginTop: "8%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity>
+
       <Text>Strongness:</Text>
       <TextInput
         style={{backgroundColor: "red"}}
@@ -167,7 +174,6 @@ export default function Calculator() {
       <Text>Weight:{memoWeight.weight}</Text>
       <Text>Gender coefficent:{Gender}</Text>
 
-      <TouchableOpacity onPress={Selection} style={{backgroundColor: "orange"}}><Text>Users</Text></TouchableOpacity>
       <TouchableOpacity onPress={Backwards} style={{backgroundColor: "green"}}><Text>Backwards</Text></TouchableOpacity>
 
       <StatusBar style="auto" />
@@ -181,5 +187,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: "#4CBB17"
   },
 });

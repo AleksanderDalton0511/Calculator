@@ -13,7 +13,9 @@ export default function App() {
 
   return (
     <NavigationContainer>
-            <Stack.Navigator>
+    <Stack.Navigator screenOptions={{
+      headerShown: false
+    }}>
                 <Stack.Screen name="Calculator" component={Calculator}/>
                 <Stack.Screen name="Users" component={Users}/>
                 <Stack.Screen name="Users2" component={Users2}/>
