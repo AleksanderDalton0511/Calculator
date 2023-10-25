@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, SafeAreaView, ImageBackground } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -157,7 +157,29 @@ export default function Calculator() {
       <Text style={{color: "white", fontSize: 18}}>Allowed level 0.20‰</Text>
       <Text style={{color:"white", fontSize: 26, marginTop: "8%"}}>DRIVE IN: <Text style={{color: "black"}}>hrs:<Text style={{color: "white"}}>{PureHours|0} <Text style={{color: "black"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text>
       
-      <TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginTop: "8%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity>
+      <TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginTop: "8%", marginBottom: "15%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity>
+
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer1.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer2.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer3.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer4.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer5.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer6.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer7.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer30.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer31.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer40.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer41.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer43.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer50.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer52.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer53.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer60.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer62.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer63.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer70.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer72.png")}>
+      <ImageBackground style={{width: "100%"}} source={require("./assets/wave_layer73.png")}>
 
       <Text>Strongness:</Text>
       <TextInput
@@ -185,6 +207,28 @@ export default function Calculator() {
       <Text>Gender:{memoGender.gender}</Text>
       <Text>Weight:{memoWeight.weight}</Text>
       <Text>Gender coefficent:{Gender}</Text>
+
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
+      </ImageBackground>
 
       <StatusBar style="auto" />
     </SafeAreaView>
