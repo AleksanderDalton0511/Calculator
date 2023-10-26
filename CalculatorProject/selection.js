@@ -176,18 +176,24 @@ export default function Selection(){
 
   return(
   <SafeAreaView style={styles.container}>
-  <Text style={{marginTop: "5%", fontSize: 28, color: "white"}}>Settings</Text>
-  <Text style={{fontSize: 16, color: "lightgrey", paddingBottom: "25%"}}>General settings</Text>
+  <Text style={{fontSize: 28, color: "white"}}>Settings</Text>
+  <Text style={{fontSize: 16, color: "lightgrey"}}>General settings</Text>
 
   <View style={styles.parent}>
-    <Text style={{color: "grey", marginLeft: "1.5%"}}>USERS</Text>
-    <TouchableOpacity style={{marginLeft: "70%"}}><Text style={{backgroundColor: "lightgrey", paddingLeft: "15%", paddingRight: "15%", borderRadius: 50}}>Edit</Text></TouchableOpacity>
+    <Text style={{color: "grey", marginTop: "10%"}}>USERS</Text>
+    <TouchableOpacity style={{marginLeft: "65%", marginTop: "10%"}}><Text style={{backgroundColor: "lightgrey", paddingLeft: "15%", paddingRight: "15%", borderRadius: 50}}>Edit</Text></TouchableOpacity>
   </View>
 
   <View style={{backgroundColor: "white", borderWidth: 1, borderColor: "lightgrey", width: "100%"}}>
     <TouchableOpacity style={{marginLeft: "1.5%"}} onPress={Select1}><Text>{memoName.name}, {memoGender.gender}</Text></TouchableOpacity>
     <TouchableOpacity onPress={Edit1} style={{marginLeft: "60%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
     <Text style={{marginLeft: "1.5%"}}>{memoWeight.weight}kg</Text>
+  </View>
+
+  <View style={{backgroundColor: "white", borderWidth: 1, borderColor: "lightgrey", width: "100%"}}>
+    <TouchableOpacity style={{marginLeft: "1.5%"}} onPress={Select1}><Text>{memoName2.name}, {memoGender2.gender}</Text></TouchableOpacity>
+    <TouchableOpacity onPress={Edit1} style={{marginLeft: "60%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
+    <Text style={{marginLeft: "1.5%"}}>{memoWeight2.weight}kg</Text>
   </View>
 
   <View style={{backgroundColor: "white", paddingBottom: "2%", paddingTop: "2%", borderWidth: 1, alignItems: 'center', borderColor: "lightgrey", width: "100%"}}>
@@ -212,9 +218,18 @@ export default function Selection(){
     <Text style={{marginRight: "86.5%"}}>About</Text>
   </View>
 
-  <TouchableOpacity onPress={Select1}><Text>User1: {memoName.name} </Text><TouchableOpacity onPress={Edit1} style={{backgroundColor:"red"}}><Text>EDIT</Text></TouchableOpacity></TouchableOpacity>
-  <TouchableOpacity onPress={Select2}><Text>User2: {memoName2.name}</Text><TouchableOpacity onPress={Edit2} style={{backgroundColor:"red"}}><Text>EDIT</Text></TouchableOpacity></TouchableOpacity>
-  <TouchableOpacity onPress={Select3}><Text>User3: {memoName3.name}</Text><TouchableOpacity onPress={Edit3} style={{backgroundColor:"red"}}><Text>EDIT</Text></TouchableOpacity></TouchableOpacity>
+  <View style={styles.parent}>
+    <Text style={{marginRight: "80%"}}>Disclaimer</Text>
+  </View>
+
+  <View style={styles.parent}>
+    <Text style={{marginRight: "80%"}}>Rate this app</Text>
+  </View>
+
+  <View style={styles.parent}>
+    <Text style={{marginRight: "80%"}}>Send feedback</Text>
+  </View>
+
   </SafeAreaView>
   )
 }
