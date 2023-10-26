@@ -1,4 +1,4 @@
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -57,12 +57,27 @@ export default function Users2(){
   ]);
 
   return(
-    <View>
-    <Text>Name</Text>
+    <View style={styles.container}>
+
+    <View style={{alignItems: 'center',
+    justifyContent: 'top', marginTop: "15%"}}>
+    <Text style={{color: "white", fontSize: 32}}>Hello!</Text>
+    <Text style={{color: "lightgrey", fontSize: 18}}>Please tell us about yourself</Text>
+    </View>
+
+    <View style={{backgroundColor: "white", marginTop: "15%", alignItems: "center", width: "100%", borderWidth: 1, borderColor: "grey", paddingBottom: "10%"}}>
+    <Text>To estimate your blood alcohol level correctly we need some information</Text>
+    </View>
+
+    <View style={{flexDirection: "row", backgroundColor: "white", width: "100%", height: "5%", borderWidth: 1, borderColor: "lightgrey"}}>
+      <Text style={{paddingRight: "10%"}}>Name</Text>
       <TextInput
-        style={{backgroundColor: "lightblue"}}
+        style={{paddingLeft: "25%", width: "20%" }}
         onChangeText={newText => setName(newText)}
       />
+    </View>
+
+    <View style={{flexDirection: "row", backgroundColor: "white", width: "100%", height: "5%", borderWidth: 1, borderColor: "lightgrey"}}>
       <Text>Gender</Text>
       <DropDownPicker
       open={open}
@@ -72,14 +87,39 @@ export default function Users2(){
       setValue={setGender}
       setItems={setItems}
     />
+    </View>
+
+    <View style={{flexDirection: "row", backgroundColor: "white", width: "100%", height: "5%", borderWidth: 1, borderColor: "lightgrey"}}>
       <Text>Weight</Text>
       <TextInput
         style={{backgroundColor: "lightblue"}}
         onChangeText={newText => setWeight(newText)}
       />
+    </View>
 
-      <TouchableOpacity><Text style={{backgroundColor: "lightgrey"}}>Cancel</Text></TouchableOpacity>
-      <TouchableOpacity onPress={Save}><Text style={{backgroundColor: "green"}}>Save</Text></TouchableOpacity>
+      <View style={styles.parent}>
+      <TouchableOpacity style={{width: "50%"}}><Text style={{backgroundColor: "lightgrey"}}>Cancel</Text></TouchableOpacity>
+      <TouchableOpacity style={{width: "50%"}} onPress={Save}><Text style={{backgroundColor: "green"}}>Save</Text></TouchableOpacity>
+      </View>
+
       </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "red"
+  },
+  parent: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "100%",
+    borderWidth: 1,
+    borderColor: "lightgrey",
+    backgroundColor: "white"
+  },
+});

@@ -191,8 +191,8 @@ export default function Selection(){
   </View>
 
   <View style={{backgroundColor: "white", borderWidth: 1, borderColor: "lightgrey", width: "100%"}}>
-    <TouchableOpacity style={{marginLeft: "1.5%"}} onPress={Select1}><Text>{memoName2.name}, {memoGender2.gender}</Text></TouchableOpacity>
-    <TouchableOpacity onPress={Edit1} style={{marginLeft: "60%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
+    <TouchableOpacity style={{marginLeft: "1.5%"}} onPress={Select2}><Text>{memoName2.name}, {memoGender2.gender}</Text></TouchableOpacity>
+    <TouchableOpacity onPress={Edit2} style={{marginLeft: "60%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
     <Text style={{marginLeft: "1.5%"}}>{memoWeight2.weight}kg</Text>
   </View>
 

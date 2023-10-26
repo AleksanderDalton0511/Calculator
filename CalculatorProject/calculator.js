@@ -159,91 +159,21 @@ export default function Calculator() {
       
       <TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginTop: "8%", marginBottom: "45%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity>
 
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer1.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer2.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer3.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer4.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer5.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer6.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer7.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer30.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer31.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer40.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer41.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer43.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer50.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer52.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer53.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer60.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer62.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer63.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer70.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer72.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer73.png")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer1.svg")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer2.svg")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer3.svg")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer4.svg")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer5.svg")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer6.svg")}>
-      <ImageBackground style={{width: "100%", alignItems: 'center', justifyContent: 'center'}} source={require("./assets/wave_layer7.svg")}>
+      <Text style={{fontSize: 24, paddingBottom: "5%"}}>{memoName.name}</Text>
 
-      <Text style={{fontSize: 24}}>{memoName.name}</Text>
-      
-      <Text>Strongness:</Text>
-      <TextInput
-        style={{backgroundColor: "red"}}
-        onChangeText={newText => setStrongness(newText)}
-        value={Strongness.toString()}
-        keyboardType="numeric"
-      />
-      <Text>Amount:</Text>
-      <TextInput
-        style={{backgroundColor: "blue"}}
-        onChangeText={newText => setDrinkenMl(newText)}
-        value={DrinkenMl.toString()}
-        keyboardType="numeric"
-      />
-      <Text>Drinked ago:</Text>
-      <TextInput
-        style={{backgroundColor: "green"}}
-        onChangeText={newText => setDrinkedAgo(newText)}
-        value={DrinkedAgo.toString()}
-        keyboardType="numeric"
-      />
+      <View style={{flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-around", borderBottomWidth: 1, borderColor: "lightgrey"}}>
+      <Text style={{color: "lightgrey", marginRight: "50%"}}>Gender</Text>
+      <Text style={{color: "lightgrey"}}>Weight</Text>
+    </View>
 
-      <Text>Gender:{memoGender.gender}</Text>
-      <Text>Weight:{memoWeight.weight}</Text>
-      <Text>Gender coefficent:{Gender}</Text>
-
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
-      </ImageBackground>
+    <View style={{flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-around", marginBottom: "35%"}}>
+      <Text style={{marginRight: "55%"}}>{memoGender.gender}</Text>
+      <Text>{memoWeight.weight}kg</Text>
+    </View>
 
       <StatusBar style="auto" />
     </SafeAreaView>
