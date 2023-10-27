@@ -103,6 +103,10 @@ export default function Users2(){
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><DropDownPicker
+        style={{
+          minHeight: "1%",
+        }} 
+      placeholder='Select'
       open={open}
       value={gender}
       items={items}
