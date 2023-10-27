@@ -80,42 +80,54 @@ export default function Users2(){
       <DataTable style={{paddingTop: "7%", backgroundColor: "white"}}> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-        <DataTable.Cell><Text>To estimate your blood alcohol level correctly we need some information</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>To estimate your blood alcohol level correctly we need some information</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text>Name</Text></DataTable.Cell>
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Name</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text style={{fontWeight: "bold"}}>Olga</Text></DataTable.Cell> 
+        <DataTable.Cell>
+      <TextInput
+        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
+        onChangeText={newText => setName(newText)}
+        placeholder="Your name"
+      /></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text>Gender</Text></DataTable.Cell>
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Gender</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text style={{fontWeight: "bold"}}>Female</Text></DataTable.Cell> 
+        <DataTable.Cell><DropDownPicker
+      open={open}
+      value={gender}
+      items={items}
+      setOpen={setOpen}
+      setValue={setGender}
+      setItems={setItems}
+    /></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text>Weight</Text></DataTable.Cell>
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Weight</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text style={{fontWeight: "bold"}}>71 kg</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text>Allowed level</Text></DataTable.Cell>
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Allowed level</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text style={{fontWeight: "bold"}}>0.20 ‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text>BAC units</Text></DataTable.Cell>
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>BAC units</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text style={{fontWeight: "bold"}}>Permille ‰</Text></DataTable.Cell> 
@@ -146,6 +158,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     height: "10%",
-    marginTop: "2.6%"
+    marginTop: "2.6%",
   },
 });
