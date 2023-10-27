@@ -1,9 +1,11 @@
-import { Text, View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
 import DropDownPicker from 'react-native-dropdown-picker';
+import { DataTable } from 'react-native-paper'; 
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Users2(){
   const navigation = useNavigation();
@@ -57,69 +59,85 @@ export default function Users2(){
   ]);
 
   return(
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
 
-    <View style={{alignItems: 'center',
-    justifyContent: 'top', marginTop: "15%"}}>
-    <Text style={{color: "white", fontSize: 32}}>Hello!</Text>
-    <Text style={{color: "lightgrey", fontSize: 18}}>Please tell us about yourself</Text>
-    </View>
+      <DataTable style={{marginTop: "5%"}}> 
+      
+      <DataTable.Row style={{backgroundColor: "red", borderBottomWidth: 0}}> 
+        <DataTable.Cell></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 40, color: "white"}}>Hello!</Text></DataTable.Cell> 
+        <DataTable.Cell></DataTable.Cell> 
+      </DataTable.Row> 
+  
+      <DataTable.Row style={{backgroundColor: "red", borderBottomWidth: 0}}>   
+        <DataTable.Cell><Text style={{fontSize: 20, color: "lightgrey", marginLeft: "14%"}}>Please tell us about yourself</Text></DataTable.Cell> 
+      </DataTable.Row> 
 
-    <View style={{backgroundColor: "white", marginTop: "15%", alignItems: "center", width: "100%", borderWidth: 1, borderColor: "grey", paddingBottom: "10%"}}>
-    <Text>To estimate your blood alcohol level correctly we need some information</Text>
-    </View>
+      </DataTable> 
 
-    <View style={{flexDirection: "row", backgroundColor: "white", width: "100%", height: "5%", borderWidth: 1, borderColor: "lightgrey"}}>
-      <Text style={{paddingRight: "10%"}}>Name</Text>
-      <TextInput
-        style={{paddingLeft: "25%", width: "20%" }}
-        onChangeText={newText => setName(newText)}
-      />
-    </View>
+      <Image style={{width: "100%"}} source={require("./assets/Valge2.png")}></Image>
 
-    <View style={{flexDirection: "row", backgroundColor: "white", width: "100%", height: "5%", borderWidth: 1, borderColor: "lightgrey"}}>
-      <Text>Gender</Text>
-      <DropDownPicker
-      open={open}
-      value={gender}
-      items={items}
-      setOpen={setOpen}
-      setValue={setGender}
-      setItems={setItems}
-    />
-    </View>
+      <DataTable style={{paddingTop: "10%", backgroundColor: "white"}}> 
 
-    <View style={{flexDirection: "row", backgroundColor: "white", width: "100%", height: "5%", borderWidth: 1, borderColor: "lightgrey"}}>
-      <Text>Weight</Text>
-      <TextInput
-        style={{backgroundColor: "lightblue"}}
-        onChangeText={newText => setWeight(newText)}
-      />
-    </View>
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
+        <DataTable.Cell><Text>To estimate your blood alcohol level correctly we need some information</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+        <DataTable.Cell><Text>Name</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text>Olga</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+        <DataTable.Cell><Text>Gender</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text>Female</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+        <DataTable.Cell><Text>Weight</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text>71 kg</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+        <DataTable.Cell><Text>Allowed level</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text>0.20 ‰</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+      </DataTable.Row> 
+
+      </DataTable> 
 
       <View style={styles.parent}>
-      <TouchableOpacity style={{width: "50%"}}><Text style={{backgroundColor: "lightgrey"}}>Cancel</Text></TouchableOpacity>
-      <TouchableOpacity style={{width: "50%"}} onPress={Save}><Text style={{backgroundColor: "green"}}>Save</Text></TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: "lightgrey", width:"50%"}}><Text>Back</Text></TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: "green", width:"50%"}}><Text>Save</Text></TouchableOpacity>
       </View>
 
-      </View>
+      </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: "red"
   },
   parent: {
-    flex: 1,
     flexDirection: "row",
     justifyContent: "space-around",
-    width: "100%",
-    borderWidth: 1,
-    borderColor: "lightgrey",
-    backgroundColor: "white"
+    height: "10%"
   },
 });
