@@ -105,6 +105,7 @@ export default function Users2(){
         <DataTable.Cell><DropDownPicker
         style={{
           minHeight: "1%",
+          borderColor: "red",
         }} 
       placeholder='Select'
       dropDownDirection="TOP"
