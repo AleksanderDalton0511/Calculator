@@ -61,7 +61,7 @@ export default function Users2(){
   return(
     <SafeAreaView style={styles.container}>
 
-      <DataTable style={{marginTop: "5%"}}> 
+      <DataTable style={{marginTop: "8%"}}> 
       
       <DataTable.Row style={{backgroundColor: "red", borderBottomWidth: 0}}> 
         <DataTable.Cell></DataTable.Cell> 
@@ -77,7 +77,7 @@ export default function Users2(){
 
       <Image style={{width: "100%"}} source={require("./assets/Valge2.png")}></Image>
 
-      <DataTable style={{paddingTop: "10%", backgroundColor: "white"}}> 
+      <DataTable style={{paddingTop: "7%", backgroundColor: "white"}}> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
         <DataTable.Cell><Text>To estimate your blood alcohol level correctly we need some information</Text></DataTable.Cell> 
