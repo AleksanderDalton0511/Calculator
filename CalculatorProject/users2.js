@@ -90,28 +90,28 @@ export default function Users2(){
         <DataTable.Cell><Text>Name</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text>Olga</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontWeight: "bold"}}>Olga</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
         <DataTable.Cell><Text>Gender</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text>Female</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontWeight: "bold"}}>Female</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
         <DataTable.Cell><Text>Weight</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text>71 kg</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontWeight: "bold"}}>71 kg</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
         <DataTable.Cell><Text>Allowed level</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text>0.20 ‰</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontWeight: "bold"}}>0.20 ‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
@@ -123,8 +123,8 @@ export default function Users2(){
       </DataTable> 
 
       <View style={styles.parent}>
-        <TouchableOpacity style={{backgroundColor: "lightgrey", width:"50%"}}><Text>Back</Text></TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor: "green", width:"50%"}}><Text>Save</Text></TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: "lightgrey", width:"50%"}}><Text style={{marginTop: "13%", marginLeft: "39%"}}>Back</Text></TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: "green", width:"50%"}}><Text style={{color: "white", marginTop: "13%", marginLeft: "39%"}}>Save</Text></TouchableOpacity>
       </View>
 
       </SafeAreaView>
