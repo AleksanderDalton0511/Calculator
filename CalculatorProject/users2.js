@@ -65,7 +65,7 @@ export default function Users2(){
       
       <DataTable.Row style={{backgroundColor: "red", borderBottomWidth: 0}}> 
         <DataTable.Cell></DataTable.Cell> 
-        <DataTable.Cell><Text style={{fontSize: 40, color: "white"}}>Hello!</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 36, color: "white"}}>Hello!</Text></DataTable.Cell> 
         <DataTable.Cell></DataTable.Cell> 
       </DataTable.Row> 
   
@@ -106,7 +106,11 @@ export default function Users2(){
         style={{
           minHeight: "1%",
           borderColor: "red",
+          width: "110%"
         }} 
+        dropDownContainerStyle={{
+          width: "110%"
+        }}
       placeholder='Select'
       dropDownDirection="TOP"
       open={open}
