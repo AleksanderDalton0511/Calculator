@@ -107,6 +107,7 @@ export default function Users2(){
           minHeight: "1%",
         }} 
       placeholder='Select'
+      dropDownDirection="TOP"
       open={open}
       value={gender}
       items={items}
