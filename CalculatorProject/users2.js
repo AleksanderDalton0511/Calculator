@@ -70,12 +70,12 @@ export default function Users2(){
       </DataTable.Row> 
   
       <DataTable.Row style={{backgroundColor: "red", borderBottomWidth: 0}}>   
-        <DataTable.Cell><Text style={{fontSize: 20, color: "lightgrey", marginLeft: "14%"}}>Please tell us about yourself</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 20, opacity: 0.7, color: "white", marginLeft: "14%"}}>Please tell us about yourself</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       </DataTable> 
 
-      <Image style={{width: "100%"}} source={require("./assets/Valge2.png")}></Image>
+      <Image style={{width: "100%", height: "13%"}} source={require("./assets/Valge3.png")}></Image>
 
       <DataTable style={{paddingTop: "7%", backgroundColor: "white"}}> 
 
@@ -114,6 +114,13 @@ export default function Users2(){
         <DataTable.Cell><Text style={{fontWeight: "bold"}}>0.20 ‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+        <DataTable.Cell><Text>BAC units</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text style={{fontWeight: "bold"}}>Permille ‰</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       </DataTable.Row> 
 
@@ -138,6 +145,7 @@ const styles = StyleSheet.create({
   parent: {
     flexDirection: "row",
     justifyContent: "space-around",
-    height: "10%"
+    height: "10%",
+    marginTop: "2.6%"
   },
 });
