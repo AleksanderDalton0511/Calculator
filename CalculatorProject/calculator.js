@@ -136,6 +136,10 @@ export default function Calculator() {
     }
   }, [memoGender]);
 
+  useEffect(() => {
+    setLeftAlcohol(0);
+  }, []);
+
   return(
     <SafeAreaView style={styles.container}>
 
@@ -153,7 +157,6 @@ export default function Calculator() {
       </DataTable.Row>
 
       </DataTable> 
-
 
       <DataTable style={{paddingTop: "7%", backgroundColor: "#00a400"}}> 
 
