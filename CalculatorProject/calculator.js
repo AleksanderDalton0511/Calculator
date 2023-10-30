@@ -135,6 +135,10 @@ export default function Calculator() {
     }
   }, [memoGender]);
 
+  if(LeftAlcohol==NaN){
+    setLeftAlcohol(0);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
     
