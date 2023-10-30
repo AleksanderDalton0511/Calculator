@@ -80,7 +80,7 @@ export default function Users2(){
       <DataTable style={{paddingTop: "7%", backgroundColor: "white"}}> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>To estimate your blood alcohol level correctly we need some information</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c", textAlign: "center", marginLeft: "3%"}}>To estimate your blood alcohol level correctly we need some information</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
