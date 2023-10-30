@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
+import { DataTable } from 'react-native-paper'; 
 
 export default function Calculator() {
 
@@ -135,49 +136,95 @@ export default function Calculator() {
     }
   }, [memoGender]);
 
-  return (
+  return(
     <SafeAreaView style={styles.container}>
-    
-      <TouchableOpacity onPress={Selection} style={{backgroundColor: "#00a400", marginLeft: "80%", paddingBottom: "5%", marginTop: "15%"}}><Image style={{width: 30, height: 30}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity>
+
+      <DataTable style={{marginTop: "8%"}}> 
+
+      <DataTable.Row style={{borderBottomWidth: 0}}> 
+        <DataTable.Cell><TouchableOpacity><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "5%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
+      </DataTable.Row>
+      
+      <DataTable.Row style={{borderBottomWidth: 0}}> 
+        <DataTable.Cell></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", marginLeft: "15%", backgroundColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8 }}>REAL TIME</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", borderTopRightRadius: 8, borderBottomRightRadius: 8, width: "120%"}}>PLAN</Text></DataTable.Cell> 
+        <DataTable.Cell></DataTable.Cell> 
+      </DataTable.Row>
+
+      </DataTable> 
+
+
+      <DataTable style={{paddingTop: "7%", backgroundColor: "#00a400"}}> 
+
+      <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
+        <DataTable.Cell><Text style={{fontSize: 44, color: "white", marginLeft: "27%"}}>{LeftAlcohol.toFixed(4)}‰</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#00a400"}}> 
+      <DataTable.Cell><Text style={{fontSize: 16, color: "white", marginLeft: "27%"}}>Current level</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#00a400"}}> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Name</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell>
+      <TextInput
+        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
+        onChangeText={newText => setName(newText)}
+        placeholder="Your name"
+      /></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Gender</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Weight</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><TextInput
+        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
+        onChangeText={newText => setWeight(newText)}
+        placeholder="kg"
+        keyboardType="numeric"
+      /></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Allowed level</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text style={{fontWeight: "bold"}}>0.20 ‰</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>BAC units</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text style={{fontWeight: "bold"}}>Permille ‰</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+      </DataTable.Row> 
+
+      </DataTable> 
 
       <View style={styles.parent}>
-
-      <TouchableOpacity style={{backgroundColor: "white", borderLeftWidth: 2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8, width: "30%"}}>
-      <Text style={{color: "#00a400"}}>REAL TIME</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={Backwards} style={{backgroundColor:"#00a400",borderRightWidth:2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopRightRadius:8, borderBottomRightRadius:8, width: "30%"}}>
-      <Text>PLAN</Text>
-      </TouchableOpacity>
-
+        <TouchableOpacity style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
       </View>
 
-      <Text style={{fontSize: 50, color: "white"}}>{LeftAlcohol.toFixed(4)}‰</Text>
-      <Text style={{color: "lightgrey"}}>Current level</Text>
-      <Text style={{color: "white", fontSize: 18}}>Allowed level 0.20‰</Text>
-      <Text style={{color:"white", fontSize: 26, marginTop: "8%"}}>DRIVE IN: <Text style={{color: "black"}}>hrs:<Text style={{color: "white"}}>{PureHours|0} <Text style={{color: "black"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text>
-      
-      <TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginTop: "8%", marginBottom: "45%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity>
-
-      <Text style={{fontSize: 24, paddingBottom: "5%"}}>{memoName.name}</Text>
-
-      <View style={{flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-around", borderBottomWidth: 1, borderColor: "lightgrey"}}>
-      <Text style={{color: "lightgrey", marginRight: "50%"}}>Gender</Text>
-      <Text style={{color: "lightgrey"}}>Weight</Text>
-    </View>
-
-    <View style={{flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-around", marginBottom: "35%"}}>
-      <Text style={{marginRight: "55%"}}>{memoGender.gender}</Text>
-      <Text>{memoWeight.weight}kg</Text>
-    </View>
-
-      <StatusBar style="auto" />
-    </SafeAreaView>
-  );
+      </SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({
