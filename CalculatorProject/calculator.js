@@ -138,15 +138,15 @@ export default function Calculator() {
   return (
     <SafeAreaView style={styles.container}>
     
-      <TouchableOpacity onPress={Selection} style={{backgroundColor: "#4CBB17", marginLeft: "80%", paddingBottom: "5%", marginTop: "15%"}}><Image style={{width: 30, height: 30}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity>
+      <TouchableOpacity onPress={Selection} style={{backgroundColor: "#00a400", marginLeft: "80%", paddingBottom: "5%", marginTop: "15%"}}><Image style={{width: 30, height: 30}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity>
 
       <View style={styles.parent}>
 
       <TouchableOpacity style={{backgroundColor: "white", borderLeftWidth: 2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8, width: "30%"}}>
-      <Text>REAL TIME</Text>
+      <Text style={{color: "#00a400"}}>REAL TIME</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={Backwards} style={{backgroundColor:"#4CBB17",borderRightWidth:2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopRightRadius:8, borderBottomRightRadius:8, width: "30%"}}>
+      <TouchableOpacity onPress={Backwards} style={{backgroundColor:"#00a400",borderRightWidth:2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopRightRadius:8, borderBottomRightRadius:8, width: "30%"}}>
       <Text>PLAN</Text>
       </TouchableOpacity>
 
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: "#4CBB17"
+    backgroundColor: "#00a400"
   },
   parent: {
     flex: 1,
