@@ -1,4 +1,4 @@
-import { Text, View, TextInput, TouchableOpacity, StyleSheet, ImageBackground, Image } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -32,6 +32,9 @@ export default function Users2(){
       // we'll talk about the details later.
     }
   });
+
+  Text.defaultProps = Text.defaultProps || {};
+  Text.defaultProps.allowFontScaling = false;
 
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
