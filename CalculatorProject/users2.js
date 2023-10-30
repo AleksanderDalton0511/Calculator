@@ -126,7 +126,12 @@ export default function Users2(){
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Weight</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text style={{fontWeight: "bold"}}>71 kg</Text></DataTable.Cell> 
+        <DataTable.Cell><TextInput
+        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
+        onChangeText={newText => setWeight(newText)}
+        placeholder="kg"
+        keyboardType="numeric"
+      /></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
