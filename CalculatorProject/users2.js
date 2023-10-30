@@ -33,9 +33,6 @@ export default function Users2(){
     }
   });
 
-  Text.defaultProps = Text.defaultProps || {};
-  Text.defaultProps.allowFontScaling = false;
-
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [weight, setWeight] = useState("");

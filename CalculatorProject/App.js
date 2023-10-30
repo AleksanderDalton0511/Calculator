@@ -6,10 +6,14 @@ import Selection from "./selection";
 import Backwards from "./backwards";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Text} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
+  Text.defaultProps = Text.defaultProps || {};
+  Text.defaultProps.allowFontScaling = false;
 
   return (
     <NavigationContainer>
