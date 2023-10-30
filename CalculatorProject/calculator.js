@@ -165,7 +165,7 @@ export default function Calculator() {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400"}}> 
-      <DataTable.Cell><Text style={{fontSize: 16, color: "white", marginLeft: "27%"}}>Current level</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{fontSize: 16, color: "white", marginLeft: "37%"}}>Current level</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400"}}> 
