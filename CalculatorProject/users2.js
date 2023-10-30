@@ -65,12 +65,12 @@ export default function Users2(){
       
       <DataTable.Row style={{backgroundColor: "#e5191c", borderBottomWidth: 0}}> 
         <DataTable.Cell></DataTable.Cell> 
-        <DataTable.Cell><Text style={{fontSize: 36, color: "white"}}>Hello!</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 36, color: "white", marginLeft: "10%"}}>Hello!</Text></DataTable.Cell> 
         <DataTable.Cell></DataTable.Cell> 
       </DataTable.Row> 
   
       <DataTable.Row style={{backgroundColor: "#e5191c", borderBottomWidth: 0}}>   
-        <DataTable.Cell><Text style={{fontSize: 20, opacity: 0.7, color: "white", marginLeft: "14%"}}>Please tell us about yourself</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 20, opacity: 0.7, color: "white", marginLeft: "15%"}}>Please tell us about yourself</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       </DataTable> 
@@ -157,8 +157,8 @@ export default function Users2(){
       </DataTable> 
 
       <View style={styles.parent}>
-        <TouchableOpacity style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "13%", marginLeft: "39%"}}>Back</Text></TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "13%", marginLeft: "39%"}}>Save</Text></TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
       </View>
 
       </SafeAreaView>
