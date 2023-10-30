@@ -75,7 +75,7 @@ export default function Users2(){
 
       </DataTable> 
 
-      <Image style={{width: "100%", height: "13%"}} source={require("./assets/Valge3.png")}></Image>
+      <Image style={{width: "100%", height: "14.5%"}} source={require("./assets/Valge3.png")}></Image>
 
       <DataTable style={{paddingTop: "7%", backgroundColor: "white"}}> 
 
@@ -168,6 +168,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     height: "10%",
-    marginTop: "2.6%",
   },
 });
