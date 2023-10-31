@@ -151,7 +151,7 @@ export default function Calculator() {
       
       <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%"}}> 
         <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", backgroundColor: "white", borderTopLeftRadius: 6, borderBottomLeftRadius: 6, color: "green", paddingBottom: "2.5%", paddingTop: "2.5%", width: "70%", marginLeft: "30%"}}><Text style={{marginLeft: "23%", color: "green"}}>REAL TIME</Text></TouchableOpacity></DataTable.Cell> 
-        <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", borderTopRightRadius: 6, borderBottomRightRadius: 6, paddingBottom: "2.5%", paddingTop: "2.5%", width: "70%"}}><Text style={{marginLeft: "34%"}}>PLAN</Text></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", borderTopRightRadius: 6, borderBottomRightRadius: 6, paddingBottom: "2.5%", paddingTop: "2.5%", width: "70%"}}><Text style={{marginLeft: "34%", color: "white"}}>PLAN</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
 
       </DataTable> 
@@ -163,7 +163,7 @@ export default function Calculator() {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-      <DataTable.Cell><Text style={{fontSize: 14, color: "white", marginLeft: "35%", marginBottom: "3%"}}>CURRENT LEVEL</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{fontSize: 14, color: "white", marginLeft: "35%", marginBottom: "3%", opacity: 0.7}}>CURRENT LEVEL</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
@@ -171,7 +171,7 @@ export default function Calculator() {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d"}}> 
-      <DataTable.Cell><Text style={{color:"white", fontSize: 22, marginLeft: "6%"}}>DRIVE IN:           <Text style={{color: "black"}}>hrs:<Text style={{color: "white"}}>{PureHours|0}          <Text style={{color: "black"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{color:"white", fontSize: 22, marginLeft: "6%"}}>DRIVE IN:           <Text style={{color: "#282828"}}>hrs:<Text style={{color: "white"}}>{PureHours|0}          <Text style={{color: "#282828"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
@@ -195,15 +195,15 @@ export default function Calculator() {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink", marginTop: "3%"}}> 
-      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%"}}>Gender</Text></DataTable.Cell> 
-      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%"}}>Units</Text></DataTable.Cell> 
-      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%"}}>Weight</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#6c6c6c"}}>Gender</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#6c6c6c"}}>Units</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#6c6c6c"}}>Weight</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderBottomWidth: 0}}> 
-      <DataTable.Cell><Text style={{marginLeft: "30.2%", marginBottom: "15%"}}>Female</Text></DataTable.Cell> 
-      <DataTable.Cell><Text style={{marginLeft: "36%", marginBottom: "15%"}}>‰</Text></DataTable.Cell> 
-      <DataTable.Cell><Text style={{marginLeft: "33%", marginBottom: "15%"}}>70 kg</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginLeft: "30.2%", marginBottom: "15%", color: "#282828"}}>Female</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginLeft: "36%", marginBottom: "15%", color: "#282828"}}>‰</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginLeft: "33%", marginBottom: "15%", color: "#282828"}}>70 kg</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
