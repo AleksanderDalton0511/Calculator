@@ -161,15 +161,15 @@ export default function Calculator() {
       <DataTable style={{paddingTop: "7%", backgroundColor: "#00a400"}}> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
-        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "27%"}}>{LeftAlcohol.toFixed(4)} ‰</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "25%"}}>{LeftAlcohol.toFixed(4)} ‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
-      <DataTable.Cell><Text style={{fontSize: 14, color: "white", marginLeft: "37%", marginBottom: "3%"}}>CURRENT LEVEL</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{fontSize: 14, color: "white", marginLeft: "35%", marginBottom: "3%"}}>CURRENT LEVEL</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
-      <DataTable.Cell><Text style={{fontSize: 18, color: "white", marginLeft: "28%", marginBottom: "6%"}}>Allowed level 0.20 ‰</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{fontSize: 18, color: "white", marginLeft: "27.5%", marginBottom: "6%"}}>Allowed level 0.20 ‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400"}}> 
