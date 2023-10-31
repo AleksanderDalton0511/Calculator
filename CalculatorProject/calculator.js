@@ -173,7 +173,7 @@ export default function Calculator() {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400"}}> 
-      <DataTable.Cell><Text style={{color:"white", fontSize: 24, marginLeft: "5%"}}>DRIVE IN:           <Text style={{color: "black"}}>hrs:<Text style={{color: "white"}}>{PureHours|0}          <Text style={{color: "black"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{color:"white", fontSize: 22, marginLeft: "6%"}}>DRIVE IN:           <Text style={{color: "black"}}>hrs:<Text style={{color: "white"}}>{PureHours|0}          <Text style={{color: "black"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
