@@ -183,63 +183,20 @@ export default function Calculator() {
       <DataTable.Cell><TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginLeft: "18%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#00a400"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Name</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell>
-      <TextInput
-        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
-        onChangeText={newText => setName(newText)}
-        placeholder="Your name"
-      /></DataTable.Cell> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Gender</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell></DataTable.Cell> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Weight</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><TextInput
-        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
-        onChangeText={newText => setWeight(newText)}
-        placeholder="kg"
-        keyboardType="numeric"
-      /></DataTable.Cell> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Allowed level</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text style={{fontWeight: "bold"}}>0.20 ‰</Text></DataTable.Cell> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>BAC units</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text style={{fontWeight: "bold"}}>Permille ‰</Text></DataTable.Cell> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
+      <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
       </DataTable.Row> 
 
       </DataTable> 
 
-      <View style={styles.parent}>
-        <TouchableOpacity style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
-      </View>
+      <Image style={{width: "100%", height: "8%"}} source={require("./assets/Valge3.png")}></Image>
+
+      <DataTable style={{backgroundColor: "white"}}>
+
+      <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0, backgroundColor: "white"}}> 
+      <DataTable.Cell><Text style={{color: "black", fontSize: 26, marginLeft: "43%"}}>Olga</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      </DataTable>
 
       </SafeAreaView>
   )
