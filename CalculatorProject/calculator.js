@@ -146,10 +146,10 @@ export default function Calculator() {
       <DataTable style={{marginTop: "8%"}}> 
 
       <DataTable.Row style={{borderBottomWidth: 0}}> 
-        <DataTable.Cell><TouchableOpacity><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "5%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
       
-      <DataTable.Row style={{borderBottomWidth: 0}}> 
+      <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%"}}> 
         <DataTable.Cell></DataTable.Cell> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", marginLeft: "15%", backgroundColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8 }}>REAL TIME</Text></DataTable.Cell> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", borderTopRightRadius: 8, borderBottomRightRadius: 8, width: "120%"}}>PLAN</Text></DataTable.Cell> 
@@ -194,6 +194,27 @@ export default function Calculator() {
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0, backgroundColor: "white"}}> 
       <DataTable.Cell><Text style={{color: "black", fontSize: 26, marginLeft: "43%"}}>Olga</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", marginLeft: "16.5%", borderColor: "pink", marginTop: "3%"}}> 
+      <DataTable.Cell><Text>Gender</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginTop: "10%"}}>Units</Text></DataTable.Cell> 
+      <DataTable.Cell><Text>Weight</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", marginLeft: "16.5%"}}> 
+      <DataTable.Cell><Text>Male</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginLeft: "8%", marginBottom: "15%"}}>‰</Text></DataTable.Cell> 
+      <DataTable.Cell><Text>70 kg</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       </DataTable.Row> 
 
       </DataTable>
