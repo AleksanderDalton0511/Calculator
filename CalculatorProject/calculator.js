@@ -143,7 +143,7 @@ export default function Calculator() {
   return(
     <SafeAreaView style={styles.container}>
 
-      <DataTable style={{marginTop: "8%"}}> 
+      <DataTable style={{marginTop: "13%"}}> 
 
       <DataTable.Row style={{borderBottomWidth: 0}}> 
         <DataTable.Cell><TouchableOpacity><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
@@ -151,7 +151,7 @@ export default function Calculator() {
       
       <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%"}}> 
         <DataTable.Cell></DataTable.Cell> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", marginLeft: "15%", backgroundColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8 }}>REAL TIME</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", marginLeft: "15%", backgroundColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8, color: "green"}}>REAL TIME</Text></DataTable.Cell> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", borderTopRightRadius: 8, borderBottomRightRadius: 8, width: "120%"}}>PLAN</Text></DataTable.Cell> 
         <DataTable.Cell></DataTable.Cell> 
       </DataTable.Row>
@@ -180,7 +180,7 @@ export default function Calculator() {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
-      <DataTable.Cell><TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginLeft: "18%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity></DataTable.Cell> 
+      <DataTable.Cell><TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginLeft: "20%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
