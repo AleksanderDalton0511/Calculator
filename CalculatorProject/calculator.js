@@ -149,11 +149,9 @@ export default function Calculator() {
         <DataTable.Cell><TouchableOpacity><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
       
-      <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%", marginRight: "24%"}}> 
-        <DataTable.Cell></DataTable.Cell> 
-        <DataTable.Cell><TouchableOpacity><Text style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", width: "120%", backgroundColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8, color: "green"}}>    REAL TIME</Text></TouchableOpacity></DataTable.Cell> 
-        <DataTable.Cell><TouchableOpacity><Text style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", borderTopRightRadius: 8, borderBottomRightRadius: 8, width: "140%"}}>                   PLAN</Text></TouchableOpacity></DataTable.Cell> 
-        <DataTable.Cell></DataTable.Cell> 
+      <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%"}}> 
+        <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", backgroundColor: "white", borderTopLeftRadius: 5, borderBottomLeftRadius: 5, color: "green", paddingBottom: "2.5%", paddingTop: "2.5%", width: "75%", marginLeft: "25%"}}><Text>REAL TIME</Text></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", borderTopRightRadius: 5, borderBottomRightRadius: 5, paddingBottom: "2.5%", paddingTop: "2.5%", width: "75%"}}><Text>PLAN</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
 
       </DataTable> 
