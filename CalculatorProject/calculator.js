@@ -161,11 +161,26 @@ export default function Calculator() {
       <DataTable style={{paddingTop: "7%", backgroundColor: "#00a400"}}> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
-        <DataTable.Cell><Text style={{fontSize: 44, color: "white", marginLeft: "27%"}}>{LeftAlcohol.toFixed(4)}‰</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "27%"}}>{LeftAlcohol.toFixed(4)} ‰</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
+      <DataTable.Cell><Text style={{fontSize: 14, color: "white", marginLeft: "37%", marginBottom: "3%"}}>CURRENT LEVEL</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
+      <DataTable.Cell><Text style={{fontSize: 18, color: "white", marginLeft: "28%", marginBottom: "6%"}}>Allowed level 0.20 ‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400"}}> 
-      <DataTable.Cell><Text style={{fontSize: 16, color: "white", marginLeft: "37%"}}>Current level</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{color:"white", fontSize: 28, marginLeft: "3%"}}>DRIVE IN:      <Text style={{color: "black"}}>hrs:<Text style={{color: "white"}}>{PureHours|0}       <Text style={{color: "black"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0}}> 
+      <DataTable.Cell><TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginLeft: "18%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%", paddingBottom: "1%"}}>Add/Edit drinks</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400"}}> 
