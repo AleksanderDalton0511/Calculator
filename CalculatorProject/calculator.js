@@ -150,8 +150,8 @@ export default function Calculator() {
       </DataTable.Row>
       
       <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%"}}> 
-        <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", backgroundColor: "white", borderTopLeftRadius: 5, borderBottomLeftRadius: 5, color: "green", paddingBottom: "2.5%", paddingTop: "2.5%", width: "75%", marginLeft: "25%"}}><Text>REAL TIME</Text></TouchableOpacity></DataTable.Cell> 
-        <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", borderTopRightRadius: 5, borderBottomRightRadius: 5, paddingBottom: "2.5%", paddingTop: "2.5%", width: "75%"}}><Text>PLAN</Text></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", backgroundColor: "white", borderTopLeftRadius: 6, borderBottomLeftRadius: 6, color: "green", paddingBottom: "2.5%", paddingTop: "2.5%", width: "70%", marginLeft: "30%"}}><Text>REAL TIME</Text></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", borderTopRightRadius: 6, borderBottomRightRadius: 6, paddingBottom: "2.5%", paddingTop: "2.5%", width: "70%"}}><Text>PLAN</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
 
       </DataTable> 
