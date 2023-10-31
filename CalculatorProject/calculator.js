@@ -203,9 +203,9 @@ export default function Calculator() {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderBottomWidth: 0}}> 
-      <DataTable.Cell><Text style={{marginLeft: "32%", marginBottom: "15%"}}>Male</Text></DataTable.Cell> 
-      <DataTable.Cell><Text style={{marginLeft: "35.5%", marginBottom: "15%"}}>‰</Text></DataTable.Cell> 
-      <DataTable.Cell><Text style={{marginLeft: "32%", marginBottom: "15%"}}>70 kg</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginLeft: "33%", marginBottom: "15%"}}>Male</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginLeft: "36%", marginBottom: "15%"}}>‰</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginLeft: "33%", marginBottom: "15%"}}>70 kg</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
