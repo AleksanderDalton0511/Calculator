@@ -140,6 +140,45 @@ export default function Calculator() {
     setLeftAlcohol(0);
   }, []);
 
+  useEffect(() => {
+    const storage3 = new Storage({
+      size: 1000,
+      storageBackend: AsyncStorage,
+      defaultExpires: null,
+      enableCache: true,
+      sync: {
+      }
+    });
+
+    // load
+    storage3
+      .load({
+        key: 'drink',
+        autoSync: true,
+        syncInBackground: true,
+        syncParams: {
+          extraFetchOptions: {
+            // blahblah
+          },
+          someFlag: true
+        }
+      })
+      .then(ret => {
+        setDrinkedAgo(ret.Ago.ago);
+        setDrinkenMl(ret.Amount.amount);
+        setStrongness(ret.Content.content);
+      })
+      .catch(err => {
+        switch (err.name) {
+          case 'NotFoundError':
+            break;
+          case 'ExpiredError':
+            break;
+        }
+      });
+    
+  }, [number]);
+
   return(
     <SafeAreaView style={styles.container}>
 
