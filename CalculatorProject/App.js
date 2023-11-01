@@ -4,6 +4,7 @@ import Users2 from "./users2";
 import Users3 from "./users3";
 import Selection from "./selection";
 import Backwards from "./backwards";
+import Drinks from "./drinks";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text} from 'react-native';
@@ -20,6 +21,7 @@ export default function App() {
     <Stack.Navigator screenOptions={{
       headerShown: false
     }}>
+                <Stack.Screen name="Drinks" component={Drinks}/>
                 <Stack.Screen name="Calculator" component={Calculator}/>
                 <Stack.Screen name="Users" component={Users}/>
                 <Stack.Screen name="Users2" component={Users2}/>
