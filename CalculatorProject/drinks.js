@@ -78,9 +78,6 @@ export default function Drinks(){
       <DataTable style={{paddingTop: "7%", backgroundColor: "white"}}> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Drink type</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
@@ -138,6 +135,9 @@ export default function Drinks(){
         placeholder="kg"
         keyboardType="numeric"
       /></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
