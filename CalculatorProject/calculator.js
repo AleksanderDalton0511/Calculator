@@ -191,7 +191,7 @@ export default function Calculator() {
       <DataTable style={{backgroundColor: "white"}}>
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0, backgroundColor: "white"}}> 
-      <DataTable.Cell><Text style={{color: "black", fontSize: 26, marginLeft: "41%"}}>Olga</Text></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>Olga</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink", marginTop: "3%"}}> 
