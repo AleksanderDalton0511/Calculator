@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
-import DropDownPicker from 'react-native-dropdown-picker';
 import { DataTable } from 'react-native-paper'; 
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -33,17 +32,17 @@ export default function Drinks(){
     }
   });
 
-  const [name, setName] = useState("");
-  const [gender, setGender] = useState("");
-  const [weight, setWeight] = useState("");
+  const [content, setContent] = useState("");
+  const [ago, setAgo] = useState("");
+  const [amount, setAmount] = useState("");
 
   function Save(){
     storage.save({
-      key: 'user2', // Note: Do not use underscore("_") in key!
+      key: 'drink', // Note: Do not use underscore("_") in key!
       data: {
-        Name: {name},
-        Gender: {gender},
-        Weight: {weight}
+        Content: {content},
+        Ago: {ago},
+        Amount: {amount}
       },
       // if expires not specified, the defaultExpires will be applied instead.
       // if set to null, then it will never expire.
@@ -51,12 +50,6 @@ export default function Drinks(){
     });
     navigation.navigate("Calculator");
   }
-
-  const [open, setOpen] = useState(false);
-  const [items, setItems] = useState([
-    {label: 'Male', value: 'Male'},
-    {label: 'Female', value: 'Female'}
-  ]);
 
   return(
     <SafeAreaView style={styles.container}>
@@ -78,27 +71,6 @@ export default function Drinks(){
       <DataTable style={{paddingTop: "7%", backgroundColor: "white"}}> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Drink type</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><DropDownPicker
-        style={{
-          minHeight: "1%",
-          borderColor: "red",
-          width: "110%"
-        }} 
-        dropDownContainerStyle={{
-          width: "110%"
-        }}
-      placeholder='Select'
-      dropDownDirection="TOP"
-      open={open}
-      value={gender}
-      items={items}
-      setOpen={setOpen}
-      setValue={setGender}
-      setItems={setItems}
-    /></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
@@ -108,8 +80,9 @@ export default function Drinks(){
         <DataTable.Cell>
       <TextInput
         style={{fontWeight: "bold", width: "100%", fontSize: 16}}
-        onChangeText={newText => setName(newText)}
-        placeholder="Your name"
+        onChangeText={newText => setContent(newText)}
+        placeholder="ml"
+        keyboardType="numeric"
       /></DataTable.Cell> 
       </DataTable.Row> 
 
@@ -119,8 +92,8 @@ export default function Drinks(){
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><TextInput
         style={{fontWeight: "bold", width: "100%", fontSize: 16}}
-        onChangeText={newText => setWeight(newText)}
-        placeholder="kg"
+        onChangeText={newText => setAmount(newText)}
+        placeholder="ml"
         keyboardType="numeric"
       /></DataTable.Cell> 
       </DataTable.Row> 
@@ -131,8 +104,8 @@ export default function Drinks(){
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><TextInput
         style={{fontWeight: "bold", width: "100%", fontSize: 16}}
-        onChangeText={newText => setWeight(newText)}
-        placeholder="kg"
+        onChangeText={newText => setAgo(newText)}
+        placeholder="hrs"
         keyboardType="numeric"
       /></DataTable.Cell> 
       </DataTable.Row> 
