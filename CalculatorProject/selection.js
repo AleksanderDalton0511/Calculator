@@ -19,6 +19,10 @@ export default function Selection(){
   const [memoWeight3, setWeight3] = useState("");
   const [memoGender3, setMemoGender3] = useState("");
 
+  function EditX(){
+    console.log("sfdl");
+  }
+
   let UserPackage = <View style={{backgroundColor: "white", borderColor: "lightgrey", width: "100%", borderBottomWidth: 0.5,  borderColor: "lightgrey"}}>
     <TouchableOpacity style={{marginLeft: "3.5%"}} onPress={Select1}><Text>{memoName.name}, {memoGender.gender}</Text></TouchableOpacity>
     <TouchableOpacity onPress={Edit1} style={{marginLeft: "80%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
@@ -38,11 +42,21 @@ export default function Selection(){
   </View>
 
   let buttonAvailable = <DataTable.Row style={{backgroundColor: "white"}}> 
-    <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity><Text style={{color: "green"}}>Add new user</Text></TouchableOpacity></DataTable.Cell>  
+    <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={EditX}><Text style={{color: "green"}}>Add new user</Text></TouchableOpacity></DataTable.Cell>  
   </DataTable.Row>
 
   if(memoName.name!="" && memoName2.name!="" && memoName3.name!=""){
     buttonAvailable = "";
+  }
+
+  if (memoName.name==""){
+    UserPackage = "";
+  }
+  if (memoName2.name==""){
+    UserPackage2 = "";
+  }
+  if (memoName3.name==""){
+    UserPackage3 = "";
   }
 
   function Select1(){
