@@ -19,6 +19,14 @@ export default function Selection(){
   const [memoWeight3, setWeight3] = useState("");
   const [memoGender3, setMemoGender3] = useState("");
 
+  const [deleteUser, setDeleteUser] = useState(false);
+
+  let changable = <DataTable.Cell><TouchableOpacity onPress={() => setDeleteUser(true)} style={{marginLeft: "60%", borderRadius: 15, backgroundColor: "lightgrey"}}><Text style={{fontSize: 16, color: "#6c6c6c", paddingLeft: "20%", paddingRight: "20%", paddingBottom: "2%", paddingTop: "2%"}}>Delete</Text></TouchableOpacity></DataTable.Cell>
+
+  if (deleteUser){
+    changable = <DataTable.Cell><TouchableOpacity onPress={() => setDeleteUser(false)} style={{marginLeft: "60%", borderRadius: 15, backgroundColor: "lightgrey"}}><Text style={{fontSize: 16, color: "#6c6c6c", paddingLeft: "18%", paddingRight: "18%", paddingBottom: "2%", paddingTop: "2%"}}>Cancel</Text></TouchableOpacity></DataTable.Cell>
+  }
+
   function EditX(){
     if (memoName2.name==""){
       Edit2();
@@ -250,7 +258,7 @@ export default function Selection(){
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>USERS</Text></DataTable.Cell>
-        <DataTable.Cell><TouchableOpacity style={{marginLeft: "60%", borderRadius: 15, backgroundColor: "lightgrey"}}><Text style={{fontSize: 16, color: "#6c6c6c", paddingLeft: "20%", paddingRight: "20%", paddingBottom: "2%", paddingTop: "2%"}}>Delete</Text></TouchableOpacity></DataTable.Cell>  
+        {changable}
       </DataTable.Row> 
 
     {UserPackage}
