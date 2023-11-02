@@ -99,13 +99,13 @@ export default function Selection(){
   console.log("2- " + memoName2.name);
   console.log("3- " + memoName3.name);
 
-  if (memoName.name=="" || memoName.name==undefined){
+  if (memoName.name==""){
     UserPackage = "";
   }
-  if (memoName2.name=="" || memoName2.name==undefined){
+  if (memoName2.name==""){
     UserPackage2 = "";
   }
-  if (memoName3.name=="" || memoName3.name==undefined){
+  if (memoName3.name==""){
     UserPackage3 = "";
   }
 
