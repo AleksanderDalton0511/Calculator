@@ -36,21 +36,55 @@ export default function Selection(){
     }
   }
 
+  function Delete1(){
+  }
+  function Delete2(){
+  }
+  function Delete3(){
+    const storage = new Storage({
+      size: 1000,
+      storageBackend: AsyncStorage, // for web: window.localStorage
+      defaultExpires: null,
+      enableCache: true,
+      sync: {
+      }
+    });
+    storage.save({
+      key: 'user3', // Note: Do not use underscore("_") in key!
+      data: {
+        Name: "",
+        Gender: "",
+        Weight: ""
+      },
+      expires: null
+    });
+  }
+
+  let mod1 = <TouchableOpacity onPress={Edit1} style={{marginLeft: "80%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
+  let mod2 = <TouchableOpacity onPress={Edit2} style={{marginLeft: "80%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
+  let mod3 = <TouchableOpacity onPress={Edit3} style={{marginLeft: "80%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
+
+  if (deleteUser){
+    mod1 = <TouchableOpacity onPress={Delete1} style={{marginLeft: "80%"}}><Text style={{color: "red"}}>Delete</Text></TouchableOpacity>
+    mod2 = <TouchableOpacity onPress={Delete2} style={{marginLeft: "80%"}}><Text style={{color: "red"}}>Delete</Text></TouchableOpacity>
+    mod3 = <TouchableOpacity onPress={Delete3} style={{marginLeft: "80%"}}><Text style={{color: "red"}}>Delete</Text></TouchableOpacity>
+  }
+
   let UserPackage = <View style={{backgroundColor: "white", borderColor: "lightgrey", width: "100%", borderBottomWidth: 0.5,  borderColor: "lightgrey"}}>
     <TouchableOpacity style={{marginLeft: "3.5%"}} onPress={Select1}><Text>{memoName.name}, {memoGender.gender}</Text></TouchableOpacity>
-    <TouchableOpacity onPress={Edit1} style={{marginLeft: "80%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
+    {mod1}
     <Text style={{marginLeft: "3.5%"}}>{memoWeight.weight}kg</Text>
   </View>
 
   let UserPackage2 = <View style={{backgroundColor: "white", borderColor: "lightgrey", width: "100%", borderBottomWidth: 0.5,  borderColor: "lightgrey"}}>
-    <TouchableOpacity style={{marginLeft: "3.5%"}} onPress={Select1}><Text>{memoName2.name}, {memoGender2.gender}</Text></TouchableOpacity>
-    <TouchableOpacity onPress={Edit2} style={{marginLeft: "80%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
+    <TouchableOpacity style={{marginLeft: "3.5%"}} onPress={Select2}><Text>{memoName2.name}, {memoGender2.gender}</Text></TouchableOpacity>
+    {mod2}
     <Text style={{marginLeft: "3.5%"}}>{memoWeight2.weight}kg</Text>
   </View>
 
   let UserPackage3 = <View style={{backgroundColor: "white", borderColor: "lightgrey", width: "100%", borderBottomWidth: 0.5,  borderColor: "lightgrey"}}>
-    <TouchableOpacity style={{marginLeft: "3.5%"}} onPress={Select1}><Text>{memoName3.name}, {memoGender3.gender}</Text></TouchableOpacity>
-    <TouchableOpacity onPress={Edit3} style={{marginLeft: "80%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
+    <TouchableOpacity style={{marginLeft: "3.5%"}} onPress={Select3}><Text>{memoName3.name}, {memoGender3.gender}</Text></TouchableOpacity>
+    {mod3}
     <Text style={{marginLeft: "3.5%"}}>{memoWeight3.weight}kg</Text>
   </View>
 
@@ -62,13 +96,16 @@ export default function Selection(){
     buttonAvailable = "";
   }
 
-  if (memoName.name==""){
+  console.log("2- " + memoName2.name);
+  console.log("3- " + memoName3.name);
+
+  if (memoName.name=="" || memoName.name==undefined){
     UserPackage = "";
   }
-  if (memoName2.name==""){
+  if (memoName2.name=="" || memoName2.name==undefined){
     UserPackage2 = "";
   }
-  if (memoName3.name==""){
+  if (memoName3.name=="" || memoName3.name==undefined){
     UserPackage3 = "";
   }
 
