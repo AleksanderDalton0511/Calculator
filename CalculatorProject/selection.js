@@ -20,7 +20,12 @@ export default function Selection(){
   const [memoGender3, setMemoGender3] = useState("");
 
   function EditX(){
-    console.log("sfdl");
+    if (memoName2.name==""){
+      Edit2();
+    }
+    else if (memoName2.name!="" && memoName3.name==""){
+      Edit3();
+    }
   }
 
   let UserPackage = <View style={{backgroundColor: "white", borderColor: "lightgrey", width: "100%", borderBottomWidth: 0.5,  borderColor: "lightgrey"}}>
@@ -245,7 +250,7 @@ export default function Selection(){
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>USERS</Text></DataTable.Cell>
-        <DataTable.Cell><TouchableOpacity style={{marginLeft: "60%", borderRadius: 15, backgroundColor: "lightgrey"}}><Text style={{fontSize: 16, color: "#6c6c6c", paddingLeft: "32%", paddingRight: "32%", paddingBottom: "2%", paddingTop: "2%"}}>Edit</Text></TouchableOpacity></DataTable.Cell>  
+        <DataTable.Cell><TouchableOpacity style={{marginLeft: "60%", borderRadius: 15, backgroundColor: "lightgrey"}}><Text style={{fontSize: 16, color: "#6c6c6c", paddingLeft: "20%", paddingRight: "20%", paddingBottom: "2%", paddingTop: "2%"}}>Delete</Text></TouchableOpacity></DataTable.Cell>  
       </DataTable.Row> 
 
     {UserPackage}
