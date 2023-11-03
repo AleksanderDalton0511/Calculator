@@ -36,9 +36,27 @@ export default function Selection(){
     }
   }
 
-  function Delete1(){
-  }
   function Delete2(){
+    const storage = new Storage({
+      size: 1000,
+      storageBackend: AsyncStorage, // for web: window.localStorage
+      defaultExpires: null,
+      enableCache: true,
+      sync: {
+      }
+    });
+    storage.save({
+      key: 'user2', // Note: Do not use underscore("_") in key!
+      data: {
+        Name: "",
+        Gender: "",
+        Weight: ""
+      },
+      expires: null
+    });
+    setWeight2("");
+    setName2("");
+    setMemoGender2("");
   }
   function Delete3(){
     const storage = new Storage({
@@ -68,7 +86,6 @@ export default function Selection(){
   let mod3 = <TouchableOpacity onPress={Edit3} style={{marginLeft: "80%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
 
   if (deleteUser){
-    mod1 = <TouchableOpacity onPress={Delete1} style={{marginLeft: "80%"}}><Text style={{color: "red"}}>Delete</Text></TouchableOpacity>
     mod2 = <TouchableOpacity onPress={Delete2} style={{marginLeft: "80%"}}><Text style={{color: "red"}}>Delete</Text></TouchableOpacity>
     mod3 = <TouchableOpacity onPress={Delete3} style={{marginLeft: "80%"}}><Text style={{color: "red"}}>Delete</Text></TouchableOpacity>
   }
@@ -108,7 +125,7 @@ export default function Selection(){
   if (memoName.name==""){
     UserPackage = "";
   }
-  if (memoName2.name==""){
+  if (memoName2.name=="" || memoName2.name==undefined){
     UserPackage2 = "";
   }
   if (memoName3.name=="" || memoName3.name==undefined){
