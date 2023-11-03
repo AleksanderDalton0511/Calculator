@@ -28,10 +28,10 @@ export default function Selection(){
   }
 
   function EditX(){
-    if (memoName2.name==""){
+    if (memoName2.name=="" || memoName2.name==undefined){
       Edit2();
     }
-    else if (memoName2.name!="" && memoName3.name==""){
+    else {
       Edit3();
     }
   }
@@ -58,6 +58,9 @@ export default function Selection(){
       },
       expires: null
     });
+    setWeight3("");
+    setName3("");
+    setMemoGender3("");
   }
 
   let mod1 = <TouchableOpacity onPress={Edit1} style={{marginLeft: "80%"}}><Text style={{color: "green"}}>Modify</Text></TouchableOpacity>
@@ -92,12 +95,15 @@ export default function Selection(){
     <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={EditX}><Text style={{color: "green"}}>Add new user</Text></TouchableOpacity></DataTable.Cell>  
   </DataTable.Row>
 
-  if(memoName.name!="" && memoName2.name!="" && memoName3.name!=""){
-    buttonAvailable = "";
+  let checker;
+
+  if (memoName.name!=undefined && memoName2.name!=undefined && memoName3.name!=undefined){
+    checker = true;
   }
 
-  console.log("2- " + memoName2.name);
-  console.log("3- " + memoName3.name);
+  if(memoName.name!="" && memoName2.name!="" && memoName3.name!="" && checker == true){
+    buttonAvailable = "";
+  }
 
   if (memoName.name==""){
     UserPackage = "";
@@ -105,7 +111,7 @@ export default function Selection(){
   if (memoName2.name==""){
     UserPackage2 = "";
   }
-  if (memoName3.name==""){
+  if (memoName3.name=="" || memoName3.name==undefined){
     UserPackage3 = "";
   }
 
