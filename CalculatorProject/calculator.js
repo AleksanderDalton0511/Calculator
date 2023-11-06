@@ -102,22 +102,12 @@ export default function Calculator() {
   const PureAlcohol = (DrinkenMl/100)*Strongness*0.789;
   
   const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
-  const [LeftAlcohol, setLeftAlcohol] = useState(AlcoholInBlood-losen);
+  const LeftAlcohol = AlcoholInBlood-losen;
 
   const OutIn = LeftAlcohol/MinusPerHour;
   const OutInMin = OutIn*60;
   const PureHours = OutInMin/60;
   const PureMins = OutInMin% 60;
-
-  if(LeftAlcohol<0){
-    setLeftAlcohol(0);
-  }
-
-  useEffect(() => {
-    (async () => {
-      setLeftAlcohol(AlcoholInBlood-losen);
-    })();
-  }, [Strongness, DrinkenMl, DrinkedAgo]);
 
   function Selection(){
     navigation.navigate("Selection");
@@ -135,10 +125,6 @@ export default function Calculator() {
       setGender(0.7);
     }
   }, [memoGender]);
-
-  useEffect(() => {
-    setLeftAlcohol(0);
-  }, []);
 
   useEffect(() => {
     const storage3 = new Storage({
@@ -228,27 +214,6 @@ export default function Calculator() {
       <Image style={{width: "100%", height: "8%"}} source={require("./assets/Valge3.png")}></Image>
 
       <DataTable style={{backgroundColor: "white"}}>
-      <Text>Strongness:</Text>
-      <TextInput
-        style={{backgroundColor: "red"}}
-        onChangeText={newText => setStrongness(newText)}
-        value={Strongness.toString()}
-        keyboardType="numeric"
-      />
-      <Text>Amount:</Text>
-      <TextInput
-        style={{backgroundColor: "blue"}}
-        onChangeText={newText => setDrinkenMl(newText)}
-        value={DrinkenMl.toString()}
-        keyboardType="numeric"
-      />
-      <Text>Drinked ago:</Text>
-      <TextInput
-        style={{backgroundColor: "green"}}
-        onChangeText={newText => setDrinkedAgo(newText)}
-        value={DrinkedAgo.toString()}
-        keyboardType="numeric"
-      />
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0, backgroundColor: "white"}}> 
       <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>{memoName.name} </Text><TouchableOpacity><Image style={{width: 20, height: 20, opacity: 0.5}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
