@@ -185,7 +185,7 @@ export default function Calculator() {
       <DataTable style={{marginTop: "13%"}}> 
 
       <DataTable.Row style={{borderBottomWidth: 0}}> 
-        <DataTable.Cell><TouchableOpacity><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity onPress={Selection}><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
       
       <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%"}}> 
@@ -228,6 +228,27 @@ export default function Calculator() {
       <Image style={{width: "100%", height: "8%"}} source={require("./assets/Valge3.png")}></Image>
 
       <DataTable style={{backgroundColor: "white"}}>
+      <Text>Strongness:</Text>
+      <TextInput
+        style={{backgroundColor: "red"}}
+        onChangeText={newText => setStrongness(newText)}
+        value={Strongness.toString()}
+        keyboardType="numeric"
+      />
+      <Text>Amount:</Text>
+      <TextInput
+        style={{backgroundColor: "blue"}}
+        onChangeText={newText => setDrinkenMl(newText)}
+        value={DrinkenMl.toString()}
+        keyboardType="numeric"
+      />
+      <Text>Drinked ago:</Text>
+      <TextInput
+        style={{backgroundColor: "green"}}
+        onChangeText={newText => setDrinkedAgo(newText)}
+        value={DrinkedAgo.toString()}
+        keyboardType="numeric"
+      />
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0, backgroundColor: "white"}}> 
       <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>{memoName.name} </Text><TouchableOpacity><Image style={{width: 20, height: 20, opacity: 0.5}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
