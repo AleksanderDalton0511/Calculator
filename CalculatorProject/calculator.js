@@ -15,6 +15,13 @@ export default function Calculator() {
 
   const navigation = useNavigation();
 
+  if (number == 3 && memoName == ""){
+    setNumber(2);
+  }
+  else if (number == 2 && memoName == ""){
+    setNumber("");
+  }
+
   const storage2 = new Storage({
     size: 1000,
     storageBackend: AsyncStorage,
