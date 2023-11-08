@@ -22,6 +22,48 @@ export default function Calculator() {
     setNumber("");
   }
 
+  const [extraHelper, setExtraHelper] = useState("");
+
+  useEffect(() => {
+    const storage = new Storage({
+      size: 1000,
+      storageBackend: AsyncStorage,
+      defaultExpires: null,
+      enableCache: true,
+      sync: {
+      }
+    });
+
+    // load
+    storage
+      .load({
+        key: 'drinkNum',
+        autoSync: true,
+        syncInBackground: true,
+        syncParams: {
+          extraFetchOptions: {
+            // blahblah
+          },
+          someFlag: true
+        }
+      })
+      .then(ret => {
+        console.log(ret.Num.drinkHelper);
+        setExtraHelper(ret.Num.drinkHelper);
+      })
+      .catch(err => {
+        switch (err.name) {
+          case 'NotFoundError':
+            break;
+          case 'ExpiredError':
+            break;
+        }
+      });
+    
+  }, []);
+
+  let drinkHelper = extraHelper;
+
   const storage2 = new Storage({
     size: 1000,
     storageBackend: AsyncStorage,
@@ -124,6 +166,29 @@ export default function Calculator() {
     navigation.navigate("Backwards");
   }
 
+  function Drinks(){
+    drinkHelper++;
+
+    const storage = new Storage({
+      size: 1000,
+      storageBackend: AsyncStorage,
+      defaultExpires: null,
+      enableCache: true,
+      sync: {
+      }
+    });
+
+      storage.save({
+        key: 'drinkNum', // Note: Do not use underscore("_") in key!
+        data: {
+          Num : {drinkHelper}
+        },
+        expires: null
+      });
+
+      navigation.navigate("Drinks");
+  }
+
   useEffect(() => {
     if (memoGender.gender!="Male"){
       setGender(0.6);
@@ -210,7 +275,7 @@ export default function Calculator() {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-      <DataTable.Cell><TouchableOpacity style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginLeft: "20%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "2%", paddingBottom: "2%", opacity: 0.9}}>Add/Edit drinks</Text></TouchableOpacity></DataTable.Cell> 
+      <DataTable.Cell><TouchableOpacity onPress={Drinks} style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginLeft: "20%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "2%", paddingBottom: "2%", opacity: 0.9}}>Add/Edit drinks</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 

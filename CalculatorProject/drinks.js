@@ -1,5 +1,5 @@
 import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -7,49 +7,187 @@ import { DataTable } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Drinks(){
+  const [memoName, setName] = useState("");
+  const [memoWeight, setWeight] = useState("");
+  const [memoGender, setMemoGender] = useState("");
+  const [number, setNumber] = useState("");
+
   const navigation = useNavigation();
-  
-  const storage = new Storage({
-    // maximum capacity, default 1000
+
+  if (number == 3 && memoName == ""){
+    setNumber(2);
+  }
+  else if (number == 2 && memoName == ""){
+    setNumber("");
+  }
+
+  const storage2 = new Storage({
     size: 1000,
-   
-    // Use AsyncStorage for RN apps, or window.localStorage for web apps.
-    // If storageBackend is not set, data will be lost after reload.
-    storageBackend: AsyncStorage, // for web: window.localStorage
-   
-    // expire time, default: 1 day (1000 * 3600 * 24 milliseconds).
-    // can be null, which means never expire.
+    storageBackend: AsyncStorage,
     defaultExpires: null,
-   
-    // cache data in the memory. default is true.
     enableCache: true,
-   
-    // if data was not found in storage or expired data was found,
-    // the corresponding sync method will be invoked returning
-    // the latest data.
     sync: {
-      // we'll talk about the details later.
     }
   });
 
-  const [content, setContent] = useState("");
-  const [ago, setAgo] = useState("");
-  const [amount, setAmount] = useState("");
-
-  function Save(){
-    storage.save({
-      key: 'drink', // Note: Do not use underscore("_") in key!
-      data: {
-        Content: {content},
-        Ago: {ago},
-        Amount: {amount}
+  useEffect(() => {
+    // load
+  storage2
+  .load({
+    key: 'number',
+    autoSync: true,
+    syncInBackground: true,
+    syncParams: {
+      extraFetchOptions: {
+        // blahblah
       },
-      // if expires not specified, the defaultExpires will be applied instead.
-      // if set to null, then it will never expire.
-      expires: null
-    });
-    navigation.navigate("Calculator");
+      someFlag: true
+    }
+  })
+  .then(ret => {
+    setNumber(ret);
+  })
+  .catch(err => {
+    switch (err.name) {
+      case 'NotFoundError':
+        break;
+      case 'ExpiredError':
+        break;
+    }
+  });
+  }, []);
+
+  useEffect(() => {
+      const storage = new Storage({
+        size: 1000,
+        storageBackend: AsyncStorage,
+        defaultExpires: null,
+        enableCache: true,
+        sync: {
+        }
+      });
+
+      // load
+      storage
+        .load({
+          key: 'user'+number,
+          autoSync: true,
+          syncInBackground: true,
+          syncParams: {
+            extraFetchOptions: {
+              // blahblah
+            },
+            someFlag: true
+          }
+        })
+        .then(ret => {
+          setWeight(ret.Weight);
+          setName(ret.Name);
+          setMemoGender(ret.Gender)
+        })
+        .catch(err => {
+          switch (err.name) {
+            case 'NotFoundError':
+              break;
+            case 'ExpiredError':
+              break;
+          }
+        });
+      
+    }, [number]);
+
+    useEffect(() => {
+      const storage = new Storage({
+        size: 1000,
+        storageBackend: AsyncStorage,
+        defaultExpires: null,
+        enableCache: true,
+        sync: {
+        }
+      });
+
+      // load
+      storage
+        .load({
+          key: 'drinkNum',
+          autoSync: true,
+          syncInBackground: true,
+          syncParams: {
+            extraFetchOptions: {
+              // blahblah
+            },
+            someFlag: true
+          }
+        })
+        .then(ret => {
+          console.log(ret.Num.drinkHelper);
+        })
+        .catch(err => {
+          switch (err.name) {
+            case 'NotFoundError':
+              break;
+            case 'ExpiredError':
+              break;
+          }
+        });
+      
+    }, []);
+
+    function SaveResult(){
+      const storage = new Storage({
+        size: 1000,
+        storageBackend: AsyncStorage,
+        defaultExpires: null,
+        enableCache: true,
+        sync: {
+        }
+      });
+
+      storage.save({
+        key: 'result', // Note: Do not use underscore("_") in key!
+        data: {
+          alcInBlood : {LeftAlcohol}
+        },
+        expires: null
+      });
+      
+    }
+
+  const [ago, setAgo] = useState("");
+  const MinusPerHour = 0.1;
+  const losen = MinusPerHour*ago;
+  
+  const WeightOfPerson = memoWeight.weight;
+  const [Gender, setGender] = useState("");
+
+  const [amount, setAmount] = useState("");
+  const [content, setContent] = useState("");
+  const PureAlcohol = (amount/100)*content*0.789;
+  
+  const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
+  const LeftAlcohol = AlcoholInBlood-losen;
+
+  const OutIn = LeftAlcohol/MinusPerHour;
+  const OutInMin = OutIn*60;
+  const PureHours = OutInMin/60;
+  const PureMins = OutInMin% 60;
+
+  function Selection(){
+    navigation.navigate("Selection");
   }
+
+  function Backwards(){
+    navigation.navigate("Backwards");
+  }
+
+  useEffect(() => {
+    if (memoGender.gender!="Male"){
+      setGender(0.6);
+    }
+    else{
+      setGender(0.7);
+    }
+  }, [memoGender]);
 
   return(
     <SafeAreaView style={styles.container}>
@@ -57,7 +195,7 @@ export default function Drinks(){
       <DataTable style={{marginTop: "8%"}}> 
       
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 36, color: "white"}}>Add new drink</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 36, color: "white"}}>{LeftAlcohol.toFixed(4)}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
   
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}>   
@@ -129,7 +267,7 @@ export default function Drinks(){
 
       <View style={styles.parent}>
         <TouchableOpacity style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
-        <TouchableOpacity onPress={Save} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
+        <TouchableOpacity style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
       </View>
 
       </SafeAreaView>
