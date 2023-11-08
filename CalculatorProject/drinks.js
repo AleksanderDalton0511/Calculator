@@ -14,42 +14,6 @@ export default function Drinks(){
 
   const navigation = useNavigation();
 
-  useEffect(() => {
-    const storage = new Storage({
-      size: 1000,
-      storageBackend: AsyncStorage,
-      defaultExpires: null,
-      enableCache: true,
-      sync: {
-      }
-    });
-
-    storage
-      .load({
-        key: 'result10',
-        autoSync: true,
-        syncInBackground: true,
-        syncParams: {
-          extraFetchOptions: {
-            // blahblah
-          },
-          someFlag: true
-        }
-      })
-      .then(ret => {
-        console.log(ret);
-      })
-      .catch(err => {
-        switch (err.name) {
-          case 'NotFoundError':
-            break;
-          case 'ExpiredError':
-            break;
-        }
-      });
-    
-  }, []);
-
   if (number == 3 && memoName == ""){
     setNumber(2);
   }

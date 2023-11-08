@@ -21,10 +21,9 @@ export default function App() {
     <Stack.Navigator screenOptions={{
       headerShown: false
     }}>
-      <Stack.Screen name="Drinks" component={Drinks}/>
                 <Stack.Screen name="Calculator" component={Calculator}/>
                 <Stack.Screen name="Selection" component={Selection} />
-                
+                <Stack.Screen name="Drinks" component={Drinks}/>
                 <Stack.Screen name="Users" component={Users}/>
                 <Stack.Screen name="Users2" component={Users2}/>
                 <Stack.Screen name="Users3" component={Users3}/>

@@ -8,6 +8,42 @@ import { DataTable } from 'react-native-paper';
 
 export default function Calculator() {
 
+  useEffect(() => {
+    const storage = new Storage({
+      size: 1000,
+      storageBackend: AsyncStorage,
+      defaultExpires: null,
+      enableCache: true,
+      sync: {
+      }
+    });
+
+    storage
+      .load({
+        key: 'result10',
+        autoSync: true,
+        syncInBackground: true,
+        syncParams: {
+          extraFetchOptions: {
+            // blahblah
+          },
+          someFlag: true
+        }
+      })
+      .then(ret => {
+        console.log(ret);
+      })
+      .catch(err => {
+        switch (err.name) {
+          case 'NotFoundError':
+            break;
+          case 'ExpiredError':
+            break;
+        }
+      });
+    
+  }, []);
+
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
   const [memoGender, setMemoGender] = useState("");
@@ -48,7 +84,6 @@ export default function Calculator() {
         }
       })
       .then(ret => {
-        console.log(ret.Num.drinkHelper);
         setExtraHelper(ret.Num.drinkHelper);
       })
       .catch(err => {
