@@ -170,9 +170,9 @@ export default function Drinks(){
     }, []);
 
     function SaveResult(){
-      console.log('result'+{index});
+      console.log('result'+index);
       storage.save({
-        key: 'result'+{index}, // Note: Do not use underscore("_") in key!
+        key: 'result'+index, // Note: Do not use underscore("_") in key!
         data: {
           alcInBlood : {LeftAlcohol}
         },
