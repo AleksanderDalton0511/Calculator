@@ -20,7 +20,7 @@ export default function Calculator() {
 
     storage
       .load({
-        key: 'result10',
+        key: 'FinalResultBAC',
         autoSync: true,
         syncInBackground: true,
         syncParams: {
