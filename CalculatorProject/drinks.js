@@ -14,6 +14,42 @@ export default function Drinks(){
 
   const navigation = useNavigation();
 
+  useEffect(() => {
+    const storage = new Storage({
+      size: 1000,
+      storageBackend: AsyncStorage,
+      defaultExpires: null,
+      enableCache: true,
+      sync: {
+      }
+    });
+
+    storage
+      .load({
+        key: 'result10',
+        autoSync: true,
+        syncInBackground: true,
+        syncParams: {
+          extraFetchOptions: {
+            // blahblah
+          },
+          someFlag: true
+        }
+      })
+      .then(ret => {
+        console.log(ret);
+      })
+      .catch(err => {
+        switch (err.name) {
+          case 'NotFoundError':
+            break;
+          case 'ExpiredError':
+            break;
+        }
+      });
+    
+  }, []);
+
   if (number == 3 && memoName == ""){
     setNumber(2);
   }
@@ -96,17 +132,18 @@ export default function Drinks(){
       
     }, [number]);
 
-    useEffect(() => {
-      const storage = new Storage({
-        size: 1000,
-        storageBackend: AsyncStorage,
-        defaultExpires: null,
-        enableCache: true,
-        sync: {
-        }
-      });
+    const storage = new Storage({
+      size: 1000,
+      storageBackend: AsyncStorage,
+      defaultExpires: null,
+      enableCache: true,
+      sync: {
+      }
+    });
 
-      // load
+    const [index, setIndex] = useState();
+
+    useEffect(() => {
       storage
         .load({
           key: 'drinkNum',
@@ -120,7 +157,7 @@ export default function Drinks(){
           }
         })
         .then(ret => {
-          console.log(ret.Num.drinkHelper);
+          setIndex(ret.Num.drinkHelper);
         })
         .catch(err => {
           switch (err.name) {
@@ -130,27 +167,17 @@ export default function Drinks(){
               break;
           }
         });
-      
     }, []);
 
     function SaveResult(){
-      const storage = new Storage({
-        size: 1000,
-        storageBackend: AsyncStorage,
-        defaultExpires: null,
-        enableCache: true,
-        sync: {
-        }
-      });
-
+      console.log('result'+{index});
       storage.save({
-        key: 'result', // Note: Do not use underscore("_") in key!
+        key: 'result'+{index}, // Note: Do not use underscore("_") in key!
         data: {
           alcInBlood : {LeftAlcohol}
         },
         expires: null
       });
-      
     }
 
   const [ago, setAgo] = useState("");
@@ -267,7 +294,7 @@ export default function Drinks(){
 
       <View style={styles.parent}>
         <TouchableOpacity style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
+        <TouchableOpacity onPress={SaveResult} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
       </View>
 
       </SafeAreaView>
