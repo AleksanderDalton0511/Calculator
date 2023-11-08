@@ -64,7 +64,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult(ret);
+        setResult(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -87,7 +87,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult1(ret);
+        setResult1(ret.alcInBlood.LeftAlcohol);
     })
       .catch(err => {
         switch (err.name) {
@@ -110,7 +110,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult2(ret);
+        setResult2(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -133,7 +133,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult3(ret);
+        setResult3(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -156,7 +156,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult4(ret);
+        setResult4(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -179,7 +179,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult5(ret);
+        setResult5(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -202,7 +202,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult6(ret);
+        setResult6(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -225,7 +225,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult7(ret);
+        setResult7(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -248,7 +248,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult8(ret);
+        setResult8(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -271,7 +271,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult10(ret);
+        setResult10(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -294,7 +294,6 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        console.log(ret);
         setResult9(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
@@ -318,7 +317,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult11(ret);
+        setResult11(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -341,7 +340,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult12(ret);
+        setResult12(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -364,7 +363,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult13(ret);
+        setResult13(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -387,7 +386,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult14(ret);
+        setResult14(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -410,7 +409,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult15(ret);
+        setResult15(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -433,7 +432,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult16(ret);
+        setResult16(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -456,7 +455,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult17(ret);
+        setResult17(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -479,7 +478,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult18(ret);
+        setResult18(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -502,7 +501,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult19(ret);
+        setResult19(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -525,7 +524,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult20(ret);
+        setResult20(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -548,7 +547,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult21(ret);
+        setResult21(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -571,7 +570,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult22(ret);
+        setResult22(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -594,7 +593,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult23(ret);
+        setResult23(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -617,7 +616,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult24(ret);
+        setResult24(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -640,7 +639,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult25(ret);
+        setResult25(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -663,7 +662,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult26(ret);
+        setResult26(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -686,7 +685,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult27(ret);
+        setResult27(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -709,7 +708,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult28(ret);
+        setResult28(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -732,7 +731,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult29(ret);
+        setResult29(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -755,7 +754,7 @@ const [result30, setResult30] = useState("");
         }
       })
       .then(ret => {
-        setResult30(ret);
+        setResult30(ret.alcInBlood.LeftAlcohol);
       })
       .catch(err => {
         switch (err.name) {
@@ -768,7 +767,10 @@ const [result30, setResult30] = useState("");
     
   }, []);
 
+  const finalResult = result+result1+result2+result3+result4+result5+result6+result7+result8+result9+result10;
+
   function SaveResult(){
+    console.log(finalResult);
     console.log(result9);
   }
 
