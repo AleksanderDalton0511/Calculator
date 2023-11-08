@@ -8,37 +8,37 @@ import { DataTable } from 'react-native-paper';
 
 export default function Loading() {
 
-const [result, setResult] = useState("");
-const [result1, setResult1] = useState("");
-const [result2, setResult2] = useState("");
-const [result3, setResult3] = useState("");
-const [result4, setResult4] = useState("");
-const [result5, setResult5] = useState("");
-const [result6, setResult6] = useState("");
-const [result7, setResult7] = useState("");
-const [result8, setResult8] = useState("");
-const [result9, setResult9] = useState("");
-const [result10, setResult10] = useState("");
-const [result11, setResult11] = useState("");
-const [result12, setResult12] = useState("");
-const [result13, setResult13] = useState("");
-const [result14, setResult14] = useState("");
-const [result15, setResult15] = useState("");
-const [result16, setResult16] = useState("");
-const [result17, setResult17] = useState("");
-const [result18, setResult18] = useState("");
-const [result19, setResult19] = useState("");
-const [result20, setResult20] = useState("");
-const [result21, setResult21] = useState("");
-const [result22, setResult22] = useState("");
-const [result23, setResult23] = useState("");
-const [result24, setResult24] = useState("");
-const [result25, setResult25] = useState("");
-const [result26, setResult26] = useState("");
-const [result27, setResult27] = useState("");
-const [result28, setResult28] = useState("");
-const [result29, setResult29] = useState("");
-const [result30, setResult30] = useState("");
+const [result, setResult] = useState(0);
+const [result1, setResult1] = useState(0);
+const [result2, setResult2] = useState(0);
+const [result3, setResult3] = useState(0);
+const [result4, setResult4] = useState(0);
+const [result5, setResult5] = useState(0);
+const [result6, setResult6] = useState(0);
+const [result7, setResult7] = useState(0);
+const [result8, setResult8] = useState(0);
+const [result9, setResult9] = useState(0);
+const [result10, setResult10] = useState(0);
+const [result11, setResult11] = useState(0);
+const [result12, setResult12] = useState(0);
+const [result13, setResult13] = useState(0);
+const [result14, setResult14] = useState(0);
+const [result15, setResult15] = useState(0);
+const [result16, setResult16] = useState(0);
+const [result17, setResult17] = useState(0);
+const [result18, setResult18] = useState(0);
+const [result19, setResult19] = useState(0);
+const [result20, setResult20] = useState(0);
+const [result21, setResult21] = useState(0);
+const [result22, setResult22] = useState(0);
+const [result23, setResult23] = useState(0);
+const [result24, setResult24] = useState(0);
+const [result25, setResult25] = useState(0);
+const [result26, setResult26] = useState(0);
+const [result27, setResult27] = useState(0);
+const [result28, setResult28] = useState(0);
+const [result29, setResult29] = useState(0);
+const [result30, setResult30] = useState(0);
 
 
   useEffect(() => {
@@ -771,7 +771,6 @@ const [result30, setResult30] = useState("");
 
   function SaveResult(){
     console.log(finalResult);
-    console.log(result9);
   }
 
   const [memoName, setName] = useState("");
