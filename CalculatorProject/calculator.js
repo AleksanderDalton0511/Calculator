@@ -8,6 +8,8 @@ import { DataTable } from 'react-native-paper';
 
 export default function Calculator() {
 
+  const [finalHolder, setFinalHolder] = useState("");
+
   useEffect(() => {
     const storage = new Storage({
       size: 1000,
@@ -32,6 +34,7 @@ export default function Calculator() {
       })
       .then(ret => {
         console.log(ret);
+        setFinalHolder(ret.TheResult.finalResult)
       })
       .catch(err => {
         switch (err.name) {
@@ -291,7 +294,7 @@ export default function Calculator() {
       <DataTable style={{paddingTop: "7%", backgroundColor: "#61a22d"}}> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "25%"}}>{LeftAlcohol.toFixed(4)}‰</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "25%"}}>{finalHolder}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
