@@ -191,7 +191,7 @@ export default function Calculator() {
   const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
   const LeftAlcohol = AlcoholInBlood-losen;
 
-  const OutIn = LeftAlcohol/MinusPerHour;
+  const OutIn = finalHolder/MinusPerHour;
   const OutInMin = OutIn*60;
   const PureHours = OutInMin/60;
   const PureMins = OutInMin% 60;
