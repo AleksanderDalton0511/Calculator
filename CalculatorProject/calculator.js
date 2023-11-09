@@ -275,6 +275,28 @@ export default function Calculator() {
     
   }, [number]);
 
+    setTimeout(() => {
+        setFinalHolder(finalHolder-0.00005);
+
+        const storage = new Storage({
+          size: 1000,
+          storageBackend: AsyncStorage,
+          defaultExpires: null,
+          enableCache: true,
+          sync: {
+          }
+
+        });
+        storage.save({
+          key: 'FinalResultBAC', // Note: Do not use underscore("_") in key!
+          data: {
+            TheResult: {finalHolder},
+          },
+          expires: null
+        });
+
+    }, 1000);
+    
   return(
     <SafeAreaView style={styles.container}>
 
