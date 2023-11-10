@@ -296,6 +296,10 @@ export default function Calculator() {
         });
 
     }, 1000);
+
+    if (finalHolder == 0 || finalHolder < 0){
+      drinkHelper = 0;
+    }
     
   return(
     <SafeAreaView style={styles.container}>

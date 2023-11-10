@@ -140,7 +140,7 @@ export default function Drinks(){
         data: {
           alcInBlood : {LeftAlcohol}
         },
-        expires: null
+        expires: OutIn * 3600000
       });
     }
 
@@ -162,6 +162,8 @@ export default function Drinks(){
   const OutInMin = OutIn*60;
   const PureHours = OutInMin/60;
   const PureMins = OutInMin% 60;
+
+  console.log(OutIn);
 
   function Selection(){
     navigation.navigate("Selection");
