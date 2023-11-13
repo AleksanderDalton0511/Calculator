@@ -66,7 +66,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -89,7 +91,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult1(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult1(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
     })
       .catch(err => {
         switch (err.name) {
@@ -137,7 +141,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult3(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult3(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -160,7 +166,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult4(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult4(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -183,7 +191,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult5(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult5(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -206,7 +216,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult6(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult6(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -229,7 +241,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult7(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult7(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -252,7 +266,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult8(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult8(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -275,7 +291,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult10(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult10(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -298,7 +316,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult9(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult9(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -321,7 +341,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult11(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult11(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -344,7 +366,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult12(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult12(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -367,7 +391,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult13(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult13(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -390,7 +416,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult14(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult14(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -413,7 +441,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult15(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult15(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -436,7 +466,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult16(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult16(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -459,7 +491,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult17(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult17(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -482,7 +516,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult18(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult18(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -505,7 +541,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult19(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult19(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -528,7 +566,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult20(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult20(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -551,7 +591,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult21(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult21(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -574,7 +616,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult22(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult22(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -597,7 +641,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult23(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult23(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -620,7 +666,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult24(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult24(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -643,7 +691,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult25(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult25(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -666,7 +716,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult26(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult26(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -689,7 +741,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult27(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult27(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -712,7 +766,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult28(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult28(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -735,7 +791,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult29(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult29(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {
@@ -758,7 +816,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult30(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult30(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {

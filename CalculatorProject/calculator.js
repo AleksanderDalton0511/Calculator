@@ -278,6 +278,12 @@ export default function Calculator() {
     if (finalHolder == 0 || finalHolder < 0){
       drinkHelper = 0;
     }
+
+    /*setTimeout(() => {
+      if (finalHolder>0){
+        setFinalHolder(finalHolder-0.00005);
+      }
+  }, 1000);*/
     
   return(
     <SafeAreaView style={styles.container}>
