@@ -42,6 +42,103 @@ const [result28, setResult28] = useState(0);
 const [result29, setResult29] = useState(0);
 const [result30, setResult30] = useState(0);
 
+  let resultsArray = [];
+
+  if(result!=0){
+    resultsArray.push(result)
+  }
+  if(result1!=0){
+    resultsArray.push(result1)
+  }
+  if(result2!=0){
+    resultsArray.push(result2)
+  }
+  if(result3!=0){
+    resultsArray.push(result3)
+  }
+  if(result4!=0){
+    resultsArray.push(result4)
+  }
+  if(result5!=0){
+    resultsArray.push(result5)
+  }
+  if(result6!=0){
+    resultsArray.push(result6)
+  }
+  if(result7!=0){
+    resultsArray.push(result7)
+  }
+  if(result8!=0){
+    resultsArray.push(result8)
+  }
+  if(result9!=0){
+    resultsArray.push(result9)
+  }
+  if(result10!=0){
+    resultsArray.push(result10)
+  }
+  if(result11!=0){
+    resultsArray.push(result11)
+  }
+  if(result12!=0){
+    resultsArray.push(result12)
+  }
+  if(result13!=0){
+    resultsArray.push(result13)
+  }
+  if(result14!=0){
+    resultsArray.push(result14)
+  }
+  if(result15!=0){
+    resultsArray.push(result15)
+  }
+  if(result16!=0){
+    resultsArray.push(result16)
+  }
+  if(result17!=0){
+    resultsArray.push(result17)
+  }
+  if(result18!=0){
+    resultsArray.push(result18)
+  }
+  if(result19!=0){
+    resultsArray.push(result19)
+  }
+  if(result20!=0){
+    resultsArray.push(result20)
+  }
+  if(result21!=0){
+    resultsArray.push(result21)
+  }
+  if(result22!=0){
+    resultsArray.push(result22)
+  }
+  if(result23!=0){
+    resultsArray.push(result23)
+  }
+  if(result24!=0){
+    resultsArray.push(result24)
+  }
+  if(result25!=0){
+    resultsArray.push(result25)
+  }
+  if(result26!=0){
+    resultsArray.push(result26)
+  }
+  if(result27!=0){
+    resultsArray.push(result27)
+  }
+  if(result28!=0){
+    resultsArray.push(result28)
+  }
+  if(result29!=0){
+    resultsArray.push(result29)
+  }
+  if(result30!=0){
+    resultsArray.push(result30)
+  }
+
+  const arrayLenght = resultsArray.length;
 
   useEffect(() => {
     const storage = new Storage({
