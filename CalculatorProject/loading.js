@@ -8,6 +8,8 @@ import { DataTable } from 'react-native-paper';
 
 export default function Loading() {
 
+const currentDate = Date.now();
+
 const [result, setResult] = useState(0);
 const [result1, setResult1] = useState(0);
 const [result2, setResult2] = useState(0);
@@ -110,7 +112,9 @@ const [result30, setResult30] = useState(0);
         }
       })
       .then(ret => {
-        setResult2(ret.alcInBlood.LeftAlcohol);
+        const timeElapsed = currentDate - ret.Date.date
+        const finalTime = timeElapsed/3600000;
+        setResult2(ret.alcInBlood.LeftAlcohol - finalTime * 0.1);
       })
       .catch(err => {
         switch (err.name) {

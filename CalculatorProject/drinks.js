@@ -135,10 +135,12 @@ export default function Drinks(){
 
     function SaveResult(){
       console.log('result'+index);
+      const date = Date.now();
       storage.save({
         key: 'result'+index, // Note: Do not use underscore("_") in key!
         data: {
-          alcInBlood : {LeftAlcohol}
+          alcInBlood : {LeftAlcohol},
+          Date : {date}
         },
         expires: OutIn * 3600000
       });
