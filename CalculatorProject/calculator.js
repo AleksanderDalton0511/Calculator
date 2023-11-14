@@ -34,7 +34,7 @@ export default function Calculator() {
       })
       .then(ret => {
         console.log(ret);
-        setFinalHolder(ret.TheResult.finalResult.toFixed(4))
+        setFinalHolder(ret.TheResult.finalResult);
       })
       .catch(err => {
         switch (err.name) {
@@ -279,11 +279,13 @@ export default function Calculator() {
       drinkHelper = 0;
     }
 
-    /*setTimeout(() => {
+    setTimeout(() => {
       if (finalHolder>0){
-        setFinalHolder(finalHolder-0.00005);
+        setFinalHolder((finalHolder-0.1/3600));
       }
-  }, 1000);*/
+  }, 1000);
+
+  const newNumber = Number(finalHolder).toFixed(4);
     
   return(
     <SafeAreaView style={styles.container}>
@@ -304,7 +306,7 @@ export default function Calculator() {
       <DataTable style={{paddingTop: "7%", backgroundColor: "#61a22d"}}> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "25%"}}>{finalHolder}‰</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "25%"}}>{newNumber}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
