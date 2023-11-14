@@ -949,6 +949,10 @@ const [result30, setResult30] = useState(0);
       navigation.navigate("Calculator");
   }
 
+  useEffect(() => {
+    SaveResult();
+  }, [finalResult]);
+
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
   const [memoGender, setMemoGender] = useState("");
