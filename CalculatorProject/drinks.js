@@ -144,6 +144,7 @@ export default function Drinks(){
         },
         expires: OutIn * 3600000
       });
+      navigation.navigate("Calculator");
     }
 
   const [ago, setAgo] = useState("");
