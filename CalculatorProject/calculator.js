@@ -34,7 +34,7 @@ export default function Calculator() {
       })
       .then(ret => {
         console.log(ret);
-        setFinalHolder(ret.TheResult.finalResult)
+        setFinalHolder(ret.TheResult.finalResult.toFixed(4))
       })
       .catch(err => {
         switch (err.name) {
