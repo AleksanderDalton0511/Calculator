@@ -928,7 +928,7 @@ const [result30, setResult30] = useState(0);
     
   }, []);
 
-  const finalResult = result/arrayLenght+result1/arrayLenght+result2/arrayLenght+result3/arrayLenght+result4/arrayLenght+result5/arrayLenght+result6/arrayLenght+result7/arrayLenght+result8/arrayLenght+result9/arrayLenght+result10/arrayLenght+result11/arrayLenght+result12/arrayLenght+result13/arrayLenght+result14/arrayLenght+result15/arrayLenght+result16/arrayLenght+result17/arrayLenght+result18/arrayLenght+result19/arrayLenght+result20/arrayLenght+result21/arrayLenght+result22/arrayLenght+result23/arrayLenght+result24/arrayLenght+result25/arrayLenght+result26/arrayLenght+result27/arrayLenght+result28/arrayLenght+result29/arrayLenght+result30/arrayLenght;
+  const finalResult = result+result1+result2+result3+result4+result5+result6+result7+result8+result9+result10+result11+result12+result13+result14+result15+result16+result17+result18+result19+result20+result21+result22+result23+result24+result25+result26+result27+result28+result29+result30;
 
   function SaveResult(){
     const storage = new Storage({
