@@ -318,7 +318,7 @@ export default function Calculator() {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d"}}> 
-      <DataTable.Cell><Text style={{color:"white", fontSize: 22, marginLeft: "6%"}}>DRIVE IN:           <Text style={{color: "#282828"}}>hrs:<Text style={{color: "white"}}>{PureHours|0}          <Text style={{color: "#282828"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{color:"white", fontSize: 22, marginLeft: "6%"}}>DRIVE IN:           <Text style={{color: "#282828"}}>hrs: <Text style={{color: "white"}}>{PureHours|0}          <Text style={{color: "#282828"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
