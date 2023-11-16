@@ -1,4 +1,4 @@
-import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image, NativeModules  } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -144,7 +144,7 @@ export default function Drinks(){
         },
         expires: OutIn * 3600000
       });
-      navigation.navigate("Calculator");
+      NativeModules.DevSettings.reload();
     }
 
   const [ago, setAgo] = useState("");
