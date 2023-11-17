@@ -166,7 +166,7 @@ export default function Calculator() {
         .then(ret => {
           setWeight(ret.Weight);
           setName(ret.Name);
-          setMemoGender(ret.Gender),
+          setMemoGender(ret.Gender);
           setLimit(ret.Limit.limit/0.1);
         })
         .catch(err => {
