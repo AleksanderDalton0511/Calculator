@@ -33,7 +33,6 @@ export default function Calculator() {
         }
       })
       .then(ret => {
-        console.log(ret);
         setFinalHolder(ret.TheResult.finalResult);
       })
       .catch(err => {
@@ -51,6 +50,7 @@ export default function Calculator() {
   const [memoWeight, setWeight] = useState("");
   const [memoGender, setMemoGender] = useState("");
   const [number, setNumber] = useState("");
+  const [limit, setLimit] = useState("");
 
   const navigation = useNavigation();
 
@@ -166,7 +166,8 @@ export default function Calculator() {
         .then(ret => {
           setWeight(ret.Weight);
           setName(ret.Name);
-          setMemoGender(ret.Gender)
+          setMemoGender(ret.Gender),
+          setLimit(ret.Limit.limit/0.1);
         })
         .catch(err => {
           switch (err.name) {
@@ -193,7 +194,7 @@ export default function Calculator() {
   const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
   const LeftAlcohol = AlcoholInBlood-losen;
 
-  const OutIn = finalHolder/MinusPerHour;
+  const OutIn = finalHolder/MinusPerHour - limit;
   const OutInMin = OutIn*60;
   const PureHours = OutInMin/60;
   const PureMins = OutInMin% 60;

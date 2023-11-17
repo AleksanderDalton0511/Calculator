@@ -36,6 +36,7 @@ export default function Users2(){
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [weight, setWeight] = useState("");
+  const [limit, setLimit] = useState("");
 
   function Save(){
     storage.save({
@@ -43,7 +44,8 @@ export default function Users2(){
       data: {
         Name: {name},
         Gender: {gender},
-        Weight: {weight}
+        Weight: {weight},
+        Limit : {limit}
       },
       // if expires not specified, the defaultExpires will be applied instead.
       // if set to null, then it will never expire.
@@ -138,7 +140,12 @@ export default function Users2(){
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Allowed level</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text style={{fontWeight: "bold"}}>0.20 ‰</Text></DataTable.Cell> 
+        <DataTable.Cell><TextInput
+        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
+        onChangeText={newText => setLimit(newText)}
+        placeholder="‰"
+        keyboardType="numeric"
+      /></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
