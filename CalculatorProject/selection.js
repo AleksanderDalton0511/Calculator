@@ -1,4 +1,4 @@
-import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView, NativeModules } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -148,7 +148,7 @@ export default function Selection(){
       // if set to null, then it will never expire.
       expires: null
     });
-    navigation.navigate("Calculator");
+    NativeModules.DevSettings.reload();
   }
   function Select2(){
     const storage = new Storage({
@@ -166,7 +166,7 @@ export default function Selection(){
       // if set to null, then it will never expire.
       expires: null
     });
-    navigation.navigate("Calculator");
+    NativeModules.DevSettings.reload();
   }
   function Select3(){
     const storage = new Storage({
@@ -184,7 +184,7 @@ export default function Selection(){
       // if set to null, then it will never expire.
       expires: null
     });
-    navigation.navigate("Calculator");
+    NativeModules.DevSettings.reload();
   }
 
 
