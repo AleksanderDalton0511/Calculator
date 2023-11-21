@@ -8,6 +8,35 @@ import { DataTable } from 'react-native-paper';
 
 export default function Loading() {
 
+const [number, setNumber] = useState("");
+
+useEffect(() => {
+  // load
+storage2
+.load({
+  key: 'number',
+  autoSync: true,
+  syncInBackground: true,
+  syncParams: {
+    extraFetchOptions: {
+      // blahblah
+    },
+    someFlag: true
+  }
+})
+.then(ret => {
+  setNumber(ret);
+})
+.catch(err => {
+  switch (err.name) {
+    case 'NotFoundError':
+      break;
+    case 'ExpiredError':
+      break;
+  }
+});
+}, []);
+
 const navigation = useNavigation();
 
 const currentDate = Date.now();
@@ -154,7 +183,7 @@ const [result30, setResult30] = useState(0);
 
       storage
       .load({
-        key: 'result',
+        key: 'result'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -179,7 +208,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result1',
+        key: 'result1'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -204,7 +233,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result2',
+        key: 'result2'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -229,7 +258,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result3',
+        key: 'result3'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -254,7 +283,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result4',
+        key: 'result4'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -279,7 +308,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result5',
+        key: 'result5'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -304,7 +333,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result6',
+        key: 'result6'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -329,7 +358,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result7',
+        key: 'result7'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -354,7 +383,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result8',
+        key: 'result8'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -379,7 +408,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result10',
+        key: 'result10'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -404,7 +433,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result9',
+        key: 'result9'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -429,7 +458,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result11',
+        key: 'result11'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -454,7 +483,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result12',
+        key: 'result12'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -468,6 +497,7 @@ const [result30, setResult30] = useState(0);
         const timeElapsed = currentDate - ret.Date.date
         const finalTime = timeElapsed/3600000;
         setResult12(ret.alcInBlood.LeftAlcohol - (finalTime * 0.1)/arrayLenght);
+        console.log(ret);
       })
       .catch(err => {
         switch (err.name) {
@@ -479,7 +509,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result13',
+        key: 'result13'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -504,7 +534,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result14',
+        key: 'result14'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -529,7 +559,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result15',
+        key: 'result15'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -554,7 +584,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result16',
+        key: 'result16'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -579,7 +609,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result17',
+        key: 'result17'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -604,7 +634,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result18',
+        key: 'result18'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -629,7 +659,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result19',
+        key: 'result19'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -654,7 +684,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result20',
+        key: 'result20'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -679,7 +709,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result21',
+        key: 'result21'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -704,7 +734,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result22',
+        key: 'result22'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -729,7 +759,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result23',
+        key: 'result23'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -754,7 +784,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result24',
+        key: 'result24'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -779,7 +809,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result25',
+        key: 'result25'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -804,7 +834,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result26',
+        key: 'result26'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -829,7 +859,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result27',
+        key: 'result27'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -854,7 +884,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result28',
+        key: 'result28'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -879,7 +909,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result29',
+        key: 'result29'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -904,7 +934,7 @@ const [result30, setResult30] = useState(0);
       });
       storage
       .load({
-        key: 'result30',
+        key: 'result30'+','+number,
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -928,7 +958,7 @@ const [result30, setResult30] = useState(0);
         }
       });
     
-  }, [arrayLenght]);
+  }, [number, arrayLenght]);
 
   const finalResult = result+result1+result2+result3+result4+result5+result6+result7+result8+result9+result10+result11+result12+result13+result14+result15+result16+result17+result18+result19+result20+result21+result22+result23+result24+result25+result26+result27+result28+result29+result30;
 
@@ -960,7 +990,6 @@ const [result30, setResult30] = useState(0);
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
   const [memoGender, setMemoGender] = useState("");
-  const [number, setNumber] = useState("");
 
   if (number == 3 && memoName == ""){
     setNumber(2);
@@ -1018,33 +1047,6 @@ const [result30, setResult30] = useState(0);
     sync: {
     }
   });
-
-  useEffect(() => {
-    // load
-  storage2
-  .load({
-    key: 'number',
-    autoSync: true,
-    syncInBackground: true,
-    syncParams: {
-      extraFetchOptions: {
-        // blahblah
-      },
-      someFlag: true
-    }
-  })
-  .then(ret => {
-    setNumber(ret);
-  })
-  .catch(err => {
-    switch (err.name) {
-      case 'NotFoundError':
-        break;
-      case 'ExpiredError':
-        break;
-    }
-  });
-  }, []);
 
   useEffect(() => {
       const storage = new Storage({

@@ -134,10 +134,10 @@ export default function Drinks(){
     }, []);
 
     function SaveResult(){
-      console.log('result'+index);
+      console.log('result'+index+','+number);
       const date = Date.now();
       storage.save({
-        key: 'result'+index, // Note: Do not use underscore("_") in key!
+        key: 'result'+index+','+number, // Note: Do not use underscore("_") in key!
         data: {
           alcInBlood : {LeftAlcohol},
           Date : {date}
