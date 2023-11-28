@@ -21,7 +21,7 @@ export default function Drinks(){
     setNumber("");
   }
 
-  const storage2 = new Storage({
+  const storage = new Storage({
     size: 1000,
     storageBackend: AsyncStorage,
     defaultExpires: null,
@@ -32,7 +32,7 @@ export default function Drinks(){
 
   useEffect(() => {
     // load
-  storage2
+  storage
   .load({
     key: 'number',
     autoSync: true,
@@ -58,16 +58,6 @@ export default function Drinks(){
   }, []);
 
   useEffect(() => {
-      const storage = new Storage({
-        size: 1000,
-        storageBackend: AsyncStorage,
-        defaultExpires: null,
-        enableCache: true,
-        sync: {
-        }
-      });
-
-      // load
       storage
         .load({
           key: 'user'+number,
@@ -95,15 +85,6 @@ export default function Drinks(){
         });
       
     }, [number]);
-
-    const storage = new Storage({
-      size: 1000,
-      storageBackend: AsyncStorage,
-      defaultExpires: null,
-      enableCache: true,
-      sync: {
-      }
-    });
 
     const [index, setIndex] = useState();
 
@@ -133,48 +114,15 @@ export default function Drinks(){
         });
     }, []);
 
-    function SaveResult(){
-      console.log('result'+index+','+number);
-      const date = Date.now();
-      storage.save({
-        key: 'result'+index+','+number, // Note: Do not use underscore("_") in key!
-        data: {
-          alcInBlood : {LeftAlcohol},
-          Date : {date}
-        },
-        expires: OutIn * 3600000
-      });
-      NativeModules.DevSettings.reload();
-    }
-
-  const [ago, setAgo] = useState("");
-  const MinusPerHour = 0.1;
-  const losen = MinusPerHour*ago;
-  
   const WeightOfPerson = memoWeight.weight;
   const [Gender, setGender] = useState("");
 
   const [amount, setAmount] = useState("");
   const [content, setContent] = useState("");
+  const [ago, setAgo] = useState("");
   const PureAlcohol = (amount/100)*content*0.789;
   
   const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
-  const LeftAlcohol = AlcoholInBlood-losen;
-
-  const OutIn = LeftAlcohol/MinusPerHour;
-  const OutInMin = OutIn*60;
-  const PureHours = OutInMin/60;
-  const PureMins = OutInMin% 60;
-
-  console.log(OutIn);
-
-  function Selection(){
-    navigation.navigate("Selection");
-  }
-
-  function Backwards(){
-    navigation.navigate("Backwards");
-  }
 
   useEffect(() => {
     if (memoGender.gender!="Male"){
@@ -185,13 +133,55 @@ export default function Drinks(){
     }
   }, [memoGender]);
 
+  const newResult = {
+    "content": content,
+    "amount": amount,
+    "time": ago,
+    "date": Date.now()
+    };
+
+  function SaveResult(){
+    //const myValue = AlcoholInBlood + lastValue;
+    storage.save({
+      key: 'result'+number, // Note: Do not use underscore("_") in key!
+      data: {
+        Data: {newResult}
+      },
+      expires: null
+    });
+    navigation.navigate("Calculator");
+  }
+
+  let resultsArray = [];
+
+  useEffect(() => {
+    storage
+    .load({
+      key: 'result'+number,
+      autoSync: true,
+      syncInBackground: true,
+      syncParams: {
+        extraFetchOptions: {
+          // blahblah
+        },
+        someFlag: true
+      }
+    })
+    .then(ret => {
+      resultsArray.push(ret);
+    });
+  
+}, []);
+
+console.log(newResult);
+
   return(
     <SafeAreaView style={styles.container}>
 
       <DataTable style={{marginTop: "8%"}}> 
       
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 36, color: "white"}}>{LeftAlcohol.toFixed(4)}‰</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 36, color: "white"}}>{AlcoholInBlood.toFixed(4)}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
   
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}>   

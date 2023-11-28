@@ -8,43 +8,16 @@ import { DataTable } from 'react-native-paper';
 
 export default function Calculator() {
 
-  const [finalHolder, setFinalHolder] = useState("");
+  const currentDate = Date.now();
 
-  useEffect(() => {
-    const storage = new Storage({
-      size: 1000,
-      storageBackend: AsyncStorage,
-      defaultExpires: null,
-      enableCache: true,
-      sync: {
-      }
-    });
-
-    storage
-      .load({
-        key: 'FinalResultBAC',
-        autoSync: true,
-        syncInBackground: true,
-        syncParams: {
-          extraFetchOptions: {
-            // blahblah
-          },
-          someFlag: true
-        }
-      })
-      .then(ret => {
-        setFinalHolder(ret.TheResult.finalResult);
-      })
-      .catch(err => {
-        switch (err.name) {
-          case 'NotFoundError':
-            break;
-          case 'ExpiredError':
-            break;
-        }
-      });
-    
-  }, []);
+  const storage = new Storage({
+    size: 1000,
+    storageBackend: AsyncStorage,
+    defaultExpires: null,
+    enableCache: true,
+    sync: {
+    }
+  });
 
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
@@ -63,59 +36,8 @@ export default function Calculator() {
     }
   }, [memoName]);
 
-  const [extraHelper, setExtraHelper] = useState("");
-
   useEffect(() => {
-    const storage = new Storage({
-      size: 1000,
-      storageBackend: AsyncStorage,
-      defaultExpires: null,
-      enableCache: true,
-      sync: {
-      }
-    });
-
-    // load
-    storage
-      .load({
-        key: 'drinkNum',
-        autoSync: true,
-        syncInBackground: true,
-        syncParams: {
-          extraFetchOptions: {
-            // blahblah
-          },
-          someFlag: true
-        }
-      })
-      .then(ret => {
-        setExtraHelper(ret.Num.drinkHelper);
-      })
-      .catch(err => {
-        switch (err.name) {
-          case 'NotFoundError':
-            break;
-          case 'ExpiredError':
-            break;
-        }
-      });
-    
-  }, []);
-
-  let drinkHelper = extraHelper;
-
-  const storage2 = new Storage({
-    size: 1000,
-    storageBackend: AsyncStorage,
-    defaultExpires: null,
-    enableCache: true,
-    sync: {
-    }
-  });
-
-  useEffect(() => {
-    // load
-  storage2
+  storage
   .load({
     key: 'number',
     autoSync: true,
@@ -129,28 +51,10 @@ export default function Calculator() {
   })
   .then(ret => {
     setNumber(ret);
-  })
-  .catch(err => {
-    switch (err.name) {
-      case 'NotFoundError':
-        break;
-      case 'ExpiredError':
-        break;
-    }
   });
   }, []);
 
   useEffect(() => {
-      const storage = new Storage({
-        size: 1000,
-        storageBackend: AsyncStorage,
-        defaultExpires: null,
-        enableCache: true,
-        sync: {
-        }
-      });
-
-      // load
       storage
         .load({
           key: 'user'+number,
@@ -168,14 +72,6 @@ export default function Calculator() {
           setName(ret.Name);
           setMemoGender(ret.Gender);
           setLimit(ret.Limit.limit/0.1);
-        })
-        .catch(err => {
-          switch (err.name) {
-            case 'NotFoundError':
-              break;
-            case 'ExpiredError':
-              break;
-          }
         });
       
     }, [number]);
@@ -199,6 +95,35 @@ export default function Calculator() {
   const PureHours = OutInMin/60;
   const PureMins = OutInMin% 60;
 
+  const [finalHolder, setFinalHolder] = useState(AlcoholInBlood);
+
+  useEffect(() => {
+    storage
+    .load({
+      key: 'result'+number,
+      autoSync: true,
+      syncInBackground: true,
+      syncParams: {
+        extraFetchOptions: {
+          // blahblah
+        },
+        someFlag: true
+      }
+    })
+    .then(ret => {
+      //const timeElapsed = currentDate - ret.Date.date;
+      //const finalTime = timeElapsed/3600000;
+      setStrongness(ret.Data.newResult.content);
+      setDrinkenMl(ret.Data.newResult.amount);
+      setDrinkedAgo(ret.Data.newResult.ago);
+      console.log(ret);
+    });
+  
+}, [number]);
+
+  console.log(Strongness);
+  console.log(DrinkenMl);
+
   function Selection(){
     navigation.navigate("Selection");
   }
@@ -208,25 +133,6 @@ export default function Calculator() {
   }
 
   function Drinks(){
-    drinkHelper++;
-
-    const storage = new Storage({
-      size: 1000,
-      storageBackend: AsyncStorage,
-      defaultExpires: null,
-      enableCache: true,
-      sync: {
-      }
-    });
-
-      storage.save({
-        key: 'drinkNum', // Note: Do not use underscore("_") in key!
-        data: {
-          Num : {drinkHelper}
-        },
-        expires: null
-      });
-
       navigation.navigate("Drinks");
   }
 
@@ -238,49 +144,6 @@ export default function Calculator() {
       setGender(0.7);
     }
   }, [memoGender]);
-
-  useEffect(() => {
-    const storage3 = new Storage({
-      size: 1000,
-      storageBackend: AsyncStorage,
-      defaultExpires: null,
-      enableCache: true,
-      sync: {
-      }
-    });
-
-    // load
-    storage3
-      .load({
-        key: 'drink',
-        autoSync: true,
-        syncInBackground: true,
-        syncParams: {
-          extraFetchOptions: {
-            // blahblah
-          },
-          someFlag: true
-        }
-      })
-      .then(ret => {
-        setDrinkedAgo(ret.Ago.ago);
-        setDrinkenMl(ret.Amount.amount);
-        setStrongness(ret.Content.content);
-      })
-      .catch(err => {
-        switch (err.name) {
-          case 'NotFoundError':
-            break;
-          case 'ExpiredError':
-            break;
-        }
-      });
-    
-  }, [number]);
-
-    if (finalHolder == 0 || finalHolder < 0){
-      drinkHelper = 0;
-    }
 
     setTimeout(() => {
       if (finalHolder>0){
@@ -309,7 +172,7 @@ export default function Calculator() {
       <DataTable style={{paddingTop: "7%", backgroundColor: "#61a22d"}}> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "25%"}}>{newNumber}‰</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "25%"}}>{AlcoholInBlood}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
