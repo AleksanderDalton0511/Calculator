@@ -18,7 +18,7 @@ export default function Drinks(){
     setNumber(2);
   }
   else if (number == 2 && memoName == ""){
-    setNumber("");
+    setNumber(1);
   }
 
   const storage = new Storage({
@@ -177,6 +177,7 @@ export default function Drinks(){
     }
 
     else{
+      console.log('result'+number)
     storage.save({
       key: 'result'+number, // Note: Do not use underscore("_") in key!
       data: {

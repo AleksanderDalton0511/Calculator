@@ -143,7 +143,7 @@ export default function Selection(){
     });
     storage.save({
       key: 'number', // Note: Do not use underscore("_") in key!
-      data: "",
+      data: "1",
       // if expires not specified, the defaultExpires will be applied instead.
       // if set to null, then it will never expire.
       expires: null

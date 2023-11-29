@@ -29,7 +29,7 @@ export default function Calculator() {
       setNumber(2);
     }
     else if (number == 2 && memoName == ""){
-      setNumber("");
+      setNumber(1);
     }
   }, [memoName]);
 
@@ -108,7 +108,6 @@ export default function Calculator() {
       }
       setSumFin(finaal.reduce((partialSum, a) => partialSum + a, 0));
       console.log(finaal);
-      console.log(sumFin);
     });
   
 }, [number]);
