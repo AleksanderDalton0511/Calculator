@@ -116,13 +116,9 @@ export default function Calculator() {
       setStrongness(ret.Data.newResult.content);
       setDrinkenMl(ret.Data.newResult.amount);
       setDrinkedAgo(ret.Data.newResult.ago);
-      console.log(ret);
     });
   
 }, [number]);
-
-  console.log(Strongness);
-  console.log(DrinkenMl);
 
   function Selection(){
     navigation.navigate("Selection");

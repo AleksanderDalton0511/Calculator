@@ -133,26 +133,21 @@ export default function Drinks(){
     }
   }, [memoGender]);
 
+
+
+
+
+
+
+
+
+
+  let oldResult = [];
+
   const newResult = {
-    "content": content,
-    "amount": amount,
-    "time": ago,
-    "date": Date.now()
-    };
-
-  function SaveResult(){
-    //const myValue = AlcoholInBlood + lastValue;
-    storage.save({
-      key: 'result'+number, // Note: Do not use underscore("_") in key!
-      data: {
-        Data: {newResult}
-      },
-      expires: null
-    });
-    navigation.navigate("Calculator");
+    "promille": AlcoholInBlood,
+    "timeOfDrink": Date.now()
   }
-
-  let resultsArray = [];
 
   useEffect(() => {
     storage
@@ -168,12 +163,25 @@ export default function Drinks(){
       }
     })
     .then(ret => {
-      resultsArray.push(ret);
+      oldResult = ret.Data.oldResult;
+      oldResult.push(newResult);
+      console.log(ret);
     });
   
-}, []);
+}, [newResult]);
 
-console.log(newResult);
+  function SaveResult(){
+    storage.save({
+      key: 'result'+number, // Note: Do not use underscore("_") in key!
+      data: {
+        Data: {oldResult}
+      },
+      expires: null
+    });
+    navigation.navigate("Calculator");
+  }
+
+  //console.log(oldResult);
 
   return(
     <SafeAreaView style={styles.container}>
