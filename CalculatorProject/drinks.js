@@ -171,6 +171,12 @@ export default function Drinks(){
 }, [newResult]);
 
   function SaveResult(){
+
+    if(amount == 0 || content == 0){
+      console.log('result'+number);
+    }
+
+    else{
     storage.save({
       key: 'result'+number, // Note: Do not use underscore("_") in key!
       data: {
@@ -179,10 +185,10 @@ export default function Drinks(){
       expires: null
     });
     navigation.navigate("Calculator");
+    }
+
   }
-
-  //console.log(oldResult);
-
+  
   return(
     <SafeAreaView style={styles.container}>
 

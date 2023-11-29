@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, SafeAreaView, ImageBackground } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
@@ -7,8 +6,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { DataTable } from 'react-native-paper'; 
 
 export default function Calculator() {
-
-  const currentDate = Date.now();
 
   const storage = new Storage({
     size: 1000,
@@ -76,26 +73,18 @@ export default function Calculator() {
       
     }, [number]);
 
-  const [DrinkedAgo, setDrinkedAgo] = useState("");
-  const MinusPerHour = 0.1;
-  const losen = MinusPerHour*DrinkedAgo;
-  
+  const MinusPerHour = 0.1;  
   const WeightOfPerson = memoWeight.weight;
   const [Gender, setGender] = useState("");
-
-  const [DrinkenMl, setDrinkenMl] = useState("");
-  const [Strongness, setStrongness] = useState("");
-  const PureAlcohol = (DrinkenMl/100)*Strongness*0.789;
-  
-  const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
-  const LeftAlcohol = AlcoholInBlood-losen;
 
   const OutIn = finalHolder/MinusPerHour - limit;
   const OutInMin = OutIn*60;
   const PureHours = OutInMin/60;
   const PureMins = OutInMin% 60;
 
-  const [finalHolder, setFinalHolder] = useState(AlcoholInBlood);
+  let finalHolder;
+
+  const [sumFin, setSumFin] = useState();
 
   useEffect(() => {
     storage
@@ -105,17 +94,21 @@ export default function Calculator() {
       syncInBackground: true,
       syncParams: {
         extraFetchOptions: {
-          // blahblah
         },
         someFlag: true
       }
     })
     .then(ret => {
-      //const timeElapsed = currentDate - ret.Date.date;
-      //const finalTime = timeElapsed/3600000;
-      setStrongness(ret.Data.newResult.content);
-      setDrinkenMl(ret.Data.newResult.amount);
-      setDrinkedAgo(ret.Data.newResult.ago);
+      let finaal = [];
+      for (let i = 0; i < ret.Data.oldResult.length; i++) {
+        finaal.push(ret.Data.oldResult[i].promille);
+      }
+      for (let i = 0; i < finaal.length; i++) {
+        finalHolder += finaal[i]
+      }
+      setSumFin(finaal.reduce((partialSum, a) => partialSum + a, 0));
+      console.log(finaal);
+      console.log(sumFin);
     });
   
 }, [number]);
@@ -147,7 +140,7 @@ export default function Calculator() {
       }
   }, 1000);
 
-  const newNumber = Number(finalHolder).toFixed(4);
+  const newNumber = Number(sumFin).toFixed(4);
     
   return(
     <SafeAreaView style={styles.container}>
@@ -168,7 +161,7 @@ export default function Calculator() {
       <DataTable style={{paddingTop: "7%", backgroundColor: "#61a22d"}}> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "25%"}}>{AlcoholInBlood}‰</Text></DataTable.Cell> 
+        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "25%"}}>{newNumber}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
