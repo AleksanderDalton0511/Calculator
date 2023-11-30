@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity, StyleSheet, Image, Button} from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image, Button, FlatList} from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -189,13 +189,10 @@ console.log(list);
         <Text>Active drinks</Text>
       </DataTable.Row> 
 
-      {list?.map((person) => {
-        return (
-          <View>
-            <Text>{person.value}</Text>
-          </View>
-        );
-      })}
+      <FlatList
+         data={list}
+         renderItem={({item}) => <Text>{item.value}</Text>}
+      />
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       </DataTable.Row> 
