@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity, StyleSheet, Image, FlatList  } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image, Button} from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -189,7 +189,6 @@ console.log(list);
         <Text>Active drinks</Text>
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       {list?.map((person) => {
         return (
           <View>
@@ -197,7 +196,6 @@ console.log(list);
           </View>
         );
       })}
-      </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       </DataTable.Row> 
