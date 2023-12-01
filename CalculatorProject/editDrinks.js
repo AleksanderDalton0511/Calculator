@@ -191,7 +191,8 @@ console.log(list);
 
       <FlatList
          data={list}
-         renderItem={({item}) => <Text>{item.value}</Text>}
+         renderItem={({item}) => <Text>{item.value}<Button onPress={() => setList(list.splice(list.indexOf(item)))}></Button></Text> }
+         keyExtractor={(item) => item.time}
       />
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
