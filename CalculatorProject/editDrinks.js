@@ -191,7 +191,7 @@ console.log(list);
 
       <FlatList
          data={list}
-         renderItem={({item}) => <Text>{item.value}<Button onPress={() => setList(list.splice(list.indexOf(item)))}></Button></Text> }
+         renderItem={({item}) => <Text>{item.value}<Button onPress={() => setList(list.slice(0, list.indexOf(item)).concat(list.slice(list.indexOf(item)+1)))}></Button></Text> }
          keyExtractor={(item) => item.time}
       />
 
