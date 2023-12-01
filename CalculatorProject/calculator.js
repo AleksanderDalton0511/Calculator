@@ -121,7 +121,7 @@ export default function Calculator() {
   }
 
   function Drinks(){
-      navigation.navigate("Drinks");
+      navigation.navigate("EditDrinks");
   }
 
   useEffect(() => {

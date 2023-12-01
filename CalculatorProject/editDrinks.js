@@ -86,52 +86,9 @@ export default function Drinks(){
       
     }, [number]);
 
-    const [index, setIndex] = useState();
-
-    useEffect(() => {
-      storage
-        .load({
-          key: 'drinkNum',
-          autoSync: true,
-          syncInBackground: true,
-          syncParams: {
-            extraFetchOptions: {
-              // blahblah
-            },
-            someFlag: true
-          }
-        })
-        .then(ret => {
-          setIndex(ret.Num.drinkHelper);
-        })
-        .catch(err => {
-          switch (err.name) {
-            case 'NotFoundError':
-              break;
-            case 'ExpiredError':
-              break;
-          }
-        });
-    }, []);
-
-  const WeightOfPerson = memoWeight.weight;
-  const [Gender, setGender] = useState("");
-
-  const [amount, setAmount] = useState("");
-  const [content, setContent] = useState("");
-  const [ago, setAgo] = useState("");
-  const PureAlcohol = (amount/100)*content*0.789;
-  
-  const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
-
-  useEffect(() => {
-    if (memoGender.gender!="Male"){
-      setGender(0.6);
-    }
-    else{
-      setGender(0.7);
-    }
-  }, [memoGender]);
+  function AddNew(){
+    navigation.navigate("Drinks");
+}
 
 
 
@@ -143,7 +100,7 @@ export default function Drinks(){
   
 
 
-  const[list, setList] = useState();
+  const[oldResult, setList] = useState();
 
   useEffect(() => {
     storage
@@ -159,12 +116,23 @@ export default function Drinks(){
       }
     })
     .then(ret => {
-      setList(ret.Data.oldResult.map(person => ({ value: person.promille, time: person.timeOfDrink })));
+      console.log(ret);
+      setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink })));
     });
   
 }, [number]);
 
-console.log(list);
+console.log(oldResult);
+
+useEffect(() => {
+  storage.save({
+    key: 'result'+number, // Note: Do not use underscore("_") in key!
+    data: {
+      Data: {oldResult}
+    },
+    expires: null
+  });
+}, [oldResult]);
 
   return(
     <SafeAreaView style={styles.container}>
@@ -190,9 +158,9 @@ console.log(list);
       </DataTable.Row> 
 
       <FlatList
-         data={list}
-         renderItem={({item}) => <Text>{item.value}<Button onPress={() => setList(list.slice(0, list.indexOf(item)).concat(list.slice(list.indexOf(item)+1)))}></Button></Text> }
-         keyExtractor={(item) => item.time}
+         data={oldResult}
+         renderItem={({item}) => <Text>{item.promille}<Button onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}></Button></Text> }
+         keyExtractor={(item) => item.timeOfDrink}
       />
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
@@ -205,7 +173,7 @@ console.log(list);
 
       <View style={styles.parent}>
         <TouchableOpacity style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Done</Text></TouchableOpacity>
-        <TouchableOpacity style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Add new drinks</Text></TouchableOpacity>
+        <TouchableOpacity onPress={AddNew} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Add new drinks</Text></TouchableOpacity>
       </View>
 
       </SafeAreaView>
