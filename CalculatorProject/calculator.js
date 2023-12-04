@@ -107,7 +107,23 @@ export default function Calculator() {
         finalHolder += finaal[i]
       }
       setSumFin(finaal.reduce((partialSum, a) => partialSum + a, 0));
-      console.log(finaal);
+
+      let oldResult = ret.Data.oldResult;
+
+      const timeElapsed = Date.now() - oldResult[0].timeOfDrink;
+      const finalTime = timeElapsed/3600000;
+
+      oldResult[0].promille = oldResult[0].promille-finalTime * 0.1;
+
+      console.log(oldResult);
+
+      storage.save({
+        key: 'result45'+number, // Note: Do not use underscore("_") in key!
+        data: {
+          Data: {oldResult}
+        },
+        expires: null
+      });
     });
   
 }, [number]);
