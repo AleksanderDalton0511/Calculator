@@ -115,15 +115,19 @@ export default function Calculator() {
 
       oldResult[0].promille = oldResult[0].promille-finalTime * 0.1;
 
-      console.log(oldResult);
+      console.log(ret);
 
-      storage.save({
-        key: 'result45'+number, // Note: Do not use underscore("_") in key!
-        data: {
-          Data: {oldResult}
-        },
-        expires: null
-      });
+      if(oldResult[0].promille<0){
+        oldResult.shift();
+        storage.save({
+          key: 'result'+number, // Note: Do not use underscore("_") in key!
+          data: {
+            Data: {oldResult}
+          },
+          expires: null
+        });
+      }
+
     });
   
 }, [number]);
