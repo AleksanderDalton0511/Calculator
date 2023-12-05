@@ -122,7 +122,7 @@ export default function Drinks(){
   const [ago, setAgo] = useState("");
   const PureAlcohol = (amount/100)*content*0.789;
   
-  const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender);
+  const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender) - 0.1*ago;
 
   useEffect(() => {
     if (memoGender.gender!="Male"){
