@@ -39,7 +39,6 @@ export default function Calculator() {
   })
   .then(ret => {
     setNumber(ret);
-    console.log(ret);
   });
   }, []);
 
@@ -91,21 +90,31 @@ export default function Calculator() {
       }
     })
     .then(ret => {
-      let finaal = [];
-      for (let i = 0; i < ret.Data.oldResult.length; i++) {
-        finaal.push(ret.Data.oldResult[i].promille);
-      }
-      for (let i = 0; i < finaal.length; i++) {
-        finalHolder += finaal[i]
-      }
-      setSumFin(finaal.reduce((partialSum, a) => partialSum + a, 0));
-
       let oldResult = ret.Data.oldResult;
 
       const timeElapsed = Date.now() - oldResult[0].timeOfDrink;
       const finalTime = timeElapsed/3600000;
 
-      oldResult[0].promille = oldResult[0].promille-finalTime * 0.1;
+      ret.Data.oldResult[0].promille = ret.Data.oldResult[0].promille-finalTime * 0.1;
+
+      let finaal = [];
+      let result0= 0;
+      for (let i = 0; i < ret.Data.oldResult.length; i++) {
+        finaal.push(ret.Data.oldResult[i].promille);
+        console.log(ret.Data.oldResult[i].promille);
+      }
+      for (let i = 0; i < finaal.length; i++) {
+        result0 += finaal[i]
+      }
+      setSumFin(result0);
+      
+      console.log("before update "+ret.Data.oldResult[0].promille);
+
+      console.log("after update "+ret.Data.oldResult[0].promille);
+      console.log("finaltime "+ finalTime);
+      console.log("time elapsed "+timeElapsed);
+
+      console.log("result0= " + result0);
 
       if(oldResult[0].promille<0){
         oldResult.shift();

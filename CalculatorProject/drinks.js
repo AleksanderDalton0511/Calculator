@@ -138,8 +138,8 @@ export default function Drinks(){
   let oldResult = [];
 
   const newResult = {
-    "promille": AlcoholInBlood,
-    "timeOfDrink": Date.now()
+    promille: AlcoholInBlood,
+    timeOfDrink: Date.now()
   }
 
   useEffect(() => {
