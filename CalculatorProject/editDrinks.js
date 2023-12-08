@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity, StyleSheet, Image, Button, FlatList} from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image, FlatList} from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -13,13 +13,6 @@ export default function Drinks(){
   const [number, setNumber] = useState("");
 
   const navigation = useNavigation();
-
-  if (number == 3 && memoName == ""){
-    setNumber(2);
-  }
-  else if (number == 2 && memoName == ""){
-    setNumber(1);
-  }
 
   const storage = new Storage({
     size: 1000,
@@ -116,13 +109,10 @@ export default function Drinks(){
       }
     })
     .then(ret => {
-      console.log(ret);
       setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink })));
     });
   
 }, [number]);
-
-console.log(oldResult);
 
 useEffect(() => {
   storage.save({
@@ -158,8 +148,9 @@ useEffect(() => {
       </DataTable.Row> 
 
       <FlatList
+         style={{marginLeft: "10%"}} 
          data={oldResult}
-         renderItem={({item}) => <Text>{item.promille}<Button onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}></Button></Text> }
+         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "red"}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text>{item.promille}</Text></TouchableOpacity> }
          keyExtractor={(item) => item.timeOfDrink}
       />
 

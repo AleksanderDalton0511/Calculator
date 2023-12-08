@@ -25,15 +25,6 @@ export default function Calculator() {
   const navigation = useNavigation();
 
   useEffect(() => {
-    if (number == 3 && memoName == ""){
-      setNumber(2);
-    }
-    else if (number == 2 && memoName == ""){
-      setNumber(1);
-    }
-  }, [memoName]);
-
-  useEffect(() => {
   storage
   .load({
     key: 'number',
@@ -48,6 +39,7 @@ export default function Calculator() {
   })
   .then(ret => {
     setNumber(ret);
+    console.log(ret);
   });
   }, []);
 
@@ -114,8 +106,6 @@ export default function Calculator() {
       const finalTime = timeElapsed/3600000;
 
       oldResult[0].promille = oldResult[0].promille-finalTime * 0.1;
-
-      console.log(ret);
 
       if(oldResult[0].promille<0){
         oldResult.shift();

@@ -148,7 +148,7 @@ export default function Selection(){
       // if set to null, then it will never expire.
       expires: null
     });
-    NativeModules.DevSettings.reload();
+    navigation.navigate("Calculator");
   }
   function Select2(){
     const storage = new Storage({
@@ -166,7 +166,7 @@ export default function Selection(){
       // if set to null, then it will never expire.
       expires: null
     });
-    NativeModules.DevSettings.reload();
+    navigation.navigate("Calculator");
   }
   function Select3(){
     const storage = new Storage({
@@ -184,7 +184,7 @@ export default function Selection(){
       // if set to null, then it will never expire.
       expires: null
     });
-    NativeModules.DevSettings.reload();
+    navigation.navigate("Calculator");
   }
 
 

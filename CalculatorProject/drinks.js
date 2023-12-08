@@ -14,13 +14,6 @@ export default function Drinks(){
 
   const navigation = useNavigation();
 
-  if (number == 3 && memoName == ""){
-    setNumber(2);
-  }
-  else if (number == 2 && memoName == ""){
-    setNumber(1);
-  }
-
   const storage = new Storage({
     size: 1000,
     storageBackend: AsyncStorage,
