@@ -103,20 +103,11 @@ export default function Calculator(route) {
       let result0= 0;
       for (let i = 0; i < ret.Data.oldResult.length; i++) {
         finaal.push(ret.Data.oldResult[i].promille);
-        console.log(ret.Data.oldResult[i].promille);
       }
       for (let i = 0; i < finaal.length; i++) {
         result0 += finaal[i]
       }
       setSumFin(result0);
-      
-      console.log("before update "+ret.Data.oldResult[0].promille);
-
-      console.log("after update "+ret.Data.oldResult[0].promille);
-      console.log("finaltime "+ finalTime);
-      console.log("time elapsed "+timeElapsed);
-
-      console.log("result0= " + result0);
 
       if(oldResult[0].promille<0){
         oldResult.shift();
@@ -131,7 +122,7 @@ export default function Calculator(route) {
 
     });
   
-}, [number]);
+}, [number, route, isFocused]);
 
   function Selection(){
     navigation.navigate("Selection");
