@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, SafeAreaView, ImageBackground } from 'react-native';
 import React, { useState, useEffect } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useIsFocused } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
 import { DataTable } from 'react-native-paper'; 
 
-export default function Calculator() {
+export default function Calculator(route) {
 
   const storage = new Storage({
     size: 1000,
@@ -24,6 +24,8 @@ export default function Calculator() {
 
   const navigation = useNavigation();
 
+  const isFocused = useIsFocused();
+
   useEffect(() => {
   storage
   .load({
@@ -40,7 +42,7 @@ export default function Calculator() {
   .then(ret => {
     setNumber(ret);
   });
-  }, []);
+  }, [route, isFocused]);
 
   useEffect(() => {
       storage
