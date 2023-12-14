@@ -151,6 +151,10 @@ export default function Calculator(route) {
       }
   }, 1000);
 
+  if(sumFin==undefined){
+    setSumFin(0);
+  }
+
   const newNumber = Number(sumFin).toFixed(4);
     
   return(
