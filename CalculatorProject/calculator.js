@@ -70,13 +70,6 @@ export default function Calculator(route) {
   const WeightOfPerson = memoWeight.weight;
   const [Gender, setGender] = useState("");
 
-  const OutIn = finalHolder/MinusPerHour - limit;
-  const OutInMin = OutIn*60;
-  const PureHours = OutInMin/60;
-  const PureMins = OutInMin% 60;
-
-  let finalHolder;
-
   const [sumFin, setSumFin] = useState();
 
   useEffect(() => {
@@ -146,8 +139,8 @@ export default function Calculator(route) {
   }, [memoGender]);
 
     setTimeout(() => {
-      if (finalHolder>0){
-        setFinalHolder((finalHolder-0.1/3600));
+      if (sumFin>0){
+        setSumFin((sumFin-0.1/3600));
       }
   }, 1000);
 
@@ -156,6 +149,11 @@ export default function Calculator(route) {
   }
 
   const newNumber = Number(sumFin).toFixed(4);
+
+  const OutIn = sumFin/MinusPerHour - limit;
+  const OutInMin = OutIn*60;
+  const PureHours = OutInMin/60;
+  const PureMins = OutInMin% 60;
     
   return(
     <SafeAreaView style={styles.container}>
