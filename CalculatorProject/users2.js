@@ -90,7 +90,8 @@ export default function Users2(){
     {label: '0.5', value: '0.5'},
     {label: '0.6', value: '0.6'},
     {label: '0.7', value: '0.7'},
-    {label: '0.8', value: '0.8'}
+    {label: '0.8', value: '0.8'},
+    {label: '0.9', value: '0.9'}
   ]);
 
 
@@ -135,12 +136,19 @@ export default function Users2(){
       placeholder='Select'
       dropDownDirection="TOP"
       open={open}
-      value={limit}
+      value={gender}
       items={items}
       setOpen={setOpen}
-      setValue={setLimit}
+      setValue={setGender}
       setItems={setItems}
     /></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>BAC units</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text style={{fontWeight: "bold"}}>Permille ‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
@@ -155,36 +163,29 @@ export default function Users2(){
       /></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Allowed level</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><DropDownPicker
-        style={{
-          minHeight: "1%",
-          borderColor: "red",
-          width: "110%"
-        }} 
-        dropDownContainerStyle={{
-          width: "110%"
-        }}
-      placeholder='Select'
-      dropDownDirection="TOP"
-      open={open2}
-      value={gender}
-      items={items2}
-      setOpen={setOpen2}
-      setValue={setGender}
-      setItems={setItems2}
-    /></DataTable.Cell> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>BAC units</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text style={{fontWeight: "bold"}}>Permille ‰</Text></DataTable.Cell> 
-      </DataTable.Row> 
+        <View style={{flexDirection: "row"}}>
+          <Text style={{fontSize: 16, color: "#6c6c6c", marginLeft: "3.5%", marginTop: "2.1%"}}>Allowed level</Text>
+          <DropDownPicker
+          style={{
+            minHeight: "1%",
+            borderColor: "red",
+            width: "26%",
+            marginTop: "1.5%",
+            marginLeft: "46%",
+          }} 
+          dropDownContainerStyle={{
+            width: "110%"
+          }}
+          placeholder='Select'
+          dropDownDirection="TOP"
+          open={open2}
+          value={limit}
+          items={items2}
+          setOpen={setOpen2}
+          setValue={setLimit}
+          setItems={setItems2}
+        />
+      </View>
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       </DataTable.Row> 

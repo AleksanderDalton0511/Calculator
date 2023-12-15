@@ -19,7 +19,6 @@ export default function Calculator(route) {
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
   const [memoGender, setMemoGender] = useState("");
-  const [number, setNumber] = useState("");
   const [limit, setLimit] = useState("");
 
   const navigation = useNavigation();
@@ -27,27 +26,9 @@ export default function Calculator(route) {
   const isFocused = useIsFocused();
 
   useEffect(() => {
-  storage
-  .load({
-    key: 'number',
-    autoSync: true,
-    syncInBackground: true,
-    syncParams: {
-      extraFetchOptions: {
-        // blahblah
-      },
-      someFlag: true
-    }
-  })
-  .then(ret => {
-    setNumber(ret);
-  });
-  }, [route, isFocused]);
-
-  useEffect(() => {
       storage
         .load({
-          key: 'user'+number,
+          key: 'user2',
           autoSync: true,
           syncInBackground: true,
           syncParams: {
@@ -64,7 +45,7 @@ export default function Calculator(route) {
           setLimit(ret.Limit.limit/0.1);
         });
       
-    }, [number]);
+    }, [route, isFocused]);
 
   const MinusPerHour = 0.1;  
   const WeightOfPerson = memoWeight.weight;
@@ -75,7 +56,7 @@ export default function Calculator(route) {
   useEffect(() => {
     storage
     .load({
-      key: 'result'+number,
+      key: 'result2',
       autoSync: true,
       syncInBackground: true,
       syncParams: {
@@ -102,10 +83,12 @@ export default function Calculator(route) {
       }
       setSumFin(result0);
 
+      console.log(ret.Data.oldResult);
+
       if(oldResult[0].promille<0){
         oldResult.shift();
         storage.save({
-          key: 'result'+number, // Note: Do not use underscore("_") in key!
+          key: 'result2', // Note: Do not use underscore("_") in key!
           data: {
             Data: {oldResult}
           },
@@ -115,7 +98,7 @@ export default function Calculator(route) {
 
     });
   
-}, [number, route, isFocused]);
+}, [route, isFocused]);
 
   function Selection(){
     navigation.navigate("Users2");
@@ -144,16 +127,16 @@ export default function Calculator(route) {
       }
   }, 1000);*/
 
-  if(sumFin==undefined){
+  if(sumFin==undefined || sumFin < 0){
     setSumFin(0);
   }
 
   const newNumber = Number(sumFin).toFixed(4);
 
-  const OutIn = sumFin/MinusPerHour - limit;
-  const OutInMin = OutIn*60;
-  const PureHours = OutInMin/60;
-  const PureMins = OutInMin% 60;
+  let OutIn = sumFin/MinusPerHour - limit;
+  let OutInMin = OutIn*60;
+  let PureHours = OutInMin/60;
+  let PureMins = OutInMin% 60;
     
   return(
     <SafeAreaView style={styles.container}>
@@ -182,7 +165,7 @@ export default function Calculator(route) {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-      <DataTable.Cell><Text style={{fontSize: 18, color: "white", marginLeft: "27.5%", marginBottom: "6%"}}>Allowed level 0.20‰</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{fontSize: 18, color: "white", marginLeft: "27.5%", marginBottom: "6%"}}>Allowed level 0.{limit}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d"}}> 
@@ -204,10 +187,6 @@ export default function Calculator(route) {
       <Image style={{width: "100%", height: "8%"}} source={require("./assets/Valge3.png")}></Image>
 
       <DataTable style={{backgroundColor: "white"}}>
-
-      <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0, backgroundColor: "white"}}> 
-      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>name </Text><TouchableOpacity><Image style={{width: 20, height: 20, opacity: 0.5}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
-      </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink", marginTop: "3%"}}> 
       <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#6c6c6c"}}>Gender</Text></DataTable.Cell> 
