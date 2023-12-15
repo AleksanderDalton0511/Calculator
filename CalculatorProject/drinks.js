@@ -138,8 +138,9 @@ export default function Drinks(){
   let oldResult = [];
 
   const newResult = {
-    promille: AlcoholInBlood,
-    timeOfDrink: Date.now()
+    "promille": AlcoholInBlood,
+    "timeOfDrink": Date.now(),
+    "amount": amount
   }
 
   useEffect(() => {
@@ -158,7 +159,6 @@ export default function Drinks(){
     .then(ret => {
       oldResult = ret.Data.oldResult;
       oldResult.push(newResult);
-      console.log(ret);
     });
   
 }, [newResult]);
@@ -166,11 +166,9 @@ export default function Drinks(){
   function SaveResult(){
 
     if(amount == 0 || content == 0){
-      console.log('result'+number);
     }
 
     else{
-      console.log('result'+number)
     storage.save({
       key: 'result'+number, // Note: Do not use underscore("_") in key!
       data: {

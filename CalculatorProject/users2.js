@@ -1,5 +1,5 @@
 import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -33,16 +33,36 @@ export default function Users2(){
     }
   });
 
-  const [name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [weight, setWeight] = useState("");
   const [limit, setLimit] = useState("");
+
+  useEffect(() => {
+    storage
+      .load({
+        key: 'user2',
+        autoSync: true,
+        syncInBackground: true,
+        syncParams: {
+          extraFetchOptions: {
+            // blahblah
+          },
+          someFlag: true
+        }
+      })
+      .then(ret => {
+        console.log(ret);
+        setWeight(ret.Weight.weight);
+        setGender(ret.Gender.gender);
+        setLimit(ret.Limit.limit);
+      });
+    
+  }, []);
 
   function Save(){
     storage.save({
       key: 'user2', // Note: Do not use underscore("_") in key!
       data: {
-        Name: {name},
         Gender: {gender},
         Weight: {weight},
         Limit : {limit}
@@ -59,6 +79,20 @@ export default function Users2(){
     {label: 'Male', value: 'Male'},
     {label: 'Female', value: 'Female'}
   ]);
+
+  const [open2, setOpen2] = useState(false);
+  const [items2, setItems2] = useState([
+    {label: '0.0', value: '0.0'},
+    {label: '0.1', value: '0.1'},
+    {label: '0.2', value: '0.2'},
+    {label: '0.3', value: '0.3'},
+    {label: '0.4', value: '0.4'},
+    {label: '0.5', value: '0.5'},
+    {label: '0.6', value: '0.6'},
+    {label: '0.7', value: '0.7'},
+    {label: '0.8', value: '0.8'}
+  ]);
+
 
   return(
     <SafeAreaView style={styles.container}>
@@ -86,21 +120,6 @@ export default function Users2(){
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Name</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell>
-      <TextInput
-        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
-        onChangeText={newText => setName(newText)}
-        placeholder="Your name"
-      /></DataTable.Cell> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Gender</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
@@ -116,10 +135,10 @@ export default function Users2(){
       placeholder='Select'
       dropDownDirection="TOP"
       open={open}
-      value={gender}
+      value={limit}
       items={items}
       setOpen={setOpen}
-      setValue={setGender}
+      setValue={setLimit}
       setItems={setItems}
     /></DataTable.Cell> 
       </DataTable.Row> 
@@ -140,12 +159,24 @@ export default function Users2(){
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Allowed level</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><TextInput
-        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
-        onChangeText={newText => setLimit(newText)}
-        placeholder="‰"
-        keyboardType="numeric"
-      /></DataTable.Cell> 
+        <DataTable.Cell><DropDownPicker
+        style={{
+          minHeight: "1%",
+          borderColor: "red",
+          width: "110%"
+        }} 
+        dropDownContainerStyle={{
+          width: "110%"
+        }}
+      placeholder='Select'
+      dropDownDirection="TOP"
+      open={open2}
+      value={gender}
+      items={items2}
+      setOpen={setOpen2}
+      setValue={setGender}
+      setItems={setItems2}
+    /></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 

@@ -109,6 +109,12 @@ export default function Drinks(){
       }
     })
     .then(ret => {
+      const th = Date.now()-ret.Data.oldResult[0].timeOfDrink;
+      const OutIn = th / 3600000;
+      const OutInMin = OutIn*60;
+      console.log(ret.Data.oldResult);
+      const PureHours = OutInMin/60;
+      const PureMins = OutInMin% 60;
       setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink })));
     });
   
