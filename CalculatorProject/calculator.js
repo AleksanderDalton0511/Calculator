@@ -83,8 +83,6 @@ export default function Calculator(route) {
       }
       setSumFin(result0);
 
-      console.log(ret.Data.oldResult);
-
       if(oldResult[0].promille<0){
         oldResult.shift();
         storage.save({
@@ -121,11 +119,11 @@ export default function Calculator(route) {
     }
   }, [memoGender]);
 
-    /*setTimeout(() => {
+    setTimeout(() => {
       if (sumFin>0){
         setSumFin((sumFin-0.1/3600));
       }
-  }, 1000);*/
+  }, 1000);
 
   if(sumFin==undefined || sumFin < 0){
     setSumFin(0);
@@ -165,7 +163,7 @@ export default function Calculator(route) {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-      <DataTable.Cell><Text style={{fontSize: 18, color: "white", marginLeft: "27.5%", marginBottom: "6%"}}>Allowed level 0.{limit}‰</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{fontSize: 18, color: "white", marginLeft: "27.5%", marginBottom: "6%"}}>Allowed level {limit*0.1}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d"}}> 
