@@ -25,6 +25,8 @@ export default function Calculator(route) {
 
   const isFocused = useIsFocused();
 
+  const [update, setUpdate] = useState(1);
+
   useEffect(() => {
       storage
         .load({
@@ -96,7 +98,7 @@ export default function Calculator(route) {
 
     });
   
-}, [route, isFocused]);
+}, [route, isFocused, update]);
 
   function Selection(){
     navigation.navigate("Users2");
@@ -121,7 +123,7 @@ export default function Calculator(route) {
 
     setTimeout(() => {
       if (sumFin>0){
-        setSumFin((sumFin-0.1/3600));
+        setUpdate((update+0.1/3600));
       }
   }, 1000);
 
