@@ -7,7 +7,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import { DataTable } from 'react-native-paper'; 
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function Users2(){
+export default function User(){
   const navigation = useNavigation();
   
   const storage = new Storage({
@@ -40,7 +40,7 @@ export default function Users2(){
   useEffect(() => {
     storage
       .load({
-        key: 'user2',
+        key: 'user1',
         autoSync: true,
         syncInBackground: true,
         syncParams: {
@@ -51,7 +51,6 @@ export default function Users2(){
         }
       })
       .then(ret => {
-        console.log(ret);
         setWeight(ret.Weight.weight);
         setGender(ret.Gender.gender);
         setLimit(ret.Limit.limit);
@@ -61,7 +60,7 @@ export default function Users2(){
 
   function Save(){
     storage.save({
-      key: 'user2', // Note: Do not use underscore("_") in key!
+      key: 'user1', // Note: Do not use underscore("_") in key!
       data: {
         Gender: {gender},
         Weight: {weight},

@@ -1,8 +1,5 @@
 import Calculator from "./calculator.js";
-import Users from "./users.js";
-import Users2 from "./users2";
-import Users3 from "./users3";
-import Selection from "./selection";
+import User from "./user";
 import Backwards from "./backwards";
 import EditDrinks from "./editDrinks";
 import Drinks from "./drinks";
@@ -23,10 +20,9 @@ export default function App() {
       headerShown: false
     }}>
                 <Stack.Screen name="Calculator" component={Calculator}/>
-                <Stack.Screen name="Selection" component={Selection} />
                 <Stack.Screen name="Drinks" component={Drinks}/>
                 <Stack.Screen name="EditDrinks" component={EditDrinks} />
-                <Stack.Screen name="Users2" component={Users2}/>
+                <Stack.Screen name="User" component={User}/>
                 <Stack.Screen name="Backwards" component={Backwards} />
             </Stack.Navigator>
         </NavigationContainer>
