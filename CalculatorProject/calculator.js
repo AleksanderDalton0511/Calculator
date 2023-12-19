@@ -140,9 +140,18 @@ export default function Calculator(route) {
     PureHours=0;
     PureMins = 0;
   }
+
+  let color = "#61a22d";
+
+  if (OutIn>0){
+    color = "red"
+  }
     
   return(
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={{flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: `${ color }`}}>
 
       <DataTable style={{marginTop: "13%"}}> 
 
@@ -157,32 +166,32 @@ export default function Calculator(route) {
 
       </DataTable> 
 
-      <DataTable style={{paddingTop: "7%", backgroundColor: "#61a22d"}}> 
+      <DataTable style={{paddingTop: "7%", backgroundColor: `${ color }`}}> 
 
-      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+      <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
         <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "25%"}}>{newNumber}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+      <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
       <DataTable.Cell><Text style={{fontSize: 14, color: "white", marginLeft: "35%", marginBottom: "3%", opacity: 0.7}}>CURRENT LEVEL</Text></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+      <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
       <DataTable.Cell><Text style={{fontSize: 18, color: "white", marginLeft: "27.5%", marginBottom: "6%"}}>Allowed level {limit*0.1}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#61a22d"}}> 
+      <DataTable.Row style={{backgroundColor: `${ color }`}}> 
       <DataTable.Cell><Text style={{color:"white", fontSize: 22, marginLeft: "6%"}}>DRIVE IN:           <Text style={{color: "#282828"}}>hrs: <Text style={{color: "white"}}>{PureHours|0}          <Text style={{color: "#282828"}}>min: <Text style={{color: "white"}}>{PureMins.toFixed(0)}</Text></Text></Text></Text></Text></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+      <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+      <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
       <DataTable.Cell><TouchableOpacity onPress={Drinks} style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginLeft: "20%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "2%", paddingBottom: "2%", opacity: 0.9}}>Add/Edit drinks</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+      <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
       </DataTable.Row> 
 
       </DataTable> 
@@ -221,17 +230,3 @@ export default function Calculator(route) {
       </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: "#61a22d"
-  },
-  parent: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
-});
