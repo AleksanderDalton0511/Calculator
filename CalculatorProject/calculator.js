@@ -126,17 +126,20 @@ export default function Calculator(route) {
   }
 
     setTimeout(() => {
-      if (sumFin>0){
         setUpdate((update+0.1/3600));
-      }
   }, 1000);
 
   const newNumber = Number(sumFin).toFixed(4);
 
-  const OutIn = sumFin/MinusPerHour - limit;
-  const OutInMin = OutIn*60;
-  const PureHours = OutInMin/60;
-  const PureMins = OutInMin% 60;
+  let OutIn = sumFin/MinusPerHour - limit;
+  let OutInMin = OutIn*60;
+  let PureHours = OutInMin/60;
+  let PureMins = OutInMin% 60;
+
+  if(OutIn<0){
+    PureHours=0;
+    PureMins = 0;
+  }
     
   return(
     <SafeAreaView style={styles.container}>
