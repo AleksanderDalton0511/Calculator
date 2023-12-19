@@ -21,7 +21,6 @@ export default function Calculator(route) {
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
   const [memoGender, setMemoGender] = useState("");
-  const [number, setNumber] = useState("");
   const [limit, setLimit] = useState("");
 
   const navigation = useNavigation();
@@ -29,27 +28,9 @@ export default function Calculator(route) {
   const isFocused = useIsFocused();
 
   useEffect(() => {
-  storage
-  .load({
-    key: 'number',
-    autoSync: true,
-    syncInBackground: true,
-    syncParams: {
-      extraFetchOptions: {
-        // blahblah
-      },
-      someFlag: true
-    }
-  })
-  .then(ret => {
-    setNumber(ret);
-  });
-  }, [route, isFocused, update]);
-
-  useEffect(() => {
       storage
         .load({
-          key: 'user'+number,
+          key: 'user1',
           autoSync: true,
           syncInBackground: true,
           syncParams: {
@@ -66,7 +47,7 @@ export default function Calculator(route) {
           setLimit(ret.Limit.limit/0.1);
         });
       
-    }, [number, update]);
+    }, [update]);
 
   const MinusPerHour = 0.1;  
   const WeightOfPerson = memoWeight.weight;
@@ -77,7 +58,7 @@ export default function Calculator(route) {
   useEffect(() => {
     storage
     .load({
-      key: 'result'+number,
+      key: 'result1',
       autoSync: true,
       syncInBackground: true,
       syncParams: {
@@ -107,7 +88,7 @@ export default function Calculator(route) {
       if(oldResult[0].promille<0){
         oldResult.shift();
         storage.save({
-          key: 'result'+number, // Note: Do not use underscore("_") in key!
+          key: 'result1', // Note: Do not use underscore("_") in key!
           data: {
             Data: {oldResult}
           },
@@ -117,7 +98,7 @@ export default function Calculator(route) {
 
     });
   
-}, [number, route, isFocused, update]);
+}, [route, isFocused, update]);
 
   function Selection(){
     navigation.navigate("User");
