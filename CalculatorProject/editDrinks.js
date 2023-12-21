@@ -24,36 +24,9 @@ export default function Drinks(){
   });
 
   useEffect(() => {
-    // load
-  storage
-  .load({
-    key: 'number',
-    autoSync: true,
-    syncInBackground: true,
-    syncParams: {
-      extraFetchOptions: {
-        // blahblah
-      },
-      someFlag: true
-    }
-  })
-  .then(ret => {
-    setNumber(ret);
-  })
-  .catch(err => {
-    switch (err.name) {
-      case 'NotFoundError':
-        break;
-      case 'ExpiredError':
-        break;
-    }
-  });
-  }, []);
-
-  useEffect(() => {
       storage
         .load({
-          key: 'user'+number,
+          key: 'user1',
           autoSync: true,
           syncInBackground: true,
           syncParams: {
@@ -77,7 +50,7 @@ export default function Drinks(){
           }
         });
       
-    }, [number]);
+    }, []);
 
   function AddNew(){
     navigation.navigate("Drinks");
@@ -98,7 +71,7 @@ export default function Drinks(){
   useEffect(() => {
     storage
     .load({
-      key: 'result'+number,
+      key: 'result1',
       autoSync: true,
       syncInBackground: true,
       syncParams: {
@@ -112,23 +85,26 @@ export default function Drinks(){
       const th = Date.now()-ret.Data.oldResult[0].timeOfDrink;
       const OutIn = th / 3600000;
       const OutInMin = OutIn*60;
-      console.log(ret.Data.oldResult);
       const PureHours = OutInMin/60;
       const PureMins = OutInMin% 60;
       setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink })));
     });
   
-}, [number]);
+}, []);
 
-useEffect(() => {
-  storage.save({
-    key: 'result'+number, // Note: Do not use underscore("_") in key!
-    data: {
-      Data: {oldResult}
-    },
-    expires: null
-  });
-}, [oldResult]);
+  function DeleteOne(){
+    
+    setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))
+  
+    storage.save({
+      key: 'result1', // Note: Do not use underscore("_") in key!
+      data: {
+        Data: {oldResult}
+      },
+      expires: null
+    });
+
+  }
 
   return(
     <SafeAreaView style={styles.container}>
@@ -156,7 +132,7 @@ useEffect(() => {
       <FlatList
          style={{marginLeft: "10%"}} 
          data={oldResult}
-         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "red"}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text>{item.promille}</Text></TouchableOpacity> }
+         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "red"}} onPress={DeleteOne}><Text>{item.promille}</Text></TouchableOpacity> }
          keyExtractor={(item) => item.timeOfDrink}
       />
 

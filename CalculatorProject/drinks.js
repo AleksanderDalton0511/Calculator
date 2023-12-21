@@ -10,7 +10,6 @@ export default function Drinks(){
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
   const [memoGender, setMemoGender] = useState("");
-  const [number, setNumber] = useState("");
 
   const navigation = useNavigation();
 
@@ -24,36 +23,9 @@ export default function Drinks(){
   });
 
   useEffect(() => {
-    // load
-  storage
-  .load({
-    key: 'number',
-    autoSync: true,
-    syncInBackground: true,
-    syncParams: {
-      extraFetchOptions: {
-        // blahblah
-      },
-      someFlag: true
-    }
-  })
-  .then(ret => {
-    setNumber(ret);
-  })
-  .catch(err => {
-    switch (err.name) {
-      case 'NotFoundError':
-        break;
-      case 'ExpiredError':
-        break;
-    }
-  });
-  }, []);
-
-  useEffect(() => {
       storage
         .load({
-          key: 'user'+number,
+          key: 'user1',
           autoSync: true,
           syncInBackground: true,
           syncParams: {
@@ -77,34 +49,6 @@ export default function Drinks(){
           }
         });
       
-    }, [number]);
-
-    const [index, setIndex] = useState();
-
-    useEffect(() => {
-      storage
-        .load({
-          key: 'drinkNum',
-          autoSync: true,
-          syncInBackground: true,
-          syncParams: {
-            extraFetchOptions: {
-              // blahblah
-            },
-            someFlag: true
-          }
-        })
-        .then(ret => {
-          setIndex(ret.Num.drinkHelper);
-        })
-        .catch(err => {
-          switch (err.name) {
-            case 'NotFoundError':
-              break;
-            case 'ExpiredError':
-              break;
-          }
-        });
     }, []);
 
   const WeightOfPerson = memoWeight.weight;
@@ -137,16 +81,15 @@ export default function Drinks(){
 
   let oldResult = [];
 
-  const newResult = {
+  let newResult = {
     "promille": AlcoholInBlood,
-    "timeOfDrink": Date.now(),
-    "amount": amount
+    "timeOfDrink": Date.now()
   }
 
   useEffect(() => {
     storage
     .load({
-      key: 'result'+number,
+      key: 'result1',
       autoSync: true,
       syncInBackground: true,
       syncParams: {
@@ -157,11 +100,18 @@ export default function Drinks(){
       }
     })
     .then(ret => {
-      oldResult = ret.Data.oldResult;
+
+      if(ret.Data.oldResult.length!=0){
+        oldResult = ret.Data.oldResult;
+      }
+
       oldResult.push(newResult);
+      
     });
   
 }, [newResult]);
+
+  
 
   function SaveResult(){
 
@@ -170,7 +120,7 @@ export default function Drinks(){
 
     else{
     storage.save({
-      key: 'result'+number, // Note: Do not use underscore("_") in key!
+      key: 'result1', // Note: Do not use underscore("_") in key!
       data: {
         Data: {oldResult}
       },
