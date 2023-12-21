@@ -85,7 +85,7 @@ export default function Calculator(route) {
       }
       setSumFin(result0);
 
-      /*if(oldResult[0].promille<0){
+      if(oldResult[0].promille<0){
         oldResult.shift();
         storage.save({
           key: 'result1', // Note: Do not use underscore("_") in key!
@@ -94,7 +94,7 @@ export default function Calculator(route) {
           },
           expires: null
         });
-      }*/
+      }
 
     });
   

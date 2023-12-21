@@ -10,7 +10,6 @@ export default function Drinks(){
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
   const [memoGender, setMemoGender] = useState("");
-  const [number, setNumber] = useState("");
 
   const navigation = useNavigation();
 
@@ -92,19 +91,25 @@ export default function Drinks(){
   
 }, []);
 
-  function DeleteOne(){
-    
-    setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))
-  
-    storage.save({
-      key: 'result1', // Note: Do not use underscore("_") in key!
-      data: {
-        Data: {oldResult}
-      },
-      expires: null
-    });
+const [sliced, setSliced] = useState(0);
 
-  }
+useEffect(() => {
+  setSliced(sliced+1);
+}, [oldResult]);
+
+
+  if(sliced>1){
+  storage.save({
+    key: 'result1', // Note: Do not use underscore("_") in key!
+    data: {
+      Data: {oldResult}
+    },
+    expires: null
+  });
+}
+
+
+console.log(sliced);
 
   return(
     <SafeAreaView style={styles.container}>
@@ -132,7 +137,7 @@ export default function Drinks(){
       <FlatList
          style={{marginLeft: "10%"}} 
          data={oldResult}
-         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "red"}} onPress={DeleteOne}><Text>{item.promille}</Text></TouchableOpacity> }
+         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "red"}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text>{item.promille}</Text></TouchableOpacity> }
          keyExtractor={(item) => item.timeOfDrink}
       />
 
