@@ -4,8 +4,6 @@ import { useNavigation, useIsFocused } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
 import { DataTable } from 'react-native-paper'; 
-import { LoadCurrentStorage } from "./storage";
-import { SaveToStorage } from "./storage";
 
 export default function Calculator(route) {
 
@@ -58,8 +56,18 @@ export default function Calculator(route) {
   const [sumFin, setSumFin] = useState();
 
   useEffect(() => {
-    async function fetchData() {
-      let ret = await LoadCurrentStorage('result1');
+    storage
+    .load({
+      key: 'result1',
+      autoSync: true,
+      syncInBackground: true,
+      syncParams: {
+        extraFetchOptions: {
+        },
+        someFlag: true
+      }
+    })
+    .then(ret => {
       let oldResult = ret.Data.oldResult;
 
       const timeElapsed = Date.now() - oldResult[0].timeOfDrink;
@@ -79,10 +87,16 @@ export default function Calculator(route) {
 
       if(oldResult[0].promille<0){
         oldResult.shift();
-        SaveToStorage(oldResult);
+        storage.save({
+          key: 'result1', // Note: Do not use underscore("_") in key!
+          data: {
+            Data: {oldResult}
+          },
+          expires: null
+        });
       }
-    }
-    fetchData();
+
+    });
   
 }, [route, isFocused, update]);
 
