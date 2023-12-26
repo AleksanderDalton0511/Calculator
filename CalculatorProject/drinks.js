@@ -83,7 +83,9 @@ export default function Drinks(){
 
   let newResult = {
     "promille": AlcoholInBlood,
-    "timeOfDrink": Date.now()
+    "timeOfDrink": Date.now(),
+    "amount": amount,
+    "content": content
   }
 
   useEffect(() => {

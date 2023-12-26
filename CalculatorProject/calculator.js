@@ -146,6 +146,10 @@ export default function Calculator(route) {
   if (OutIn>0){
     color = "red"
   }
+
+  if(memoWeight.weight==undefined && update>1){
+    navigation.navigate("User");
+  }
     
   return(
     <SafeAreaView style={{flex: 1,

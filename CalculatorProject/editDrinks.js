@@ -86,7 +86,7 @@ export default function Drinks(){
       const OutInMin = OutIn*60;
       const PureHours = OutInMin/60;
       const PureMins = OutInMin% 60;
-      setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink })));
+      setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink, content: person.content, amount: person.amount })));
     });
   
 }, []);
@@ -109,7 +109,9 @@ useEffect(() => {
 }
 
 
-console.log(sliced);
+  function GoHome(){
+    navigation.navigate("Calculator");
+  }
 
   return(
     <SafeAreaView style={styles.container}>
@@ -137,7 +139,7 @@ console.log(sliced);
       <FlatList
          style={{marginLeft: "10%"}} 
          data={oldResult}
-         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "red"}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text>{item.promille}</Text></TouchableOpacity> }
+         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "red"}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text>{item.amount}ml, {item.content}%,      {(Date.now()-item.timeOfDrink)/3600000|0} hours and {(((Date.now()-item.timeOfDrink)/3600000*60)%60).toFixed(0)} minutes ago</Text></TouchableOpacity> }
          keyExtractor={(item) => item.timeOfDrink}
       />
 
@@ -150,7 +152,7 @@ console.log(sliced);
       </DataTable> 
 
       <View style={styles.parent}>
-        <TouchableOpacity style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Done</Text></TouchableOpacity>
+        <TouchableOpacity onPress={GoHome} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Done</Text></TouchableOpacity>
         <TouchableOpacity onPress={AddNew} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Add new drinks</Text></TouchableOpacity>
       </View>
 
