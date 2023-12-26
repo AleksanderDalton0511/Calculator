@@ -139,7 +139,7 @@ useEffect(() => {
       <FlatList
          style={{marginLeft: "10%"}} 
          data={oldResult}
-         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "red"}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text>{item.amount}ml, {item.content}%,      {(Date.now()-item.timeOfDrink)/3600000|0} hours and {(((Date.now()-item.timeOfDrink)/3600000*60)%60).toFixed(0)} minutes ago</Text></TouchableOpacity> }
+         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "red"}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text>{item.amount}ml, {item.content}%. Created {(Date.now()-item.timeOfDrink)/3600000|0} hours and {(((Date.now()-item.timeOfDrink)/3600000*60)%60).toFixed(0)} minutes ago</Text></TouchableOpacity> }
          keyExtractor={(item) => item.timeOfDrink}
       />
 

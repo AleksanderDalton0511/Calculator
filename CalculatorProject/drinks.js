@@ -5,6 +5,7 @@ import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
 import { DataTable } from 'react-native-paper'; 
 import { SafeAreaView } from 'react-native-safe-area-context';
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function Drinks(){
   const [memoName, setName] = useState("");
@@ -113,7 +114,7 @@ export default function Drinks(){
   
 }, [newResult]);
 
-  
+  const[text, setText] = useState(<Text style={{fontSize: 20, opacity: 0.7, color: "white"}}>Please enter data about your drink</Text>);
 
   function SaveResult(){
 
@@ -128,10 +129,31 @@ export default function Drinks(){
       },
       expires: null
     });
-    navigation.navigate("Calculator");
+    if(AlcoholInBlood>0){
+      navigation.navigate("Calculator");
+    }
+    else{
+      setText(<Text style={{fontSize: 20, opacity: 0.7, color: "red"}}>This drink has already gone</Text>);
+    }
+
     }
 
   }
+
+  const [open, setOpen] = useState(false);
+  const [items, setItems] = useState([
+    {label: '0.0', value: '0.0'},
+    {label: '0.5', value: '0.5'},
+    {label: '1.0', value: '1.0'},
+    {label: '1.5', value: '1.5'},
+    {label: '2.0', value: '2.0'},
+    {label: '2.5', value: '2.5'},
+    {label: '3.0', value: '3.0'},
+    {label: '3.5', value: '3.5'},
+    {label: '4.0', value: '4.0'},
+    {label: '4.5', value: '4.5'},
+    {label: '5.0', value: '5.0'}
+  ]);
   
   return(
     <SafeAreaView style={styles.container}>
@@ -143,7 +165,7 @@ export default function Drinks(){
       </DataTable.Row> 
   
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}>   
-        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 20, opacity: 0.7, color: "white"}}>Please enter data about your drink</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}>{text}</DataTable.Cell> 
       </DataTable.Row> 
 
       </DataTable> 
@@ -184,12 +206,24 @@ export default function Drinks(){
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Time finished</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><TextInput
-        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
-        onChangeText={newText => setAgo(newText)}
-        placeholder="hrs"
-        keyboardType="numeric"
-      /></DataTable.Cell> 
+        <DataTable.Cell><DropDownPicker
+        style={{
+          minHeight: "1%",
+          borderColor: "red",
+          width: "110%"
+        }} 
+        dropDownContainerStyle={{
+          width: "110%"
+        }}
+      placeholder='Hrs ago'
+      dropDownDirection="TOP"
+      open={open}
+      value={ago}
+      items={items}
+      setOpen={setOpen}
+      setValue={setAgo}
+      setItems={setItems}
+    /></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
