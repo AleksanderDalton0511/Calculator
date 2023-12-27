@@ -37,6 +37,8 @@ export default function User(){
   const [weight, setWeight] = useState("");
   const [limit, setLimit] = useState("");
 
+  const [noFile, setNoFile] = useState(true);
+
   useEffect(() => {
     storage
       .load({
@@ -51,12 +53,27 @@ export default function User(){
         }
       })
       .then(ret => {
+        setNoFile(false);
         setWeight(ret.Weight.weight);
         setGender(ret.Gender.gender);
         setLimit(ret.Limit.limit);
       });
     
   }, []);
+
+  if(noFile && weight!="" && gender!= ""){
+    storage.save({
+      key: 'user1', // Note: Do not use underscore("_") in key!
+      data: {
+        Gender: {gender},
+        Weight: {weight},
+        Limit : {limit}
+      },
+      // if expires not specified, the defaultExpires will be applied instead.
+      // if set to null, then it will never expire.
+      expires: null
+    });
+  }
 
   function Save(){
     storage.save({
