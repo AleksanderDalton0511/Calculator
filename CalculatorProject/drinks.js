@@ -89,6 +89,8 @@ export default function Drinks(){
     "content": content
   }
 
+  const [noFile, setNoFile] = useState(true);
+
   useEffect(() => {
     storage
     .load({
@@ -103,6 +105,7 @@ export default function Drinks(){
       }
     })
     .then(ret => {
+      setNoFile(false);
 
       if(ret.Data.oldResult.length!=0){
         oldResult = ret.Data.oldResult;
@@ -113,6 +116,18 @@ export default function Drinks(){
     });
   
 }, [newResult]);
+
+if(noFile && amount!="" && content!= ""){
+  storage.save({
+    key: 'result1', // Note: Do not use underscore("_") in key!
+    data: {
+      Data: {oldResult}
+    },
+    // if expires not specified, the defaultExpires will be applied instead.
+    // if set to null, then it will never expire.
+    expires: null
+  });
+}
 
   const[text, setText] = useState(<Text style={{fontSize: 20, opacity: 0.7, color: "white"}}>Please enter data about your drink</Text>);
 
