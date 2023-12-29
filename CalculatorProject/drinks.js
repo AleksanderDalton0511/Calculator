@@ -167,7 +167,15 @@ if(noFile && amount!="" && content!= ""){
     {label: '3.5', value: '3.5'},
     {label: '4.0', value: '4.0'},
     {label: '4.5', value: '4.5'},
-    {label: '5.0', value: '5.0'}
+    {label: '5.0', value: '5.0'},
+    {label: '5.5', value: '5.5'},
+    {label: '6.0', value: '6.0'},
+    {label: '6.5', value: '6.5'},
+    {label: '7.0', value: '7.0'},
+    {label: '7.5', value: '7.5'},
+    {label: '8.0', value: '8.0'},
+    {label: '8.5', value: '8.5'},
+    {label: '9.0', value: '9.0'},
   ]);
   
   return(
@@ -217,11 +225,9 @@ if(noFile && amount!="" && content!= ""){
       /></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Time finished</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><DropDownPicker
+      <View style={{flexDirection: "row"}}>
+        <Text style={{fontSize: 16, color: "#6c6c6c"}}>Time finished</Text>
+        <DropDownPicker
         style={{
           minHeight: "1%",
           borderColor: "red",
@@ -238,8 +244,8 @@ if(noFile && amount!="" && content!= ""){
       setOpen={setOpen}
       setValue={setAgo}
       setItems={setItems}
-    /></DataTable.Cell> 
-      </DataTable.Row> 
+    />
+      </View> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       </DataTable.Row> 

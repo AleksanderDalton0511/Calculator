@@ -4,17 +4,19 @@ import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
+import { DataTable } from 'react-native-paper'; 
+import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function Backwards() {
 
   const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
   const [memoGender, setMemoGender] = useState("");
-  const [number, setNumber] = useState("");
+  const [limit, setLimit] = useState("");
 
   const navigation = useNavigation();
 
-  const storage2 = new Storage({
+  const storage = new Storage({
     size: 1000,
     storageBackend: AsyncStorage,
     defaultExpires: null,
@@ -24,79 +26,44 @@ export default function Backwards() {
   });
 
   useEffect(() => {
-    // load
-  storage2
-  .load({
-    key: 'number',
-    autoSync: true,
-    syncInBackground: true,
-    syncParams: {
-      extraFetchOptions: {
-        // blahblah
-      },
-      someFlag: true
-    }
-  })
-  .then(ret => {
-    setNumber(ret);
-  })
-  .catch(err => {
-    switch (err.name) {
-      case 'NotFoundError':
-        break;
-      case 'ExpiredError':
-        break;
-    }
-  });
+    storage
+      .load({
+        key: 'user1',
+        autoSync: true,
+        syncInBackground: true,
+        syncParams: {
+          extraFetchOptions: {
+            // blahblah
+          },
+          someFlag: true
+        }
+      })
+      .then(ret => {
+        setWeight(ret.Weight);
+        setName(ret.Name);
+        setMemoGender(ret.Gender);
+        setLimit(ret.Limit.limit/0.1);
+      });
+    
   }, []);
 
-  useEffect(() => {
-      const storage = new Storage({
-        size: 1000,
-        storageBackend: AsyncStorage,
-        defaultExpires: null,
-        enableCache: true,
-        sync: {
-        }
-      });
-
-      // load
-      storage
-        .load({
-          key: 'user'+number,
-          autoSync: true,
-          syncInBackground: true,
-          syncParams: {
-            extraFetchOptions: {
-              // blahblah
-            },
-            someFlag: true
-          }
-        })
-        .then(ret => {
-          setWeight(ret.Weight);
-          setName(ret.Name);
-          setMemoGender(ret.Gender)
-        })
-        .catch(err => {
-          switch (err.name) {
-            case 'NotFoundError':
-              break;
-            case 'ExpiredError':
-              break;
-          }
-        });
-      
-    }, [number]);
-
-  const [Strongness, setStrongness] = useState(40);
+  const [Strongness, setStrongness] = useState("");
   const WeightOfPerson = memoWeight.weight;
-  const [Gender, setGender] = useState(0.7);
-  const [hoursToDrive, setHoursToDrive] = useState(5);
+  const [gender, setGender] = useState("");
+  const [hoursToDrive, setHoursToDrive] = useState("");
+
+  useEffect(() => {
+    if (memoGender.gender!="Male"){
+      setGender(0.6);
+    }
+    else{
+      setGender(0.7);
+    }
+  }, [memoGender]);
 
   // 0 - allowed level
-  const AllowedAlcoholInblood = 0 + 0.1 * hoursToDrive;
-  const allowedToDrinkPureAlcohol = AllowedAlcoholInblood * WeightOfPerson * Gender;
+  const AllowedAlcoholInblood = limit * 0.1 + 0.1 * hoursToDrive;
+  const allowedToDrinkPureAlcohol = AllowedAlcoholInblood * WeightOfPerson * gender;
   const AllowedToDrinkMl = allowedToDrinkPureAlcohol * 100 / (Strongness * 0.789);
 
   function BackToCalc(){
@@ -104,50 +71,137 @@ export default function Backwards() {
   }
 
   function Selection(){
-    navigation.navigate("Selection");
+    navigation.navigate("User");
   }
 
+  const [open, setOpen] = useState(false);
+  const [items, setItems] = useState([
+    {label: '0.0', value: '0.0'},
+    {label: '0.5', value: '0.5'},
+    {label: '1.0', value: '1.0'},
+    {label: '1.5', value: '1.5'},
+    {label: '2.0', value: '2.0'},
+    {label: '2.5', value: '2.5'},
+    {label: '3.0', value: '3.0'},
+    {label: '3.5', value: '3.5'},
+    {label: '4.0', value: '4.0'},
+    {label: '4.5', value: '4.5'},
+    {label: '5.0', value: '5.0'},
+    {label: '5.5', value: '5.5'},
+    {label: '6.0', value: '6.0'},
+    {label: '6.5', value: '6.5'},
+    {label: '7.0', value: '7.0'},
+    {label: '7.5', value: '7.5'},
+    {label: '8.0', value: '8.0'},
+    {label: '8.5', value: '8.5'},
+    {label: '9.0', value: '9.0'},
+  ]);
+
+  const newNumber = Number(AllowedToDrinkMl).toFixed(0);
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={{flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: "#61a22d"}}>
 
-    <TouchableOpacity onPress={Selection} style={{backgroundColor: "#4CBB17", marginLeft: "80%", paddingBottom: "5%", marginTop: "15%"}}><Image style={{width: 30, height: 30}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity>
+      <DataTable style={{marginTop: "13%"}}> 
 
-<   View style={styles.parent}>
+      <DataTable.Row style={{borderBottomWidth: 0}}> 
+        <DataTable.Cell><TouchableOpacity onPress={Selection}><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
+      </DataTable.Row>
+      
+      <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%"}}> 
+        <DataTable.Cell><TouchableOpacity onPress={BackToCalc} style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", borderTopLeftRadius: 6, borderBottomLeftRadius: 6, paddingBottom: "2.5%", paddingTop: "2.5%", width: "70%", marginLeft: "30%"}}><Text style={{marginLeft: "23%", color: "white"}}>REAL TIME</Text></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "green", borderWidth: 1, borderColor: "white", borderTopRightRadius: 6, borderBottomRightRadius: 6, backgroundColor: "white", paddingBottom: "2.5%", paddingTop: "2.5%", width: "70%"}}><Text style={{marginLeft: "34%", color: "green"}}>PLAN</Text></TouchableOpacity></DataTable.Cell> 
+      </DataTable.Row>
 
-    <TouchableOpacity onPress={BackToCalc} style={{backgroundColor: "#4CBB17", borderLeftWidth: 2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopLeftRadius: 8, borderBottomLeftRadius: 8, height: "15%", width: "30%"}}>
-    <Text>REAL TIME</Text>
-    </TouchableOpacity>
+      </DataTable> 
 
-    <TouchableOpacity style={{backgroundColor:"white",borderRightWidth:2, borderTopWidth: 2, borderBottomWidth: 2, borderColor: "white", borderTopRightRadius:8, borderBottomRightRadius:8, height: "15%", width: "30%"}}>
-    <Text>PLAN</Text>
-    </TouchableOpacity>
+      <DataTable style={{backgroundColor: "#61a22d"}}> 
 
-</View>
+      <DataTable.Row style={{borderBottomWidth: 0, marginTop: "5%", marginBottom: "8%"}}> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "white", fontSize: 22}}>NEED TO DRIVE IN:</Text></DataTable.Cell> 
+      </DataTable.Row>
 
-      <Text>Can drink {AllowedToDrinkMl.toFixed(0)} ml</Text>
+      <View> 
+      <DropDownPicker
+        style={{
+          minHeight: "1%",
+          borderColor: "white",
+          width: "100%",
+          backgroundColor:"#61a22d"
+        }} 
+        dropDownContainerStyle={{
+          width: "100%"
+        }}
+      placeholder='HRS'
+      dropDownDirection="TOP"
+      open={open}
+      value={hoursToDrive}
+      items={items}
+      setOpen={setOpen}
+      setValue={setHoursToDrive}
+      setItems={setItems}
+    />
+      </View> 
 
-      <Text>Strongness:</Text>
+      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "white", fontSize: 22}}>CONTENT:</Text></DataTable.Cell>
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
       <TextInput
-        style={{backgroundColor: "red"}}
+        style={{width: "100%", backgroundColor: "white"}}
+        placeholder='CONTENT'
         onChangeText={newText => setStrongness(newText)}
         value={Strongness.toString()}
         keyboardType="numeric"
-      />
-      <Text>Driving after:</Text>
-      <TextInput
-        style={{backgroundColor: "grey"}}
-        onChangeText={newText => setHoursToDrive(newText)}
-        value={hoursToDrive.toString()}
-        keyboardType="numeric"
-      />
-      
-      <Text>Name:{memoName.name}</Text>
-      <Text>Gender:{memoGender.gender}</Text>
-      <Text>Weight:{memoWeight.weight}</Text>
-      <Text>Gender coefficent:{Gender}</Text>
+      />      
+      </DataTable.Row> 
 
-      <StatusBar style="auto" />
-    </SafeAreaView>
+      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+        <DataTable.Cell><Text style={{fontSize: 20, color: "white", marginLeft: "25%"}}>You can drink {newNumber}ml</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+      <DataTable.Cell><Text style={{fontSize: 18, color: "white", marginLeft: "27.5%", marginBottom: "6%"}}>Allowed level {limit*0.1}‰</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      </DataTable> 
+
+      <Image style={{width: "100%", height: "8%"}} source={require("./assets/Valge3.png")}></Image>
+
+      <DataTable style={{backgroundColor: "white"}}>
+
+      <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0, backgroundColor: "white"}}> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>name</Text><TouchableOpacity><Image style={{width: 20, height: 20, opacity: 0.5}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink", marginTop: "3%"}}> 
+      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#6c6c6c"}}>Gender</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#6c6c6c"}}>Units</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#6c6c6c"}}>Weight</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderBottomWidth: 0}}> 
+      <DataTable.Cell><Text style={{marginLeft: "30.2%", marginBottom: "15%", color: "#282828"}}>{memoGender.gender}</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginLeft: "36%", marginBottom: "15%", color: "#282828"}}>‰</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginLeft: "33%", marginBottom: "15%", color: "#282828"}}>{memoWeight.weight} kg</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
+      </DataTable.Row> 
+
+      </DataTable>
+
+      </SafeAreaView>
   );
 }
 
