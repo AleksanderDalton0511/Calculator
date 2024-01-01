@@ -19,7 +19,10 @@ export default function App() {
     <Stack.Navigator screenOptions={{
       headerShown: false
     }}>
-                
+                <Stack.Screen name="Calculator" component={Calculator}/>
+                <Stack.Screen name="Drinks" component={Drinks}/>
+                <Stack.Screen name="EditDrinks" component={EditDrinks} />
+                <Stack.Screen name="User" component={User}/>
                 <Stack.Screen name="Backwards" component={Backwards} />
             </Stack.Navigator>
         </NavigationContainer>

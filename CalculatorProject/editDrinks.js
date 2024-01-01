@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity, StyleSheet, Image, FlatList} from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image, FlatList, ScrollView} from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -7,9 +7,6 @@ import { DataTable } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Drinks(){
-  const [memoName, setName] = useState("");
-  const [memoWeight, setWeight] = useState("");
-  const [memoGender, setMemoGender] = useState("");
 
   const navigation = useNavigation();
 
@@ -55,16 +52,6 @@ export default function Drinks(){
     navigation.navigate("Drinks");
 }
 
-
-
-
-
-
-
-
-  
-
-
   const[oldResult, setList] = useState();
 
   useEffect(() => {
@@ -97,7 +84,6 @@ useEffect(() => {
   setSliced(sliced+1);
 }, [oldResult]);
 
-
   if(sliced>1){
   storage.save({
     key: 'result1', // Note: Do not use underscore("_") in key!
@@ -108,9 +94,17 @@ useEffect(() => {
   });
 }
 
-
   function GoHome(){
     navigation.navigate("Calculator");
+  }
+
+  let padding = "93.5";
+
+  if(oldResult!=undefined){
+    padding = padding - oldResult.length*15.5+"%";
+  }
+  else{
+    padding = "93.5%";
   }
 
   return(
@@ -133,27 +127,21 @@ useEffect(() => {
       <DataTable style={{paddingTop: "7%", backgroundColor: "white"}}> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-        <Text>Active drinks</Text>
+        <Text style={{color: "red"}}>TAP TO DELETE</Text>
       </DataTable.Row> 
 
       <FlatList
-         style={{marginLeft: "10%"}} 
+         style={{paddingBottom: `${ padding }`}} 
          data={oldResult}
-         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "red"}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text>{item.amount}ml, {item.content}%. Created {(Date.now()-item.timeOfDrink)/3600000|0} hours and {(((Date.now()-item.timeOfDrink)/3600000*60)%60).toFixed(0)} minutes ago</Text></TouchableOpacity> }
+         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "white", borderColor: "lightgrey", borderWidth: 0.5}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text style={{paddingBottom: "2%", marginLeft: "2%", paddingTop: "2%"}}>{item.amount}ml, {item.content}%</Text><Text style={{paddingBottom: "2%", marginLeft: "2%"}}>Created {(Date.now()-item.timeOfDrink)/3600000|0} hours and {(((Date.now()-item.timeOfDrink)/3600000*60)%60).toFixed(0)} minutes ago</Text></TouchableOpacity> }
          keyExtractor={(item) => item.timeOfDrink}
       />
-
-      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-      </DataTable.Row> 
-
+      
       </DataTable> 
 
       <View style={styles.parent}>
         <TouchableOpacity onPress={GoHome} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Done</Text></TouchableOpacity>
-        <TouchableOpacity onPress={AddNew} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Add new drinks</Text></TouchableOpacity>
+        <TouchableOpacity onPress={AddNew} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "26%"}}>Add new drinks</Text></TouchableOpacity>
       </View>
 
       </SafeAreaView>

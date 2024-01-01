@@ -173,15 +173,15 @@ export default function Calculator(route) {
       <DataTable style={{paddingTop: "7%", backgroundColor: `${ color }`}}> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
-        <DataTable.Cell><Text style={{fontSize: 44.5, color: "white", marginLeft: "25%"}}>{newNumber}‰</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 44.5, color: "white"}}>{newNumber}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
-      <DataTable.Cell><Text style={{fontSize: 14, color: "white", marginLeft: "35%", marginBottom: "3%", opacity: 0.7}}>CURRENT LEVEL</Text></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 14, color: "white", marginBottom: "3%", opacity: 0.7}}>CURRENT LEVEL</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
-      <DataTable.Cell><Text style={{fontSize: 18, color: "white", marginLeft: "27.5%", marginBottom: "6%"}}>Allowed level {limit*0.1}‰</Text></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 18, color: "white", marginBottom: "6%"}}>Allowed level {limit*0.1}‰</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`}}> 
@@ -192,7 +192,7 @@ export default function Calculator(route) {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
-      <DataTable.Cell><TouchableOpacity onPress={Drinks} style={{borderWidth: 1, borderColor: "white", borderRadius: 50, marginLeft: "20%"}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "2%", paddingBottom: "2%", opacity: 0.9}}>Add/Edit drinks</Text></TouchableOpacity></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={Drinks} style={{borderWidth: 1, borderColor: "white", borderRadius: 50}}><Text style={{color: "white", fontSize: 22, paddingLeft: "10%", paddingRight: "10%", paddingTop: "2%", paddingBottom: "2%", opacity: 0.9}}>Add/Edit drinks</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 

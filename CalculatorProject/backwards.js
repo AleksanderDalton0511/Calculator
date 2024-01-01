@@ -118,9 +118,13 @@ export default function Backwards() {
 
       </DataTable> 
 
-      <DataTable style={{backgroundColor: "#61a22d"}}> 
+      <DataTable style={{backgroundColor: "#61a22d", paddingTop: "25%"}}> 
 
-      <DataTable.Row style={{borderBottomWidth: 0, marginTop: "5%", marginBottom: "8%"}}> 
+      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 18, color: "white"}}>Allowed level {limit*0.1}‰</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{borderBottomWidth: 0, marginBottom: "5%"}}> 
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "white", fontSize: 22}}>NEED TO DRIVE IN:</Text></DataTable.Cell> 
       </DataTable.Row>
 
@@ -150,7 +154,6 @@ export default function Backwards() {
       <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "white", fontSize: 22}}>CONTENT:</Text></DataTable.Cell>
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
       <TextInput
         style={{width: "100%", backgroundColor: "white"}}
         placeholder='CONTENT'
@@ -158,14 +161,9 @@ export default function Backwards() {
         value={Strongness.toString()}
         keyboardType="numeric"
       />      
-      </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-        <DataTable.Cell><Text style={{fontSize: 20, color: "white", marginLeft: "25%"}}>You can drink {newNumber}ml</Text></DataTable.Cell> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-      <DataTable.Cell><Text style={{fontSize: 18, color: "white", marginLeft: "27.5%", marginBottom: "6%"}}>Allowed level {limit*0.1}‰</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 20, color: "white"}}>You can drink {newNumber}ml</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       </DataTable> 
