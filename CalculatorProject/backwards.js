@@ -105,26 +105,22 @@ export default function Backwards() {
       justifyContent: 'center',
       backgroundColor: "#61a22d"}}>
 
-      <DataTable style={{marginTop: "13%"}}> 
+      <DataTable style={{marginTop: "20%"}}> 
 
       <DataTable.Row style={{borderBottomWidth: 0}}> 
-        <DataTable.Cell><TouchableOpacity onPress={Selection}><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity onPress={Selection}><Image style={{width: 30, height: 30, marginLeft: "91%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
       
-      <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%"}}> 
+      <DataTable.Row style={{borderBottomWidth: 0}}> 
         <DataTable.Cell><TouchableOpacity onPress={BackToCalc} style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", borderTopLeftRadius: 6, borderBottomLeftRadius: 6, paddingBottom: "2.5%", paddingTop: "2.5%", width: "70%", marginLeft: "30%"}}><Text style={{marginLeft: "23%", color: "white"}}>REAL TIME</Text></TouchableOpacity></DataTable.Cell> 
         <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "green", borderWidth: 1, borderColor: "white", borderTopRightRadius: 6, borderBottomRightRadius: 6, backgroundColor: "white", paddingBottom: "2.5%", paddingTop: "2.5%", width: "70%"}}><Text style={{marginLeft: "34%", color: "green"}}>PLAN</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
 
       </DataTable> 
 
-      <DataTable style={{backgroundColor: "#61a22d", paddingTop: "25%"}}> 
+      <DataTable style={{backgroundColor: "#61a22d", marginTop: "7.5%", paddingBottom: "20%"}}>  
 
-      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 18, color: "white"}}>Allowed level {limit*0.1}‰</Text></DataTable.Cell> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{borderBottomWidth: 0, marginBottom: "5%"}}> 
+      <DataTable.Row style={{borderBottomWidth: 0}}> 
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "white", fontSize: 22}}>NEED TO DRIVE IN:</Text></DataTable.Cell> 
       </DataTable.Row>
 
@@ -166,6 +162,10 @@ export default function Backwards() {
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 20, color: "white"}}>You can drink {newNumber}ml</Text></DataTable.Cell> 
       </DataTable.Row> 
 
+      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 18, color: "white"}}>Allowed level {limit*0.1}‰</Text></DataTable.Cell> 
+      </DataTable.Row>
+
       </DataTable> 
 
       <Image style={{width: "100%", height: "8%"}} source={require("./assets/Valge3.png")}></Image>
@@ -176,7 +176,7 @@ export default function Backwards() {
       <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>name</Text><TouchableOpacity><Image style={{width: 20, height: 20, opacity: 0.5}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink", marginTop: "3%"}}> 
+      <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink"}}> 
       <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#6c6c6c"}}>Gender</Text></DataTable.Cell> 
       <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#6c6c6c"}}>Units</Text></DataTable.Cell> 
       <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#6c6c6c"}}>Weight</Text></DataTable.Cell> 
