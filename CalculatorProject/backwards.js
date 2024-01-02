@@ -151,7 +151,7 @@ export default function Backwards() {
       </DataTable.Row> 
 
       <TextInput
-        style={{width: "100%", backgroundColor: "white"}}
+        style={{width: "100%", backgroundColor: "white", textAlign: "center"}}
         placeholder='CONTENT'
         onChangeText={newText => setStrongness(newText)}
         value={Strongness.toString()}
@@ -159,7 +159,7 @@ export default function Backwards() {
       />      
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 20, color: "white"}}>You can drink {newNumber}ml</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 20, color: "red"}}>You can drink {newNumber}ml</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
