@@ -118,22 +118,37 @@ export default function User(){
       
       <DataTable.Row style={{backgroundColor: "#e5191c", borderBottomWidth: 0}}> 
         <DataTable.Cell></DataTable.Cell> 
-        <DataTable.Cell><Text style={{fontSize: 36, color: "white", marginLeft: "10%"}}>Hello!</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 36, color: "white"}}>Hello!</Text></DataTable.Cell> 
         <DataTable.Cell></DataTable.Cell> 
       </DataTable.Row> 
   
       <DataTable.Row style={{backgroundColor: "#e5191c", borderBottomWidth: 0}}>   
-        <DataTable.Cell><Text style={{fontSize: 20, opacity: 0.7, color: "white", marginLeft: "15%"}}>Please tell us about yourself</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 20, opacity: 0.7, color: "white"}}>Please tell us about yourself</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       </DataTable> 
 
       <Image style={{width: "100%", height: "14.5%"}} source={require("./assets/Valge3.png")}></Image>
 
-      <DataTable style={{paddingTop: "7%", backgroundColor: "white"}}> 
+      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "1%"}}> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c", textAlign: "center", marginLeft: "3%"}}>To estimate your blood alcohol level correctly we need some information</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 16, color: "#6c6c6c", textAlign: "center"}}>To estimate your blood alcohol level correctly we need some information.</Text></DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{backgroundColor: "white", borderTopColor: "lightgrey", borderTopWidth: 0.5}}> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Name</Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell><Text></Text></DataTable.Cell>
+        <DataTable.Cell>
+      <TextInput
+        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
+        onChangeText={newText => setName(newText)}
+        placeholder="Your name"
+      /></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
@@ -179,7 +194,7 @@ export default function User(){
       /></DataTable.Cell> 
       </DataTable.Row> 
 
-        <View style={{flexDirection: "row"}}>
+        <View style={{flexDirection: "row", borderBottomWidth: 0.5, borderBottomColor: "lightgrey", paddingBottom: "2%"}}>
           <Text style={{fontSize: 16, color: "#6c6c6c", marginLeft: "3.5%", marginTop: "2.1%"}}>Allowed level</Text>
           <DropDownPicker
           style={{
@@ -205,9 +220,8 @@ export default function User(){
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-      </DataTable.Row> 
+      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
+      </DataTable.Row>     
 
       </DataTable> 
 
@@ -227,6 +241,6 @@ const styles = StyleSheet.create({
   parent: {
     flexDirection: "row",
     justifyContent: "space-around",
-    height: "10%",
+    height: "10%"
   },
 });

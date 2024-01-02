@@ -133,7 +133,7 @@ useEffect(() => {
       <FlatList
          style={{paddingBottom: `${ padding }`}} 
          data={oldResult}
-         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "white", borderColor: "lightgrey", borderWidth: 0.5}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text style={{paddingBottom: "2%", marginLeft: "2%", paddingTop: "2%"}}>{item.amount}ml, {item.content}%</Text><Text style={{paddingBottom: "2%", marginLeft: "2%"}}>Created {(Date.now()-item.timeOfDrink)/3600000|0} hours and {(((Date.now()-item.timeOfDrink)/3600000*60)%60).toFixed(0)} minutes ago</Text></TouchableOpacity> }
+         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "white", borderColor: "lightgrey", borderWidth: 0.5}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text style={{paddingBottom: "2%", marginLeft: "3.5%", paddingTop: "2%"}}>{item.amount}ml, {item.content}%</Text><Text style={{paddingBottom: "2%", marginLeft: "3.5%", color: "#6c6c6c"}}>Created {(Date.now()-item.timeOfDrink)/3600000|0} hours and {(((Date.now()-item.timeOfDrink)/3600000*60)%60).toFixed(0)} minutes ago</Text></TouchableOpacity> }
          keyExtractor={(item) => item.timeOfDrink}
       />
       
@@ -141,7 +141,7 @@ useEffect(() => {
 
       <View style={styles.parent}>
         <TouchableOpacity onPress={GoHome} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Done</Text></TouchableOpacity>
-        <TouchableOpacity onPress={AddNew} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "26%"}}>Add new drinks</Text></TouchableOpacity>
+        <TouchableOpacity onPress={AddNew} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "26%"}}>Add new drink</Text></TouchableOpacity>
       </View>
 
       </SafeAreaView>
