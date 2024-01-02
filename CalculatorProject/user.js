@@ -33,9 +33,11 @@ export default function User(){
     }
   });
 
+  const [name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [weight, setWeight] = useState("");
   const [limit, setLimit] = useState("");
+  const [unit, setUnit] = useState("European");
 
   const [noFile, setNoFile] = useState(true);
 
@@ -57,6 +59,8 @@ export default function User(){
         setWeight(ret.Weight.weight);
         setGender(ret.Gender.gender);
         setLimit(ret.Limit.limit);
+        setName(ret.Name.name);
+        setUnit(ret.Unit.unit);
       });
     
   }, []);
@@ -65,6 +69,7 @@ export default function User(){
     storage.save({
       key: 'user1', // Note: Do not use underscore("_") in key!
       data: {
+        Name: {name},
         Gender: {gender},
         Weight: {weight},
         Limit : {limit}
@@ -79,9 +84,11 @@ export default function User(){
     storage.save({
       key: 'user1', // Note: Do not use underscore("_") in key!
       data: {
+        Name: {name},
         Gender: {gender},
         Weight: {weight},
-        Limit : {limit}
+        Limit : {limit},
+        Unit: {unit}
       },
       // if expires not specified, the defaultExpires will be applied instead.
       // if set to null, then it will never expire.
@@ -94,6 +101,12 @@ export default function User(){
   const [items, setItems] = useState([
     {label: 'Male', value: 'Male'},
     {label: 'Female', value: 'Female'}
+  ]);
+
+  const [open5, setOpen5] = useState(false);
+  const [items5, setItems5] = useState([
+    {label: 'European', value: 'European'},
+    {label: 'American', value: 'American'}
   ]);
 
   const [open2, setOpen2] = useState(false);
@@ -182,7 +195,24 @@ export default function User(){
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>BAC units</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text style={{fontWeight: "bold"}}>Permille ‰</Text></DataTable.Cell> 
+        <DataTable.Cell><DropDownPicker
+        style={{
+          minHeight: "1%",
+          borderColor: "red",
+          width: "110%"
+        }} 
+        dropDownContainerStyle={{
+          width: "110%"
+        }}
+      placeholder='Select'
+      dropDownDirection="TOP"
+      open={open5}
+      value={unit}
+      items={items5}
+      setOpen={setOpen5}
+      setValue={setUnit}
+      setItems={setItems5}
+    /></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white"}}> 

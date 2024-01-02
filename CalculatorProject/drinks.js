@@ -8,9 +8,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function Drinks(){
-  const [memoName, setName] = useState("");
   const [memoWeight, setWeight] = useState("");
   const [memoGender, setMemoGender] = useState("");
+  const [unit, setUnit] = useState("");
 
   const navigation = useNavigation();
 
@@ -38,7 +38,7 @@ export default function Drinks(){
         })
         .then(ret => {
           setWeight(ret.Weight);
-          setName(ret.Name);
+          setUnit(ret.Unit.unit)
           setMemoGender(ret.Gender)
         })
         .catch(err => {
@@ -70,15 +70,6 @@ export default function Drinks(){
       setGender(0.7);
     }
   }, [memoGender]);
-
-
-
-
-
-
-
-
-
 
   let oldResult = [];
 
@@ -181,6 +172,22 @@ if(noFile && amount!="" && content!= ""){
   function GoBack(){
     navigation.navigate("EditDrinks");
   }
+
+  let input1 = <TextInput
+  style={{fontWeight: "bold", width: "100%", fontSize: 16, marginLeft: "30%"}}
+  onChangeText={newText => setAmount(newText)}
+  placeholder="%"
+  keyboardType="numeric"
+/>
+
+  if (unit=="American"){
+    input1 = <TextInput
+  style={{fontWeight: "bold", width: "100%", fontSize: 16, marginLeft: "30%"}}
+  onChangeText={newText => setAmount(newText*5)}
+  placeholder="unzi"
+  keyboardType="numeric"
+/>
+  }
   
   return(
     <SafeAreaView style={styles.container}>
@@ -218,12 +225,7 @@ if(noFile && amount!="" && content!= ""){
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Amount</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><TextInput
-        style={{fontWeight: "bold", width: "100%", fontSize: 16, marginLeft: "30%"}}
-        onChangeText={newText => setAmount(newText)}
-        placeholder="ml"
-        keyboardType="numeric"
-      /></DataTable.Cell> 
+        <DataTable.Cell>{input1}</DataTable.Cell> 
       </DataTable.Row> 
 
       <View style={{flexDirection: "row", borderBottomWidth: 0.5, borderBottomColor: "lightgrey", paddingBottom: "2%"}}>

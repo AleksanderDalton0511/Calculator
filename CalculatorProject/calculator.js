@@ -22,6 +22,7 @@ export default function Calculator(route) {
   const [memoWeight, setWeight] = useState("");
   const [memoGender, setMemoGender] = useState("");
   const [limit, setLimit] = useState("");
+  const [unit, setUnit] = useState("");
 
   const navigation = useNavigation();
 
@@ -42,9 +43,10 @@ export default function Calculator(route) {
         })
         .then(ret => {
           setWeight(ret.Weight);
-          setName(ret.Name);
+          setName(ret.Name.name);
           setMemoGender(ret.Gender);
           setLimit(ret.Limit.limit/0.1);
+          setUnit(ret.Unit.unit);
         });
       
     }, [update]);
@@ -205,7 +207,7 @@ export default function Calculator(route) {
       <DataTable style={{backgroundColor: "white"}}>
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0, backgroundColor: "white"}}> 
-      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>name</Text><TouchableOpacity><Image style={{width: 20, height: 20, opacity: 0.5}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>{memoName}</Text><TouchableOpacity><Image style={{width: 20, height: 20, opacity: 0.5}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink", marginTop: "3%"}}> 
@@ -216,7 +218,7 @@ export default function Calculator(route) {
 
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderBottomWidth: 0}}> 
       <DataTable.Cell><Text style={{marginLeft: "30.2%", marginBottom: "15%", color: "#282828"}}>{memoGender.gender}</Text></DataTable.Cell> 
-      <DataTable.Cell><Text style={{marginLeft: "36%", marginBottom: "15%", color: "#282828"}}>‰</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginLeft: "36%", marginBottom: "15%", color: "#282828"}}>{unit}</Text></DataTable.Cell> 
       <DataTable.Cell><Text style={{marginLeft: "33%", marginBottom: "15%", color: "#282828"}}>{memoWeight.weight} kg</Text></DataTable.Cell> 
       </DataTable.Row> 
 

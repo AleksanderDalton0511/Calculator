@@ -19,6 +19,8 @@ export default function Drinks(){
     }
   });
 
+  const [unit, setUnit] = useState("");
+
   useEffect(() => {
       storage
         .load({
@@ -33,9 +35,7 @@ export default function Drinks(){
           }
         })
         .then(ret => {
-          setWeight(ret.Weight);
-          setName(ret.Name);
-          setMemoGender(ret.Gender)
+          setUnit(ret.Unit.unit);
         })
         .catch(err => {
           switch (err.name) {
@@ -48,6 +48,15 @@ export default function Drinks(){
       
     }, []);
 
+    let factor;
+
+    if(unit=="American"){
+      factor = 5;
+    }
+    else{
+      factor = 1;
+    }
+
   function AddNew(){
     navigation.navigate("Drinks");
 }
@@ -55,6 +64,7 @@ export default function Drinks(){
   const[oldResult, setList] = useState();
 
   useEffect(() => {
+
     storage
     .load({
       key: 'result1',
@@ -73,10 +83,10 @@ export default function Drinks(){
       const OutInMin = OutIn*60;
       const PureHours = OutInMin/60;
       const PureMins = OutInMin% 60;
-      setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink, content: person.content, amount: person.amount })));
+      setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink, content: person.content, amount: person.amount/factor })));
     });
   
-}, []);
+}, [factor]);
 
 const [sliced, setSliced] = useState(0);
 
