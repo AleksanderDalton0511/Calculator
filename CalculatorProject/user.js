@@ -110,6 +110,9 @@ export default function User(){
     {label: '0.9', value: '0.9'}
   ]);
 
+  function Home(){
+    navigation.navigate("Calculator");
+  }
 
   return(
     <SafeAreaView style={styles.container}>
@@ -226,7 +229,7 @@ export default function User(){
       </DataTable> 
 
       <View style={styles.parent}>
-        <TouchableOpacity style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
+        <TouchableOpacity onPress={Home} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
         <TouchableOpacity onPress={Save} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
       </View>
 

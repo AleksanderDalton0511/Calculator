@@ -137,14 +137,14 @@ if(noFile && amount!="" && content!= ""){
     }
 
     else{
-    storage.save({
-      key: 'result1', // Note: Do not use underscore("_") in key!
-      data: {
-        Data: {oldResult}
-      },
-      expires: null
-    });
     if(AlcoholInBlood>0){
+      storage.save({
+        key: 'result1', // Note: Do not use underscore("_") in key!
+        data: {
+          Data: {oldResult}
+        },
+        expires: null
+      });
       navigation.navigate("Calculator");
     }
     else{
@@ -177,6 +177,10 @@ if(noFile && amount!="" && content!= ""){
     {label: '8.5', value: '8.5'},
     {label: '9.0', value: '9.0'},
   ]);
+
+  function GoBack(){
+    navigation.navigate("EditDrinks");
+  }
   
   return(
     <SafeAreaView style={styles.container}>
@@ -195,18 +199,15 @@ if(noFile && amount!="" && content!= ""){
 
       <Image style={{width: "100%", height: "14.5%"}} source={require("./assets/Valge3.png")}></Image>
 
-      <DataTable style={{paddingTop: "7%", backgroundColor: "white"}}> 
+      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "71%"}}> 
 
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
+      <DataTable.Row style={{backgroundColor: "white", borderTopColor: "lightgrey", borderTopWidth: 0.5}}> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Alcohol content</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell>
       <TextInput
-        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
+        style={{fontWeight: "bold", width: "100%", fontSize: 16, marginLeft: "30%"}}
         onChangeText={newText => setContent(newText)}
         placeholder="ml"
         keyboardType="numeric"
@@ -218,23 +219,25 @@ if(noFile && amount!="" && content!= ""){
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><TextInput
-        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
+        style={{fontWeight: "bold", width: "100%", fontSize: 16, marginLeft: "30%"}}
         onChangeText={newText => setAmount(newText)}
         placeholder="ml"
         keyboardType="numeric"
       /></DataTable.Cell> 
       </DataTable.Row> 
 
-      <View style={{flexDirection: "row"}}>
-        <Text style={{fontSize: 16, color: "#6c6c6c"}}>Time finished</Text>
+      <View style={{flexDirection: "row", borderBottomWidth: 0.5, borderBottomColor: "lightgrey", paddingBottom: "2%"}}>
+        <Text style={{fontSize: 16, color: "#6c6c6c", marginLeft: "3.5%", marginTop: "2.75%"}}>Time finished</Text>
         <DropDownPicker
         style={{
           minHeight: "1%",
           borderColor: "red",
-          width: "110%"
+          width: "30%",
+          marginLeft: "41.5%",
+          marginTop: "2%"
         }} 
         dropDownContainerStyle={{
-          width: "110%"
+          width: "100%"
         }}
       placeholder='Hrs ago'
       dropDownDirection="TOP"
@@ -247,25 +250,10 @@ if(noFile && amount!="" && content!= ""){
     />
       </View> 
 
-      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-      </DataTable.Row> 
-
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-      </DataTable.Row> 
-
       </DataTable> 
 
       <View style={styles.parent}>
-        <TouchableOpacity style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
+        <TouchableOpacity onPress={GoBack} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
         <TouchableOpacity onPress={SaveResult} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
       </View>
 
