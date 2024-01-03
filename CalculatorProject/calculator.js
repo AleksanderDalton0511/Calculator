@@ -136,7 +136,7 @@ export default function Calculator(route) {
   let newNumber2 = Number(limit*0.1).toFixed(1)+"‰";
 
   if(unit=="American"){
-    newNumber2 = Number(limit*0.01).toFixed(2)+"‰";
+    newNumber2 = Number(limit*0.01).toFixed(2)+"%";
   }
 
   if(unit=="American"){

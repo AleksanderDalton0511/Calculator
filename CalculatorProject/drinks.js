@@ -57,8 +57,12 @@ export default function Drinks(){
 
   const [amount, setAmount] = useState("");
   const [content, setContent] = useState("");
-  const [ago, setAgo] = useState("");
+  const [ago, setAgo] = useState(0);
   const PureAlcohol = (amount/100)*content*0.789;
+
+  let OutInMin = ago*60;
+  let PureHours = ago|0;
+  let PureMins = OutInMin% 60;
   
   const AlcoholInBlood = PureAlcohol / (WeightOfPerson*Gender) - 0.1*ago;
 
@@ -228,29 +232,12 @@ if(noFile && amount!="" && content!= ""){
         <DataTable.Cell>{input1}</DataTable.Cell> 
       </DataTable.Row> 
 
-      <View style={{flexDirection: "row", borderBottomWidth: 0.5, borderBottomColor: "lightgrey", paddingBottom: "2%"}}>
-        <Text style={{fontSize: 16, color: "#6c6c6c", marginLeft: "3.5%", marginTop: "2.75%"}}>Time finished</Text>
-        <DropDownPicker
-        style={{
-          minHeight: "1%",
-          borderColor: "red",
-          width: "30%",
-          marginLeft: "41.5%",
-          marginTop: "2%"
-        }} 
-        dropDownContainerStyle={{
-          width: "100%"
-        }}
-      placeholder='Hrs ago'
-      dropDownDirection="TOP"
-      open={open}
-      value={ago}
-      items={items}
-      setOpen={setOpen}
-      setValue={setAgo}
-      setItems={setItems}
-    />
-      </View> 
+      <DataTable.Row style={{backgroundColor: "white"}}> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Time finished</Text></DataTable.Cell>
+        <DataTable.Cell><TouchableOpacity onPress={() => setAgo(ago-0.25)}><Text style={{fontSize: 28}}>-</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell><Text>{PureHours}hrs, {PureMins}minutes</Text></DataTable.Cell>
+        <DataTable.Cell><TouchableOpacity onPress={() => setAgo(ago+0.25)}><Text style={{fontSize: 24}}>+</Text></TouchableOpacity></DataTable.Cell> 
+      </DataTable.Row> 
 
       </DataTable> 
 
