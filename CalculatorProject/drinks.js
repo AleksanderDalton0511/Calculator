@@ -176,7 +176,7 @@ if(noFile && amount!="" && content!= ""){
   let input1 = <TextInput
   style={{fontWeight: "bold", width: "100%", fontSize: 16, marginLeft: "30%"}}
   onChangeText={newText => setAmount(newText)}
-  placeholder="%"
+  placeholder="ml"
   keyboardType="numeric"
 />
 
@@ -216,7 +216,7 @@ if(noFile && amount!="" && content!= ""){
       <TextInput
         style={{fontWeight: "bold", width: "100%", fontSize: 16, marginLeft: "30%"}}
         onChangeText={newText => setContent(newText)}
-        placeholder="ml"
+        placeholder="%"
         keyboardType="numeric"
       /></DataTable.Cell> 
       </DataTable.Row> 
