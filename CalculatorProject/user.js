@@ -123,9 +123,77 @@ export default function User(){
     {label: '0.9', value: '0.9'}
   ]);
 
+  const [open6, setOpen6] = useState(false);
+  const [items6, setItems6] = useState([
+    {label: '0.00', value: '0.00'},
+    {label: '0.01', value: '0.01'},
+    {label: '0.02', value: '0.02'},
+    {label: '0.03', value: '0.03'},
+    {label: '0.04', value: '0.04'},
+    {label: '0.05', value: '0.05'},
+    {label: '0.06', value: '0.06'},
+    {label: '0.07', value: '0.07'},
+    {label: '0.08', value: '0.08'},
+    {label: '0.09', value: '0.09'}
+  ]);
+
   function Home(){
     navigation.navigate("Calculator");
   }
+
+  let allLevel = <View style={{flexDirection: "row", borderBottomWidth: 0.5, borderBottomColor: "lightgrey", paddingBottom: "2%"}}>
+  <Text style={{fontSize: 16, color: "#6c6c6c", marginLeft: "3.5%", marginTop: "2.1%"}}>Allowed level</Text>
+  <DropDownPicker
+  style={{
+    minHeight: "1%",
+    borderColor: "red",
+    width: "26%",
+    marginTop: "1.5%",
+    marginLeft: "46%",
+  }} 
+  dropDownContainerStyle={{
+    width: "110%"
+  }}
+  placeholder='Select'
+  dropDownDirection="TOP"
+  open={open2}
+  value={limit}
+  items={items2}
+  setOpen={setOpen2}
+  setValue={setLimit}
+  setItems={setItems2}
+/>
+</View>
+
+if(unit == "American"){
+  allLevel = <View style={{flexDirection: "row", borderBottomWidth: 0.5, borderBottomColor: "lightgrey", paddingBottom: "2%"}}>
+  <Text style={{fontSize: 16, color: "#6c6c6c", marginLeft: "3.5%", marginTop: "2.1%"}}>Allowed level</Text>
+  <DropDownPicker
+  style={{
+    minHeight: "1%",
+    borderColor: "red",
+    width: "26%",
+    marginTop: "1.5%",
+    marginLeft: "46%",
+  }} 
+  dropDownContainerStyle={{
+    width: "110%"
+  }}
+  placeholder='Select'
+  dropDownDirection="TOP"
+  open={open6}
+  value={limit}
+  items={items6}
+  setOpen={setOpen6}
+  setValue={setLimit}
+  setItems={setItems6}
+/>
+</View>
+}
+
+if(unit=="American" && limit<0.1 && limit!=0){
+  setLimit(limit*10)
+}
 
   return(
     <SafeAreaView style={styles.container}>
@@ -227,29 +295,7 @@ export default function User(){
       /></DataTable.Cell> 
       </DataTable.Row> 
 
-        <View style={{flexDirection: "row", borderBottomWidth: 0.5, borderBottomColor: "lightgrey", paddingBottom: "2%"}}>
-          <Text style={{fontSize: 16, color: "#6c6c6c", marginLeft: "3.5%", marginTop: "2.1%"}}>Allowed level</Text>
-          <DropDownPicker
-          style={{
-            minHeight: "1%",
-            borderColor: "red",
-            width: "26%",
-            marginTop: "1.5%",
-            marginLeft: "46%",
-          }} 
-          dropDownContainerStyle={{
-            width: "110%"
-          }}
-          placeholder='Select'
-          dropDownDirection="TOP"
-          open={open2}
-          value={limit}
-          items={items2}
-          setOpen={setOpen2}
-          setValue={setLimit}
-          setItems={setItems2}
-        />
-      </View>
+        {allLevel}
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       </DataTable.Row> 

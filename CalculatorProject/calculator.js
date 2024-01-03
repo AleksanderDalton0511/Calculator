@@ -131,7 +131,17 @@ export default function Calculator(route) {
         setUpdate((update+0.1/3600));
   }, 1000);
 
-  const newNumber = Number(sumFin).toFixed(4);
+  let newNumber = Number(sumFin).toFixed(4)+"‰";
+
+  let newNumber2 = Number(limit*0.1).toFixed(1)+"‰";
+
+  if(unit=="American"){
+    newNumber2 = Number(limit*0.01).toFixed(2)+"‰";
+  }
+
+  if(unit=="American"){
+    newNumber = Number(sumFin*0.1).toFixed(4)+"%";
+  }
 
   let OutIn = sumFin/MinusPerHour - limit;
   let OutInMin = OutIn*60;
@@ -175,7 +185,7 @@ export default function Calculator(route) {
       <DataTable style={{paddingTop: "7%", backgroundColor: `${ color }`}}> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
-        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 44.5, color: "white"}}>{newNumber}‰</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 44.5, color: "white"}}>{newNumber}</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
@@ -183,7 +193,7 @@ export default function Calculator(route) {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
-      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 18, color: "white", marginBottom: "6%"}}>Allowed level {limit*0.1}‰</Text></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 18, color: "white", marginBottom: "6%"}}>Allowed level {newNumber2}</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`}}> 
