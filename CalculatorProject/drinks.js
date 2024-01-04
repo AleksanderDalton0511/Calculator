@@ -187,8 +187,8 @@ if(noFile && amount!="" && content!= ""){
   if (unit=="American"){
     input1 = <TextInput
   style={{fontWeight: "bold", width: "100%", fontSize: 16, marginLeft: "30%"}}
-  onChangeText={newText => setAmount(newText*5)}
-  placeholder="unzi"
+  onChangeText={newText => setAmount(newText*29,573)}
+  placeholder="oz"
   keyboardType="numeric"
 />
   }
@@ -236,7 +236,7 @@ if(noFile && amount!="" && content!= ""){
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Time finished</Text></DataTable.Cell>
         <DataTable.Cell><TouchableOpacity onPress={() => setAgo(ago-0.25)}><Text style={{fontSize: 28}}>-</Text></TouchableOpacity></DataTable.Cell>
         <DataTable.Cell><Text>{PureHours}hrs, {PureMins}minutes</Text></DataTable.Cell>
-        <DataTable.Cell><TouchableOpacity onPress={() => setAgo(ago+0.25)}><Text style={{fontSize: 24}}>+</Text></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity onPress={() => setAgo(ago+0.25)}><Text style={{fontSize: 24}}><Image style={{width: 17, height: 17}} source={require("./assets/plus.png")}></Image></Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
       </DataTable> 

@@ -51,7 +51,7 @@ export default function Drinks(){
     let factor;
 
     if(unit=="American"){
-      factor = 5;
+      factor = 29,573;
     }
     else{
       factor = 1;
@@ -83,7 +83,7 @@ export default function Drinks(){
       const OutInMin = OutIn*60;
       const PureHours = OutInMin/60;
       const PureMins = OutInMin% 60;
-      setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink, content: person.content, amount: person.amount/factor })));
+      setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink, content: person.content, amount: person.amount })));
     });
   
 }, [factor]);
@@ -120,7 +120,7 @@ useEffect(() => {
   let visualUnit;
 
   if(unit == "American"){
-    visualUnit="unzi";
+    visualUnit="oz";
   }
   else{
     visualUnit="ml";
@@ -152,7 +152,7 @@ useEffect(() => {
       <FlatList
          style={{paddingBottom: `${ padding }`}} 
          data={oldResult}
-         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "white", borderColor: "lightgrey", borderWidth: 0.5}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text style={{paddingBottom: "2%", marginLeft: "3.5%", paddingTop: "2%"}}>{item.amount}{visualUnit}, {item.content}%</Text><Text style={{paddingBottom: "2%", marginLeft: "3.5%", color: "#6c6c6c"}}>Created {(Date.now()-item.timeOfDrink)/3600000|0} hours and {(((Date.now()-item.timeOfDrink)/3600000*60)%60).toFixed(0)} minutes ago</Text></TouchableOpacity> }
+         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "white", borderColor: "lightgrey", borderWidth: 0.5}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text style={{paddingBottom: "2%", marginLeft: "3.5%", paddingTop: "2%"}}>{item.amount/factor}{visualUnit}, {item.content}%</Text><Text style={{paddingBottom: "2%", marginLeft: "3.5%", color: "#6c6c6c"}}>Created {(Date.now()-item.timeOfDrink)/3600000|0} hours and {(((Date.now()-item.timeOfDrink)/3600000*60)%60).toFixed(0)} minutes ago</Text></TouchableOpacity> }
          keyExtractor={(item) => item.timeOfDrink}
       />
       
