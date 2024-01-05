@@ -51,7 +51,7 @@ export default function Drinks(){
     let factor;
 
     if(unit=="American"){
-      factor = 29,573;
+      factor = 29.573;
     }
     else{
       factor = 1;

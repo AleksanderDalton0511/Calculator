@@ -55,8 +55,8 @@ export default function Drinks(){
   const WeightOfPerson = memoWeight.weight;
   const [Gender, setGender] = useState("");
 
-  const [amount, setAmount] = useState("");
-  const [content, setContent] = useState("");
+  const [amount, setAmount] = useState(0);
+  const [content, setContent] = useState(15);
   const [ago, setAgo] = useState(0);
   const PureAlcohol = (amount/100)*content*0.789;
 
@@ -178,7 +178,7 @@ if(noFile && amount!="" && content!= ""){
   }
 
   let input1 = <TextInput
-  style={{fontWeight: "bold", width: "100%", fontSize: 16, marginLeft: "30%"}}
+  style={{fontWeight: "bold", width: "100%", fontSize: 20}}
   onChangeText={newText => setAmount(newText)}
   placeholder="ml"
   keyboardType="numeric"
@@ -186,13 +186,25 @@ if(noFile && amount!="" && content!= ""){
 
   if (unit=="American"){
     input1 = <TextInput
-  style={{fontWeight: "bold", width: "100%", fontSize: 16, marginLeft: "30%"}}
+  style={{fontWeight: "bold", width: "100%", fontSize: 20}}
   onChangeText={newText => setAmount(newText*29,573)}
   placeholder="oz"
   keyboardType="numeric"
 />
   }
+
+  let minus = <TouchableOpacity onPress={() => setContent(content-1)}><Image style={{width: 24, height: 24}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
   
+  if (content==0){
+    minus = <Image style={{width: 24, height: 24, opacity: 0.5}} source={require("./assets/minus.png")}></Image>
+  }
+
+  let minus2= <TouchableOpacity style={{marginLeft: "7.5%"}} onPress={() => setAgo(ago-0.25)}><Image style={{width: 24, height: 24}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
+
+  if (ago==0){
+    minus2 = <Image style={{width: 24, height: 24, opacity: 0.5, marginLeft: "7.5%"}} source={require("./assets/minus.png")}></Image>
+  }
+
   return(
     <SafeAreaView style={styles.container}>
 
@@ -210,34 +222,39 @@ if(noFile && amount!="" && content!= ""){
 
       <Image style={{width: "100%", height: "14.5%"}} source={require("./assets/Valge3.png")}></Image>
 
-      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "71%"}}> 
+      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "22.5%"}}> 
 
-      <DataTable.Row style={{backgroundColor: "white", borderTopColor: "lightgrey", borderTopWidth: 0.5}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Alcohol content</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell>
-      <TextInput
-        style={{fontWeight: "bold", width: "100%", fontSize: 16, marginLeft: "30%"}}
-        onChangeText={newText => setContent(newText)}
-        placeholder="%"
-        keyboardType="numeric"
-      /></DataTable.Cell> 
+      <DataTable.Row style={{borderColor: "white"}}> 
+        <DataTable.Cell style={{justifyContent: "left"}}><Text style={{fontSize: 18, color: "grey"}}>CONTENT</Text></DataTable.Cell>
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Amount</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell>{input1}</DataTable.Cell> 
+      <DataTable.Row style={{borderColor: "white"}}> 
+        <DataTable.Cell style={{justifyContent: "center"}}>{minus}</DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(5)}><Text>5%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(10)}><Text>10%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "red", fontSize: 20}}>{content}%</Text></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(20)}><Text>20%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(40)}><Text>40%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={() => setContent(content+1)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "white"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Time finished</Text></DataTable.Cell>
-        <DataTable.Cell><TouchableOpacity onPress={() => setAgo(ago-0.25)}><Text style={{fontSize: 28}}>-</Text></TouchableOpacity></DataTable.Cell>
-        <DataTable.Cell><Text>{PureHours}hrs, {PureMins}minutes</Text></DataTable.Cell>
-        <DataTable.Cell><TouchableOpacity onPress={() => setAgo(ago+0.25)}><Text style={{fontSize: 24}}><Image style={{width: 17, height: 17}} source={require("./assets/plus.png")}></Image></Text></TouchableOpacity></DataTable.Cell> 
+      <DataTable.Row style={{borderColor: "white"}}> 
+        <DataTable.Cell style={{justifyContent: "left"}}><Text style={{fontSize: 18, color: "grey"}}>AMOUNT</Text></DataTable.Cell>
       </DataTable.Row> 
+
+      <DataTable.Row style={{borderColor: "white"}}> 
+        <DataTable.Cell style={{borderColor: "lightgrey", justifyContent: "center", borderWidth: 0.5}}>{input1}</DataTable.Cell> 
+      </DataTable.Row> 
+
+      <DataTable.Row style={{borderColor: "white"}}> 
+        <DataTable.Cell style={{justifyContent: "left"}}><Text style={{fontSize: 18, color: "grey"}}>DRINKED AGO</Text></DataTable.Cell>
+      </DataTable.Row> 
+
+      <View style={{flexDirection: "row", height: "15%"}}>
+        {minus2}
+        <Text style={{color: "red", fontSize: 20, marginLeft: "30%", width: "20%"}}>{PureHours}h, {PureMins}m</Text>
+        <TouchableOpacity style={{marginLeft: "22.5%"}} onPress={() => setAgo(ago+0.25)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
+      </View>
 
       </DataTable> 
 
