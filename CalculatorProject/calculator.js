@@ -42,7 +42,13 @@ export default function Calculator(route) {
           }
         })
         .then(ret => {
-          setWeight(ret.Weight);
+          console.log(ret);
+          if (ret.Unit.unit=="American"){
+            setWeight(ret.Weight.weight*2.2)
+          }
+          else{
+            setWeight(ret.Weight.weight);
+          }
           setName(ret.Name.name);
           setMemoGender(ret.Gender);
           setLimit(ret.Limit.limit/0.1);
@@ -52,8 +58,6 @@ export default function Calculator(route) {
     }, [update]);
 
   const MinusPerHour = 0.1;  
-  const WeightOfPerson = memoWeight.weight;
-  const [Gender, setGender] = useState("");
 
   const [sumFin, setSumFin] = useState();
 
@@ -114,15 +118,6 @@ export default function Calculator(route) {
       navigation.navigate("EditDrinks");
   }
 
-  useEffect(() => {
-    if (memoGender.gender!="Male"){
-      setGender(0.6);
-    }
-    else{
-      setGender(0.7);
-    }
-  }, [memoGender]);
-
   if(sumFin==undefined || sumFin < 0){
     setSumFin(0);
   }
@@ -159,8 +154,13 @@ export default function Calculator(route) {
     color = "red"
   }
 
-  if(memoWeight.weight==undefined && update>1){
+  if(memoWeight==undefined && update>1){
     navigation.navigate("User");
+  }
+
+  let newNumber3 = Number(memoWeight).toFixed(0)+"kg";
+  if(unit=="American"){
+    newNumber3 = Number(memoWeight).toFixed(0)+"lbs";
   }
     
   return(
@@ -229,7 +229,7 @@ export default function Calculator(route) {
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderBottomWidth: 0}}> 
       <DataTable.Cell><Text style={{marginLeft: "30.2%", marginBottom: "15%", color: "#282828"}}>{memoGender.gender}</Text></DataTable.Cell> 
       <DataTable.Cell style={{justifyContent: "center"}}><Text style={{marginBottom: "15%", color: "#282828"}}>{unit}</Text></DataTable.Cell> 
-      <DataTable.Cell><Text style={{marginLeft: "33%", marginBottom: "15%", color: "#282828"}}>{memoWeight.weight} kg</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginLeft: "33%", marginBottom: "15%", color: "#282828"}}>{newNumber3}</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 

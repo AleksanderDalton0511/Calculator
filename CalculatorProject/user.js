@@ -195,6 +195,22 @@ if(unit=="American" && limit<0.1 && limit!=0){
   setLimit(limit*10)
 }
 
+let weightSetter = <TextInput
+style={{fontWeight: "bold", width: "100%", fontSize: 16}}
+onChangeText={newText => setWeight(newText)}
+placeholder="kg"
+keyboardType="numeric"
+/>
+
+if(unit=="American"){
+  weightSetter = <TextInput
+  style={{fontWeight: "bold", width: "100%", fontSize: 16}}
+  onChangeText={newText => setWeight(newText/2.2)}
+  placeholder="lbs"
+  keyboardType="numeric"
+  />
+}
+
   return(
     <SafeAreaView style={styles.container}>
 
@@ -287,12 +303,7 @@ if(unit=="American" && limit<0.1 && limit!=0){
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Weight</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><TextInput
-        style={{fontWeight: "bold", width: "100%", fontSize: 16}}
-        onChangeText={newText => setWeight(newText)}
-        placeholder="kg"
-        keyboardType="numeric"
-      /></DataTable.Cell> 
+        <DataTable.Cell>{weightSetter}</DataTable.Cell> 
       </DataTable.Row> 
 
         {allLevel}
