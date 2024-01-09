@@ -6,8 +6,13 @@ import Drinks from "./drinks";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text} from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import * as NavigationBar from "expo-navigation-bar";
 
 const Stack = createNativeStackNavigator();
+
+NavigationBar.setVisibilityAsync("hidden");
+NavigationBar.setBehaviorAsync("overlay-swipe");
 
 export default function App() {
 
@@ -25,6 +30,7 @@ export default function App() {
                 <Stack.Screen name="User" component={User}/>
                 <Stack.Screen name="Backwards" component={Backwards} />
             </Stack.Navigator>
+            <StatusBar hidden />
         </NavigationContainer>
   );
 }
