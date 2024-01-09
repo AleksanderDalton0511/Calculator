@@ -125,6 +125,12 @@ export default function Backwards() {
     newNumber5 = Number(memoWeight.weight*2.2).toFixed(0)+"lbs";
   }
 
+  let newNumber2 = Number(limit*0.1).toFixed(1)+"‰";
+
+  if(unit=="American"){
+    newNumber2 = Number(limit*0.01).toFixed(2)+"%";
+  }
+
   return (
     <SafeAreaView style={{flex: 1,
       alignItems: 'center',
@@ -144,7 +150,7 @@ export default function Backwards() {
 
       </DataTable> 
 
-      <DataTable style={{backgroundColor: "#61a22d", marginTop: "7.5%", paddingBottom: "20%"}}>  
+      <DataTable style={{backgroundColor: "#61a22d", marginTop: "7.5%"}}>  
 
       <DataTable.Row style={{borderBottomWidth: 0}}> 
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "white", fontSize: 22}}>NEED TO DRIVE IN:</Text></DataTable.Cell> 
@@ -171,7 +177,7 @@ export default function Backwards() {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 18, color: "white"}}>Allowed level {limit*0.1}‰</Text></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 18, color: "white"}}>Allowed level {newNumber2}</Text></DataTable.Cell> 
       </DataTable.Row>
 
       </DataTable> 
