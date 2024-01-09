@@ -101,7 +101,7 @@ export default function Backwards() {
 
   let newNumber = Number(AllowedToDrinkMl).toFixed(0)+"ml";
   if(unit == "American"){
-    newNumber = Number(AllowedToDrinkMl*2.2).toFixed(0)+"lbs";
+    newNumber = Number(AllowedToDrinkMl/29.573).toFixed(1)+"oz";
   }
 
   let OutInMin = hoursToDrive*60;
