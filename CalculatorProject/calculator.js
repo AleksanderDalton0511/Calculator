@@ -42,7 +42,6 @@ export default function Calculator(route) {
           }
         })
         .then(ret => {
-          console.log(ret);
           if (ret.Unit.unit=="American"){
             setWeight(ret.Weight.weight*2.2)
           }

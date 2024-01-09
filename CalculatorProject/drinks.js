@@ -252,7 +252,7 @@ if(noFile && amount!="" && content!= ""){
 
       <View style={{flexDirection: "row", height: "15%"}}>
         {minus2}
-        <Text style={{color: "red", fontSize: 20, marginLeft: "30%", width: "20%"}}>{PureHours}h, {PureMins}m</Text>
+        <Text style={{color: "red", fontSize: 20, marginLeft: "30.5%", width: "20%"}}>{PureHours}h, {PureMins}m</Text>
         <TouchableOpacity style={{marginLeft: "22.5%"}} onPress={() => setAgo(ago+0.25)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
       </View>
 
