@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, SafeAreaView, ImageBackground } from 'react-native';
+import { Text, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation, useIsFocused } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -61,6 +61,10 @@ export default function Calculator(route) {
   const [sumFin, setSumFin] = useState();
 
   useEffect(() => {
+    setSumFin(0);
+  }, [route, isFocused]);
+
+  useEffect(() => {
     storage
     .load({
       key: 'result1',
@@ -114,7 +118,12 @@ export default function Calculator(route) {
   }
 
   function Drinks(){
-      navigation.navigate("EditDrinks");
+      if(sumFin>0){
+        navigation.navigate("EditDrinks");
+      }
+      else{
+        navigation.navigate("Drinks");
+      }
   }
 
   if(sumFin==undefined || sumFin < 0){
@@ -168,7 +177,7 @@ export default function Calculator(route) {
       justifyContent: 'center',
       backgroundColor: `${ color }`}}>
 
-      <DataTable style={{marginTop: "13%"}}> 
+      <DataTable>
 
       <DataTable.Row style={{borderBottomWidth: 0}}> 
         <DataTable.Cell><TouchableOpacity onPress={Selection}><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 

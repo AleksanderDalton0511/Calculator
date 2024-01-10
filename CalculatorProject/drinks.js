@@ -1,11 +1,10 @@
-import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image, NativeModules  } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
 import { DataTable } from 'react-native-paper'; 
 import { SafeAreaView } from 'react-native-safe-area-context';
-import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function Drinks(){
   const [memoWeight, setWeight] = useState("");
@@ -174,7 +173,7 @@ if(noFile && amount!="" && content!= ""){
   ]);
 
   function GoBack(){
-    navigation.navigate("EditDrinks");
+    navigation.navigate("Calculator");
   }
 
   let input1 = <TextInput
@@ -222,7 +221,7 @@ if(noFile && amount!="" && content!= ""){
 
       <Image style={{width: "100%", height: "14.5%"}} source={require("./assets/Valge3.png")}></Image>
 
-      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "22.5%"}}> 
+      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "31%"}}> 
 
       <DataTable.Row style={{borderColor: "white"}}> 
         <DataTable.Cell style={{justifyContent: "left"}}><Text style={{fontSize: 18, color: "grey"}}>CONTENT</Text></DataTable.Cell>

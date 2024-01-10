@@ -1,4 +1,4 @@
-import { Text, View, TouchableOpacity, StyleSheet, Image, FlatList, ScrollView} from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image, FlatList } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -108,13 +108,13 @@ useEffect(() => {
     navigation.navigate("Calculator");
   }
 
-  let padding = "93.5";
+  let padding = "102";
 
   if(oldResult!=undefined){
     padding = padding - oldResult.length*15.5+"%";
   }
   else{
-    padding = "93.5%";
+    padding = "102%";
   }
 
   let visualUnit;
@@ -124,6 +124,12 @@ useEffect(() => {
   }
   else{
     visualUnit="ml";
+  }
+
+  if(oldResult!=undefined){
+    if(oldResult.length==0){
+      navigation.navigate("Calculator");
+    }
   }
 
   return(
@@ -159,7 +165,7 @@ useEffect(() => {
       </DataTable> 
 
       <View style={styles.parent}>
-        <TouchableOpacity onPress={GoHome} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Done</Text></TouchableOpacity>
+        <TouchableOpacity onPress={GoHome} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
         <TouchableOpacity onPress={AddNew} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "26%"}}>Add new drink</Text></TouchableOpacity>
       </View>
 

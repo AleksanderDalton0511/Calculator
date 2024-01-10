@@ -1,11 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
 import { DataTable } from 'react-native-paper'; 
-import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function Backwards() {
 
@@ -99,22 +97,22 @@ export default function Backwards() {
     {label: '9.0', value: '9.0'},
   ]);
 
-  let newNumber = Number(AllowedToDrinkMl).toFixed(0)+"ml";
+  let newNumber = Number(AllowedToDrinkMl).toFixed(0)+"ML";
   if(unit == "American"){
-    newNumber = Number(AllowedToDrinkMl/29.573).toFixed(1)+"oz";
+    newNumber = Number(AllowedToDrinkMl/29.573).toFixed(1)+"OZ";
   }
 
   let OutInMin = hoursToDrive*60;
   let PureHours = hoursToDrive|0;
   let PureMins = OutInMin% 60;
 
-  let minus2= <TouchableOpacity style={{marginLeft: "7.5%"}} onPress={() => setHoursToDrive(hoursToDrive-0.25)}><Image style={{width: 24, height: 24}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
+  let minus2= <TouchableOpacity style={{marginLeft: "7.5%", marginTop: "5%"}} onPress={() => setHoursToDrive(hoursToDrive-0.25)}><Image style={{width: 24, height: 24}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
 
   if (hoursToDrive==0){
     minus2 = <Image style={{width: 24, height: 24, opacity: 0.5, marginLeft: "7.5%"}} source={require("./assets/minus.png")}></Image>
   }
 
-  let minus3= <TouchableOpacity style={{marginLeft: "7.5%"}} onPress={() => setStrongness(Strongness-1)}><Image style={{width: 24, height: 24}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
+  let minus3= <TouchableOpacity style={{marginLeft: "7.5%", marginTop: "5%"}} onPress={() => setStrongness(Strongness-1)}><Image style={{width: 24, height: 24}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
 
   if (Strongness==0){
     minus3 = <Image style={{width: 24, height: 24, opacity: 0.5, marginLeft: "7.5%"}} source={require("./assets/minus.png")}></Image>
@@ -137,7 +135,7 @@ export default function Backwards() {
       justifyContent: 'center',
       backgroundColor: "#61a22d"}}>
 
-      <DataTable style={{marginTop: "20%"}}> 
+      <DataTable style={{marginTop: "40%"}}> 
 
       <DataTable.Row style={{borderBottomWidth: 0}}> 
         <DataTable.Cell><TouchableOpacity onPress={Selection}><Image style={{width: 30, height: 30, marginLeft: "91%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
@@ -156,27 +154,27 @@ export default function Backwards() {
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "white", fontSize: 22}}>NEED TO DRIVE IN:</Text></DataTable.Cell> 
       </DataTable.Row>
 
-      <View style={{flexDirection: "row", height: "15%"}}>
+      <View style={{flexDirection: "row", height: "15%", borderRadius:55, borderColor: "white", borderWidth: 0.5}}>
         {minus2}
-        <Text style={{color: "red", fontSize: 20, marginLeft: "30.5%", width: "20%"}}>{PureHours}h, {PureMins}m</Text>
-        <TouchableOpacity style={{marginLeft: "22.5%"}} onPress={() => setHoursToDrive(hoursToDrive+0.25)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
+        <Text style={{color: "white", fontSize: 20, marginLeft: "30.5%", width: "20%", marginTop: "5%"}}>{PureHours}h, {PureMins}m</Text>
+        <TouchableOpacity style={{marginLeft: "22.5%", marginTop: "5%"}} onPress={() => setHoursToDrive(hoursToDrive+0.25)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
       </View>
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
       <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "white", fontSize: 22}}>CONTENT:</Text></DataTable.Cell>
       </DataTable.Row> 
 
-      <View style={{flexDirection: "row", height: "15%"}}>
+      <View style={{flexDirection: "row", height: "15%", borderRadius:55, borderColor: "white", borderWidth: 0.5}}>
         {minus3}
-        <Text style={{color: "red", fontSize: 20, marginLeft: "30.5%", width: "20%"}}>{Strongness}%</Text>
-        <TouchableOpacity style={{marginLeft: "22.5%"}} onPress={() => setStrongness(Strongness+1)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
+        <Text style={{color: "white", fontSize: 20, marginLeft: "30.5%", width: "20%", marginTop: "5%"}}>{Strongness}%</Text>
+        <TouchableOpacity style={{marginLeft: "22.5%", marginTop: "5%"}} onPress={() => setStrongness(Strongness+1)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
       </View>    
 
-      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 20, color: "red"}}>You can drink {newNumber}</Text></DataTable.Cell> 
+      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0, borderTopWidth:0.5, borderColor: "white", borderTopLeftRadius:35, borderTopRightRadius: 35, marginTop: "10%", borderLeftWidth: 0.5, borderRightWidth: 0.5}}> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 20, color: "lightgrey"}}>YOU CAN DRINK {newNumber}</Text></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
+      <DataTable.Row style={{backgroundColor: "#61a22d", borderColor: "white", borderBottomLeftRadius:35, borderBottomRightRadius: 35, borderBottomWidth:0.5, borderLeftWidth: 0.5, borderRightWidth: 0.5}}> 
       <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 18, color: "white"}}>Allowed level {newNumber2}</Text></DataTable.Cell> 
       </DataTable.Row>
 

@@ -230,7 +230,7 @@ if(unit=="American"){
 
       <Image style={{width: "100%", height: "14.5%"}} source={require("./assets/Valge3.png")}></Image>
 
-      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "1%"}}> 
+      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "10%"}}> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 16, color: "#6c6c6c", textAlign: "center"}}>To estimate your blood alcohol level correctly we need some information.</Text></DataTable.Cell> 
