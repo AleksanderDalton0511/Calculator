@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
 import AsyncStorage from '@react-native-community/async-storage';
-import DropDownPicker from 'react-native-dropdown-picker';
 import { DataTable } from 'react-native-paper'; 
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -81,7 +80,17 @@ export default function User(){
     });
   }
 
+  let warning = <Text style={{fontSize: 16, color: "#6c6c6c", textAlign: "center"}}>To estimate your blood alcohol level correctly we need some information.</Text>
+  if (weight.indexOf('-') > -1 || weight.indexOf('.') > -1){
+    warning = <Text style={{fontSize: 16, color: "red", textAlign: "center"}}>Weight must be a whole number!</Text>
+  }
+
   function Save(){
+  if (weight.indexOf('-') > -1 || weight.indexOf('.') > -1){
+    warning = <Text style={{fontSize: 16, color: "red", textAlign: "center"}}>Weight must be a whole number!</Text>
+  }
+  else{
+
     storage.save({
       key: 'user1', // Note: Do not use underscore("_") in key!
       data: {
@@ -96,47 +105,9 @@ export default function User(){
       expires: null
     });
     navigation.navigate("Calculator");
+
   }
-
-  const [open, setOpen] = useState(false);
-  const [items, setItems] = useState([
-    {label: 'Male', value: 'Male'},
-    {label: 'Female', value: 'Female'}
-  ]);
-
-  const [open5, setOpen5] = useState(false);
-  const [items5, setItems5] = useState([
-    {label: 'European', value: 'European'},
-    {label: 'American', value: 'American'}
-  ]);
-
-  const [open2, setOpen2] = useState(false);
-  const [items2, setItems2] = useState([
-    {label: '0.0', value: '0.0'},
-    {label: '0.1', value: '0.1'},
-    {label: '0.2', value: '0.2'},
-    {label: '0.3', value: '0.3'},
-    {label: '0.4', value: '0.4'},
-    {label: '0.5', value: '0.5'},
-    {label: '0.6', value: '0.6'},
-    {label: '0.7', value: '0.7'},
-    {label: '0.8', value: '0.8'},
-    {label: '0.9', value: '0.9'}
-  ]);
-
-  const [open6, setOpen6] = useState(false);
-  const [items6, setItems6] = useState([
-    {label: '0.00', value: '0.00'},
-    {label: '0.01', value: '0.01'},
-    {label: '0.02', value: '0.02'},
-    {label: '0.03', value: '0.03'},
-    {label: '0.04', value: '0.04'},
-    {label: '0.05', value: '0.05'},
-    {label: '0.06', value: '0.06'},
-    {label: '0.07', value: '0.07'},
-    {label: '0.08', value: '0.08'},
-    {label: '0.09', value: '0.09'}
-  ]);
+  }
 
   function Home(){
     navigation.navigate("Calculator");
@@ -213,7 +184,7 @@ if(unit=="American"){
       <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "10%"}}> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 16, color: "#6c6c6c", textAlign: "center"}}>To estimate your blood alcohol level correctly we need some information.</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}>{warning}</DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
