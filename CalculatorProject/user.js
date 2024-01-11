@@ -197,7 +197,6 @@ if(unit=="American" && limit<0.1 && limit!=0){
 }
 
 let weightSetter = <TextInput
-value={weight}
 style={{fontWeight: "bold", width: "100%", fontSize: 16}}
 onChangeText={newText => setWeight(newText)}
 placeholder="kg"
@@ -205,7 +204,6 @@ keyboardType="numeric"
 />
 
 if(unit=="American"){
-  value={weight}
   weightSetter = <TextInput
   style={{fontWeight: "bold", width: "100%", fontSize: 16}}
   onChangeText={newText => setWeight(newText/2.2)}
@@ -223,6 +221,18 @@ if(gender=="Female"){
   genderChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2%", paddingTop: "2.5%"}}>
 <Text style={{marginLeft: "9.1%", fontSize: 16, color: "#6c6c6c", marginTop: "0.5%"}}>Gender</Text>
 <TouchableOpacity onPress={()=>setGender("Male")} style={{backgroundColor: "white", marginLeft: "55%", paddingLeft: "5%", paddingRight: "15%", paddingBottom: "1%", paddingTop: "1%", borderTopLeftRadius: 10, borderBottomLeftRadius: 10, borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "#e5191c"}}>Male</Text></TouchableOpacity><TouchableOpacity onPress={()=>setGender("Female")} style={{backgroundColor: "#e5191c", paddingLeft: "5%", paddingRight: "5%", paddingBottom: "1%", paddingTop: "1%", borderTopRightRadius: 10, borderBottomRightRadius: 10, marginRight: "7%", borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "white"}}>Female</Text></TouchableOpacity>
+</View>
+}
+
+let unitChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2%", paddingTop: "2.5%", borderWidth: 0.5, borderColor: "lightgrey"}}>
+<Text style={{marginLeft: "15%", fontSize: 16, color: "#6c6c6c", marginTop: "0.5%"}}>BAC units</Text>
+<TouchableOpacity onPress={()=>setUnit("European")} style={{backgroundColor: "#e5191c", marginLeft: "55%", paddingLeft: "5%", paddingRight: "25%",paddingBottom: "1%", paddingTop: "1%", borderTopLeftRadius: 10, borderBottomLeftRadius: 10}}><Text style={{color: "white"}}>European</Text></TouchableOpacity><TouchableOpacity onPress={()=>setUnit("American")} style={{backgroundColor: "white", paddingLeft: "5%", paddingRight: "5%", paddingBottom: "1%", paddingTop: "1%", borderTopRightRadius: 10, borderBottomRightRadius: 10, marginRight: "13%", borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "#e5191c"}}>American</Text></TouchableOpacity>
+</View>
+
+if(unit=="American"){
+  unitChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2%", paddingTop: "2.5%", borderWidth: 0.5, borderColor: "lightgrey"}}>
+<Text style={{marginLeft: "15%", fontSize: 16, color: "#6c6c6c", marginTop: "0.5%"}}>BAC units</Text>
+<TouchableOpacity onPress={()=>setUnit("European")} style={{backgroundColor: "white", marginLeft: "55%", paddingLeft: "5%", paddingRight: "25%", paddingBottom: "1%", paddingTop: "1%", borderTopLeftRadius: 10, borderBottomLeftRadius: 10, borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "#e5191c"}}>European</Text></TouchableOpacity><TouchableOpacity onPress={()=>setUnit("American")} style={{backgroundColor: "#e5191c", paddingLeft: "5%", paddingRight: "5%", paddingBottom: "1%", paddingTop: "1%", borderTopRightRadius: 10, borderBottomRightRadius: 10, marginRight: "13%", borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "white"}}>American</Text></TouchableOpacity>
 </View>
 }
 
@@ -269,29 +279,7 @@ if(gender=="Female"){
 
       {genderChoice}
 
-      <DataTable.Row style={{backgroundColor: "white", borderTopWidth: 0.5, borderTopColor: "lightgrey"}}> 
-        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>BAC units</Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><Text></Text></DataTable.Cell>
-        <DataTable.Cell><DropDownPicker
-        style={{
-          minHeight: "1%",
-          borderColor: "red",
-          width: "110%"
-        }} 
-        dropDownContainerStyle={{
-          width: "110%"
-        }}
-      placeholder='Select'
-      dropDownDirection="TOP"
-      open={open5}
-      value={unit}
-      items={items5}
-      setOpen={setOpen5}
-      setValue={setUnit}
-      setItems={setItems5}
-    /></DataTable.Cell> 
-      </DataTable.Row> 
+      {unitChoice}
 
       <DataTable.Row style={{backgroundColor: "white"}}> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Weight</Text></DataTable.Cell>
