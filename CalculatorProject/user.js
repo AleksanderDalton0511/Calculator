@@ -36,7 +36,7 @@ export default function User(){
   const [name, setName] = useState("");
   const [gender, setGender] = useState("Male");
   const [weight, setWeight] = useState("");
-  const [limit, setLimit] = useState("");
+  const [limit, setLimit] = useState(0);
   const [unit, setUnit] = useState("European");
 
   const [noFile, setNoFile] = useState(true);
@@ -142,60 +142,6 @@ export default function User(){
     navigation.navigate("Calculator");
   }
 
-  let allLevel = <View style={{flexDirection: "row", borderBottomWidth: 0.5, borderBottomColor: "lightgrey", paddingBottom: "2%"}}>
-  <Text style={{fontSize: 16, color: "#6c6c6c", marginLeft: "3.5%", marginTop: "2.1%"}}>Allowed level</Text>
-  <DropDownPicker
-  style={{
-    minHeight: "1%",
-    borderColor: "red",
-    width: "26%",
-    marginTop: "1.5%",
-    marginLeft: "46%",
-  }} 
-  dropDownContainerStyle={{
-    width: "110%"
-  }}
-  placeholder='Select'
-  dropDownDirection="TOP"
-  open={open2}
-  value={limit}
-  items={items2}
-  setOpen={setOpen2}
-  setValue={setLimit}
-  setItems={setItems2}
-/>
-</View>
-
-if(unit == "American"){
-  allLevel = <View style={{flexDirection: "row", borderBottomWidth: 0.5, borderBottomColor: "lightgrey", paddingBottom: "2%"}}>
-  <Text style={{fontSize: 16, color: "#6c6c6c", marginLeft: "3.5%", marginTop: "2.1%"}}>Allowed level</Text>
-  <DropDownPicker
-  style={{
-    minHeight: "1%",
-    borderColor: "red",
-    width: "26%",
-    marginTop: "1.5%",
-    marginLeft: "46%",
-  }} 
-  dropDownContainerStyle={{
-    width: "110%"
-  }}
-  placeholder='Select'
-  dropDownDirection="TOP"
-  open={open6}
-  value={limit}
-  items={items6}
-  setOpen={setOpen6}
-  setValue={setLimit}
-  setItems={setItems6}
-/>
-</View>
-}
-
-if(unit=="American" && limit<0.1 && limit!=0){
-  setLimit(limit*10)
-}
-
 let weightSetter = <TextInput
 style={{fontWeight: "bold", width: "100%", fontSize: 16}}
 onChangeText={newText => setWeight(newText)}
@@ -235,6 +181,15 @@ if(unit=="American"){
 <TouchableOpacity onPress={()=>setUnit("European")} style={{backgroundColor: "white", marginLeft: "55%", paddingLeft: "5%", paddingRight: "25%", paddingBottom: "1%", paddingTop: "1%", borderTopLeftRadius: 10, borderBottomLeftRadius: 10, borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "#e5191c"}}>European</Text></TouchableOpacity><TouchableOpacity onPress={()=>setUnit("American")} style={{backgroundColor: "#e5191c", paddingLeft: "5%", paddingRight: "5%", paddingBottom: "1%", paddingTop: "1%", borderTopRightRadius: 10, borderBottomRightRadius: 10, marginRight: "13%", borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "white"}}>American</Text></TouchableOpacity>
 </View>
 }
+
+  let minus = <TouchableOpacity onPress={() => setLimit(limit-0.1)}><Image style={{width: 24, height: 24}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
+  
+  if (limit<0.1){
+    minus = <Image style={{width: 24, height: 24, opacity: 0.5}} source={require("./assets/minus.png")}></Image>
+  }
+
+  let newNumber6 = Number(limit).toFixed(1);
+  let newNumber7 = Number(limit*0.1).toFixed(2);
 
   return(
     <SafeAreaView style={styles.container}>
@@ -288,7 +243,13 @@ if(unit=="American"){
         <DataTable.Cell>{weightSetter}</DataTable.Cell> 
       </DataTable.Row> 
 
-        {allLevel}
+      <DataTable.Row style={{borderColor: "lightgrey"}}> 
+        <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Allowed level</Text></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}>{minus}</DataTable.Cell>
+        <DataTable.Cell ><TouchableOpacity onPress={() => setLimit(limit+0.1)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "red", fontSize: 16}}>{newNumber6}‰({newNumber7}%)</Text></DataTable.Cell>
+
+      </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       </DataTable.Row> 
