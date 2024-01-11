@@ -19,7 +19,7 @@ export default function Calculator(route) {
   });
 
   const [memoName, setName] = useState("");
-  const [memoWeight, setWeight] = useState("");
+  const [memoWeight, setWeight] = useState();
   const [memoGender, setMemoGender] = useState("");
   const [limit, setLimit] = useState("");
   const [unit, setUnit] = useState("");

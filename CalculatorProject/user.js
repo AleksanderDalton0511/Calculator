@@ -72,7 +72,8 @@ export default function User(){
         Name: {name},
         Gender: {gender},
         Weight: {weight},
-        Limit : {limit}
+        Limit : {limit},
+        Unit: {unit}
       },
       // if expires not specified, the defaultExpires will be applied instead.
       // if set to null, then it will never expire.
@@ -196,6 +197,7 @@ if(unit=="American" && limit<0.1 && limit!=0){
 }
 
 let weightSetter = <TextInput
+value={weight}
 style={{fontWeight: "bold", width: "100%", fontSize: 16}}
 onChangeText={newText => setWeight(newText)}
 placeholder="kg"
@@ -203,6 +205,7 @@ keyboardType="numeric"
 />
 
 if(unit=="American"){
+  value={weight}
   weightSetter = <TextInput
   style={{fontWeight: "bold", width: "100%", fontSize: 16}}
   onChangeText={newText => setWeight(newText/2.2)}
@@ -257,6 +260,7 @@ if(gender=="Female"){
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell>
       <TextInput
+        value={name}
         style={{fontWeight: "bold", width: "100%", fontSize: 16}}
         onChangeText={newText => setName(newText)}
         placeholder="Your name"
@@ -307,7 +311,7 @@ if(gender=="Female"){
 
       <View style={styles.parent}>
         <TouchableOpacity onPress={Home} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
-        <TouchableOpacity onPress={Save} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
+        <TouchableOpacity onPress={Save} style={{backgroundColor: "#e5191c", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
       </View>
 
       </SafeAreaView>
