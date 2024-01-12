@@ -159,7 +159,7 @@ export default function Calculator(route) {
   let color = "#61a22d";
 
   if (OutIn>0){
-    color = "red"
+    color = "#e5191c"
   }
 
   if(memoWeight==undefined && update>1){
@@ -180,7 +180,7 @@ export default function Calculator(route) {
       <DataTable>
 
       <DataTable.Row style={{borderBottomWidth: 0}}> 
-        <DataTable.Cell><TouchableOpacity onPress={Selection}><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity style={{width: "5%", marginLeft: "85%", marginTop: "20%"}} onPress={Selection}><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
       
       <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%"}}> 

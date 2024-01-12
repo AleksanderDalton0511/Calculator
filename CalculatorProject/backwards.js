@@ -138,7 +138,7 @@ export default function Backwards() {
       <DataTable style={{marginTop: "40%"}}> 
 
       <DataTable.Row style={{borderBottomWidth: 0}}> 
-        <DataTable.Cell><TouchableOpacity onPress={Selection}><Image style={{width: 30, height: 30, marginLeft: "91%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
+      <DataTable.Cell><TouchableOpacity style={{width: "5%", marginLeft: "85%"}} onPress={Selection}><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
       
       <DataTable.Row style={{borderBottomWidth: 0}}> 

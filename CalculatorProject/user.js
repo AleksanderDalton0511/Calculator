@@ -130,8 +130,8 @@ if(unit=="American"){
 }
 
 let genderChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2%", paddingTop: "2.5%"}}>
-<Text style={{marginLeft: "9.1%", fontSize: 16, color: "#6c6c6c", marginTop: "0.5%"}}>Gender</Text>
-<TouchableOpacity onPress={()=>setGender("Male")} style={{backgroundColor: "#e5191c", marginLeft: "55%", paddingLeft: "5%", paddingRight: "15%",paddingBottom: "1%", paddingTop: "1%", borderTopLeftRadius: 10, borderBottomLeftRadius: 10}}><Text style={{color: "white"}}>Male</Text></TouchableOpacity><TouchableOpacity onPress={()=>setGender("Female")} style={{backgroundColor: "white", paddingLeft: "5%", paddingRight: "5%", paddingBottom: "1%", paddingTop: "1%", borderTopRightRadius: 10, borderBottomRightRadius: 10, marginRight: "7%", borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "#e5191c"}}>Female</Text></TouchableOpacity>
+<Text style={{marginLeft: "13.5%", fontSize: 16, color: "#6c6c6c", marginTop: "0.5%"}}>Gender</Text>
+<TouchableOpacity onPress={()=>setGender("Male")} style={{backgroundColor: "#e5191c", marginLeft: "55%", paddingLeft: "5%", paddingRight: "25%",paddingBottom: "1%", paddingTop: "1%", borderTopLeftRadius: 10, borderBottomLeftRadius: 10}}><Text style={{color: "white"}}>  Male  </Text></TouchableOpacity><TouchableOpacity onPress={()=>setGender("Female")} style={{backgroundColor: "white", paddingLeft: "5%", paddingRight: "5%", paddingBottom: "1%", paddingTop: "1%", borderTopRightRadius: 10, borderBottomRightRadius: 10, marginRight: "13%", borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "#e5191c"}}> Female </Text></TouchableOpacity>
 </View>
 
 if(gender=="Female"){
@@ -142,7 +142,7 @@ if(gender=="Female"){
 }
 
 let unitChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2%", paddingTop: "2.5%", borderWidth: 0.5, borderColor: "lightgrey"}}>
-<Text style={{marginLeft: "15%", fontSize: 16, color: "#6c6c6c", marginTop: "0.5%"}}>BAC units</Text>
+<Text style={{marginLeft: "15.5%", fontSize: 16, color: "#6c6c6c", marginTop: "0.5%"}}>BAC units</Text>
 <TouchableOpacity onPress={()=>setUnit("European")} style={{backgroundColor: "#e5191c", marginLeft: "55%", paddingLeft: "5%", paddingRight: "25%",paddingBottom: "1%", paddingTop: "1%", borderTopLeftRadius: 10, borderBottomLeftRadius: 10}}><Text style={{color: "white"}}>European</Text></TouchableOpacity><TouchableOpacity onPress={()=>setUnit("American")} style={{backgroundColor: "white", paddingLeft: "5%", paddingRight: "5%", paddingBottom: "1%", paddingTop: "1%", borderTopRightRadius: 10, borderBottomRightRadius: 10, marginRight: "13%", borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "#e5191c"}}>American</Text></TouchableOpacity>
 </View>
 
@@ -217,7 +217,7 @@ if(unit=="American"){
       <DataTable.Row style={{borderColor: "lightgrey"}}> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Allowed level</Text></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center"}}>{minus}</DataTable.Cell>
-        <DataTable.Cell ><TouchableOpacity onPress={() => setLimit(limit+0.1)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity onPress={() => setLimit(limit+0.1)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "red", fontSize: 16}}>{newNumber6}‰({newNumber7}%)</Text></DataTable.Cell>
 
       </DataTable.Row> 
