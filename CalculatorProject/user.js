@@ -129,28 +129,28 @@ if(unit=="American"){
   />
 }
 
-let genderChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2%", paddingTop: "2.5%"}}>
-<Text style={{marginLeft: "13.5%", fontSize: 16, color: "#6c6c6c", marginTop: "0.5%"}}>Gender</Text>
-<TouchableOpacity onPress={()=>setGender("Male")} style={{backgroundColor: "#e5191c", marginLeft: "55%", paddingLeft: "5%", paddingRight: "25%",paddingBottom: "1%", paddingTop: "1%", borderTopLeftRadius: 10, borderBottomLeftRadius: 10}}><Text style={{color: "white"}}>  Male  </Text></TouchableOpacity><TouchableOpacity onPress={()=>setGender("Female")} style={{backgroundColor: "white", paddingLeft: "5%", paddingRight: "5%", paddingBottom: "1%", paddingTop: "1%", borderTopRightRadius: 10, borderBottomRightRadius: 10, marginRight: "13%", borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "#e5191c"}}> Female </Text></TouchableOpacity>
+let genderChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2.25%", paddingTop: "2.25%"}}>
+<Text style={{fontSize: 16, color: "#6c6c6c", marginTop: "0.5%", marginRight: "28.5%"}}>Gender</Text>
+<TouchableOpacity onPress={()=>setGender("Female")}><Image style={{width: 182, height: 28}} source={require("./assets/thumbnail_Male_Red.png")}></Image></TouchableOpacity>
 </View>
 
 if(gender=="Female"){
-  genderChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2%", paddingTop: "2.5%"}}>
-<Text style={{marginLeft: "9.1%", fontSize: 16, color: "#6c6c6c", marginTop: "0.5%"}}>Gender</Text>
-<TouchableOpacity onPress={()=>setGender("Male")} style={{backgroundColor: "white", marginLeft: "55%", paddingLeft: "5%", paddingRight: "15%", paddingBottom: "1%", paddingTop: "1%", borderTopLeftRadius: 10, borderBottomLeftRadius: 10, borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "#e5191c"}}>Male</Text></TouchableOpacity><TouchableOpacity onPress={()=>setGender("Female")} style={{backgroundColor: "#e5191c", paddingLeft: "5%", paddingRight: "5%", paddingBottom: "1%", paddingTop: "1%", borderTopRightRadius: 10, borderBottomRightRadius: 10, marginRight: "7%", borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "white"}}>Female</Text></TouchableOpacity>
+  genderChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2.25%", paddingTop: "2.25%"}}>
+<Text style={{fontSize: 16, color: "#6c6c6c", marginTop: "0.5%", marginRight: "28.5%"}}>Gender</Text>
+<TouchableOpacity onPress={()=>setGender("Male")}><Image style={{width: 182, height: 28}} source={require("./assets/thumbnail_Male_White.png")}></Image></TouchableOpacity>
 </View>
 }
 
-let unitChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2%", paddingTop: "2.5%", borderWidth: 0.5, borderColor: "lightgrey"}}>
-<Text style={{marginLeft: "15.5%", fontSize: 16, color: "#6c6c6c", marginTop: "0.5%"}}>BAC units</Text>
-<TouchableOpacity onPress={()=>setUnit("European")} style={{backgroundColor: "#e5191c", marginLeft: "55%", paddingLeft: "5%", paddingRight: "25%",paddingBottom: "1%", paddingTop: "1%", borderTopLeftRadius: 10, borderBottomLeftRadius: 10}}><Text style={{color: "white"}}>European</Text></TouchableOpacity><TouchableOpacity onPress={()=>setUnit("American")} style={{backgroundColor: "white", paddingLeft: "5%", paddingRight: "5%", paddingBottom: "1%", paddingTop: "1%", borderTopRightRadius: 10, borderBottomRightRadius: 10, marginRight: "13%", borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "#e5191c"}}>American</Text></TouchableOpacity>
+let unitChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2.25%", paddingTop: "2.25%", borderColor: "lightgrey", borderWidth: 0.5}}>
+<Text style={{fontSize: 16, color: "#6c6c6c", marginTop: "0.5%", marginRight: "25%"}}>BAC units</Text>
+<TouchableOpacity onPress={()=>setUnit("American")}><Image style={{width: 182, height: 28}} source={require("./assets/thumbnail_EU_Red.png")}></Image></TouchableOpacity>
 </View>
 
 if(unit=="American"){
-  unitChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2%", paddingTop: "2.5%", borderWidth: 0.5, borderColor: "lightgrey"}}>
-<Text style={{marginLeft: "15%", fontSize: 16, color: "#6c6c6c", marginTop: "0.5%"}}>BAC units</Text>
-<TouchableOpacity onPress={()=>setUnit("European")} style={{backgroundColor: "white", marginLeft: "55%", paddingLeft: "5%", paddingRight: "25%", paddingBottom: "1%", paddingTop: "1%", borderTopLeftRadius: 10, borderBottomLeftRadius: 10, borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "#e5191c"}}>European</Text></TouchableOpacity><TouchableOpacity onPress={()=>setUnit("American")} style={{backgroundColor: "#e5191c", paddingLeft: "5%", paddingRight: "5%", paddingBottom: "1%", paddingTop: "1%", borderTopRightRadius: 10, borderBottomRightRadius: 10, marginRight: "13%", borderColor: "#e5191c", borderWidth: 1}}><Text style={{color: "white"}}>American</Text></TouchableOpacity>
-</View>
+  unitChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2.25%", paddingTop: "2.25%", borderColor: "lightgrey", borderWidth: 0.5}}>
+  <Text style={{fontSize: 16, color: "#6c6c6c", marginTop: "0.5%", marginRight: "25%"}}>BAC units</Text>
+  <TouchableOpacity onPress={()=>setUnit("European")}><Image style={{width: 182, height: 28}} source={require("./assets/thumbnail_EU_White.png")}></Image></TouchableOpacity>
+  </View>
 }
 
   let minus = <TouchableOpacity onPress={() => setLimit(limit-0.1)}><Image style={{width: 24, height: 24}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
@@ -207,7 +207,7 @@ if(unit=="American"){
 
       {unitChoice}
 
-      <DataTable.Row style={{backgroundColor: "white"}}> 
+      <DataTable.Row style={{backgroundColor: "white", borderColor: "lightgrey", borderWidth: 0.5}}> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Weight</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
