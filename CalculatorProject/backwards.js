@@ -93,7 +93,7 @@ export default function Backwards() {
     minus2 = <Image style={{width: imageWidth/16, height: imageHeight/9, opacity: 0.5, marginLeft: "7.5%"}} source={require("./assets/minus.png")}></Image>
   }
 
-  let minus3= <TouchableOpacity style={{marginLeft: "7.5%", marginTop: "5%"}} onPress={() => setStrongness(Strongness-1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
+  let minus3= <TouchableOpacity style={{marginLeft: "7.5%"}} onPress={() => setStrongness(Strongness-1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
 
   if (Strongness==0){
     minus3 = <Image style={{width: imageWidth/16, height: imageHeight/9, opacity: 0.5, marginLeft: "7.5%"}} source={require("./assets/minus.png")}></Image>
@@ -138,7 +138,7 @@ export default function Backwards() {
       <View style={{flexDirection: "row", borderColor: "white", borderBottomWidth: 0.5}}>
         {minus2}
         <Text style={{color: "white", fontSize: 20, marginLeft: "30.5%", width: "20%", marginBottom: "2.5%"}}>{PureHours}h, {PureMins}m</Text>
-        <TouchableOpacity style={{marginLeft: "22.5%"}} onPress={() => setAgo(ago+0.25)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
+        <TouchableOpacity style={{marginLeft: "22.5%"}} onPress={() => setHoursToDrive(hoursToDrive+0.25)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
       </View>
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0, marginTop: "5%"}}> 
@@ -146,13 +146,13 @@ export default function Backwards() {
       </DataTable.Row> 
 
       <DataTable.Row style={{borderColor: "white"}}> 
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={() => setContent(content-1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/minus.png")}></Image></TouchableOpacity></DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%", opacity: 0.7}} onPress={() => setContent(5)}><Text>5%</Text></TouchableOpacity></DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%", opacity: 0.7}} onPress={() => setContent(10)}><Text>10%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}>{minus3}</DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%", opacity: 0.7}} onPress={() => setStrongness(5)}><Text>5%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%", opacity: 0.7}} onPress={() => setStrongness(10)}><Text>10%</Text></TouchableOpacity></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "white", fontSize: 20}}>{Strongness}%</Text></DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%", opacity: 0.7}} onPress={() => setContent(20)}><Text>20%</Text></TouchableOpacity></DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%", opacity: 0.7}} onPress={() => setContent(40)}><Text>40%</Text></TouchableOpacity></DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={() => setContent(content+1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%", opacity: 0.7}} onPress={() => setStrongness(20)}><Text>20%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%", opacity: 0.7}} onPress={() => setStrongness(40)}><Text>40%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={() => setStrongness(Strongness+1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>    
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0, borderTopWidth:0.5, borderColor: "white", borderTopLeftRadius:35, borderTopRightRadius: 35, marginTop: "10%", borderLeftWidth: 0.5, borderRightWidth: 0.5}}> 
@@ -170,7 +170,7 @@ export default function Backwards() {
       <DataTable style={{backgroundColor: "white"}}>
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0, backgroundColor: "white"}}> 
-      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>{memoName.name}</Text><TouchableOpacity><Image style={{width: imageWidth/18, height: imageHeight/10, opacity: 0.5}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>{memoName.name}</Text><TouchableOpacity onPress={Selection}><Image style={{width: imageWidth/18, height: imageHeight/10, opacity: 0.5}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink"}}> 
