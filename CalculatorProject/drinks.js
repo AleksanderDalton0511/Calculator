@@ -232,8 +232,8 @@ if(noFile && amount!="" && content!= ""){
 
       <View style={{flexDirection: "row", height: "15%"}}>
         {minus2}
-        <Text style={{color: "red", fontSize: 20, marginLeft: "30.5%", width: "20%"}}>{PureHours}h, {PureMins}m</Text>
-        <TouchableOpacity style={{marginLeft: "22.5%"}} onPress={() => setAgo(ago+0.25)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
+        <Text style={{color: "red", fontSize: 20, marginLeft: "29%", width: "20%"}}>{PureHours}h, {PureMins}m</Text>
+        <TouchableOpacity style={{marginLeft: "24%"}} onPress={() => setAgo(ago+0.25)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
       </View>
 
       </DataTable> 

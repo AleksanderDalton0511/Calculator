@@ -137,8 +137,8 @@ export default function Backwards() {
 
       <View style={{flexDirection: "row", borderColor: "white", borderBottomWidth: 0.5}}>
         {minus2}
-        <Text style={{color: "white", fontSize: 20, marginLeft: "30.5%", width: "20%", marginBottom: "2.5%"}}>{PureHours}h, {PureMins}m</Text>
-        <TouchableOpacity style={{marginLeft: "22.5%"}} onPress={() => setHoursToDrive(hoursToDrive+0.25)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
+        <Text style={{color: "white", fontSize: 20, marginLeft: "29%", width: "20%", marginBottom: "2.5%"}}>{PureHours}h, {PureMins}m</Text>
+        <TouchableOpacity style={{marginLeft: "24%"}} onPress={() => setHoursToDrive(hoursToDrive+0.25)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
       </View>
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0, marginTop: "5%"}}> 
