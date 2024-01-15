@@ -1,4 +1,4 @@
-import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -149,28 +149,9 @@ if(noFile && amount!="" && content!= ""){
 
   }
 
-  const [open, setOpen] = useState(false);
-  const [items, setItems] = useState([
-    {label: '0.0', value: '0.0'},
-    {label: '0.5', value: '0.5'},
-    {label: '1.0', value: '1.0'},
-    {label: '1.5', value: '1.5'},
-    {label: '2.0', value: '2.0'},
-    {label: '2.5', value: '2.5'},
-    {label: '3.0', value: '3.0'},
-    {label: '3.5', value: '3.5'},
-    {label: '4.0', value: '4.0'},
-    {label: '4.5', value: '4.5'},
-    {label: '5.0', value: '5.0'},
-    {label: '5.5', value: '5.5'},
-    {label: '6.0', value: '6.0'},
-    {label: '6.5', value: '6.5'},
-    {label: '7.0', value: '7.0'},
-    {label: '7.5', value: '7.5'},
-    {label: '8.0', value: '8.0'},
-    {label: '8.5', value: '8.5'},
-    {label: '9.0', value: '9.0'},
-  ]);
+  const dimensions = Dimensions.get('window');
+  const imageHeight = Math.round(dimensions.width * 9 / 16);
+  const imageWidth = dimensions.width;
 
   function GoBack(){
     navigation.navigate("Calculator");
@@ -192,16 +173,16 @@ if(noFile && amount!="" && content!= ""){
 />
   }
 
-  let minus = <TouchableOpacity onPress={() => setContent(content-1)}><Image style={{width: 24, height: 24}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
+  let minus = <TouchableOpacity onPress={() => setContent(content-1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
   
   if (content==0){
-    minus = <Image style={{width: 24, height: 24, opacity: 0.5}} source={require("./assets/minus.png")}></Image>
+    minus = <Image style={{width: imageWidth/16, height: imageHeight/9, opacity: 0.5}} source={require("./assets/minus.png")}></Image>
   }
 
-  let minus2= <TouchableOpacity style={{marginLeft: "7.5%"}} onPress={() => setAgo(ago-0.25)}><Image style={{width: 24, height: 24}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
+  let minus2= <TouchableOpacity style={{marginLeft: "7.5%"}} onPress={() => setAgo(ago-0.25)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
 
   if (ago==0){
-    minus2 = <Image style={{width: 24, height: 24, opacity: 0.5, marginLeft: "7.5%"}} source={require("./assets/minus.png")}></Image>
+    minus2 = <Image style={{width: imageWidth/16, height: imageHeight/9, opacity: 0.5, marginLeft: "7.5%"}} source={require("./assets/minus.png")}></Image>
   }
 
   return(
@@ -234,7 +215,7 @@ if(noFile && amount!="" && content!= ""){
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "red", fontSize: 20}}>{content}%</Text></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center", opacity: 0.7}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(20)}><Text>20%</Text></TouchableOpacity></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center", opacity: 0.7}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(40)}><Text>40%</Text></TouchableOpacity></DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={() => setContent(content+1)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={() => setContent(content+1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{borderColor: "white"}}> 
@@ -252,7 +233,7 @@ if(noFile && amount!="" && content!= ""){
       <View style={{flexDirection: "row", height: "15%"}}>
         {minus2}
         <Text style={{color: "red", fontSize: 20, marginLeft: "30.5%", width: "20%"}}>{PureHours}h, {PureMins}m</Text>
-        <TouchableOpacity style={{marginLeft: "22.5%"}} onPress={() => setAgo(ago+0.25)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
+        <TouchableOpacity style={{marginLeft: "22.5%"}} onPress={() => setAgo(ago+0.25)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
       </View>
 
       </DataTable> 

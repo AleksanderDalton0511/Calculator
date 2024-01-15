@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { Text, TouchableOpacity, Image, SafeAreaView, Dimensions } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation, useIsFocused } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -171,6 +171,10 @@ export default function Calculator(route) {
     newNumber3 = Number(memoWeight).toFixed(0)+"lbs";
   }
     
+  const dimensions = Dimensions.get('window');
+  const imageHeight = Math.round(dimensions.width * 9 / 16);
+  const imageWidth = dimensions.width;
+
   return(
     <SafeAreaView style={{flex: 1,
       alignItems: 'center',
@@ -180,7 +184,7 @@ export default function Calculator(route) {
       <DataTable>
 
       <DataTable.Row style={{borderBottomWidth: 0}}> 
-        <DataTable.Cell><TouchableOpacity style={{width: "5%", marginLeft: "85%", marginTop: "20%"}} onPress={Selection}><Image style={{width: 30, height: 30, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity style={{width: "5%", marginLeft: "85%", marginTop: "20%"}} onPress={Selection}><Image style={{width: imageWidth/13, height: imageHeight/7, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
       
       <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%"}}> 
@@ -225,7 +229,7 @@ export default function Calculator(route) {
       <DataTable style={{backgroundColor: "white"}}>
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0, backgroundColor: "white"}}> 
-      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>{memoName}</Text><TouchableOpacity><Image style={{width: 20, height: 20, opacity: 0.5}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>{memoName}</Text><TouchableOpacity><Image style={{width: imageWidth/18, height: imageHeight/10, opacity: 0.5}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink", marginTop: "3%"}}> 
