@@ -181,7 +181,7 @@ export default function Calculator(route) {
       justifyContent: 'center',
       backgroundColor: `${ color }`}}>
 
-      <DataTable>
+      <DataTable style={{marginTop: "8%"}}>
 
       <DataTable.Row style={{borderBottomWidth: 0}}> 
         <DataTable.Cell><TouchableOpacity style={{width: "5%", marginLeft: "85%", marginTop: "20%"}} onPress={Selection}><Image style={{width: imageWidth/13, height: imageHeight/7, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
@@ -224,7 +224,7 @@ export default function Calculator(route) {
 
       </DataTable> 
 
-      <Image style={{width: "100%", height: "8%"}} source={require("./assets/Valge3.png")}></Image>
+      <Image style={{width: "100%", height: "8%", marginTop: "8%"}} source={require("./assets/Valge3.png")}></Image>
 
       <DataTable style={{backgroundColor: "white"}}>
 
