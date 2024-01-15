@@ -1,4 +1,4 @@
-import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, Image, Dimensions } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Storage from 'react-native-storage';
@@ -113,6 +113,10 @@ export default function User(){
     navigation.navigate("Calculator");
   }
 
+  const dimensions = Dimensions.get('window');
+  const imageHeight = Math.round(dimensions.width * 9 / 16);
+  const imageWidth = dimensions.width;
+
 let weightSetter = <TextInput
 style={{fontWeight: "bold", width: "100%", fontSize: 16}}
 onChangeText={newText => setWeight(newText)}
@@ -131,32 +135,32 @@ if(unit=="American"){
 
 let genderChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2.25%", paddingTop: "2.25%"}}>
 <Text style={{fontSize: 16, color: "#6c6c6c", marginTop: "0.5%", marginRight: "28.5%"}}>Gender</Text>
-<TouchableOpacity onPress={()=>setGender("Female")}><Image style={{width: 182, height: 28}} source={require("./assets/thumbnail_Male_Red.png")}></Image></TouchableOpacity>
+<TouchableOpacity onPress={()=>setGender("Female")}><Image style={{width: imageWidth/2.25, height: imageHeight/8.3}} source={require("./assets/thumbnail_Male_Red.png")}></Image></TouchableOpacity>
 </View>
 
 if(gender=="Female"){
   genderChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2.25%", paddingTop: "2.25%"}}>
 <Text style={{fontSize: 16, color: "#6c6c6c", marginTop: "0.5%", marginRight: "28.5%"}}>Gender</Text>
-<TouchableOpacity onPress={()=>setGender("Male")}><Image style={{width: 182, height: 28}} source={require("./assets/thumbnail_Male_White.png")}></Image></TouchableOpacity>
+<TouchableOpacity onPress={()=>setGender("Male")}><Image style={{width: imageWidth/2.25, height: imageHeight/8.3}} source={require("./assets/thumbnail_Male_White.png")}></Image></TouchableOpacity>
 </View>
 }
 
 let unitChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2.25%", paddingTop: "2.25%", borderColor: "lightgrey", borderWidth: 0.5}}>
 <Text style={{fontSize: 16, color: "#6c6c6c", marginTop: "0.5%", marginRight: "25%"}}>BAC units</Text>
-<TouchableOpacity onPress={()=>setUnit("American")}><Image style={{width: 182, height: 28}} source={require("./assets/thumbnail_EU_Red.png")}></Image></TouchableOpacity>
+<TouchableOpacity onPress={()=>setUnit("American")}><Image style={{width: imageWidth/2.25, height: imageHeight/8.3}} source={require("./assets/thumbnail_EU_Red.png")}></Image></TouchableOpacity>
 </View>
 
 if(unit=="American"){
   unitChoice = <View style={{flexDirection: "row", justifyContent: "space-around", paddingBottom: "2.25%", paddingTop: "2.25%", borderColor: "lightgrey", borderWidth: 0.5}}>
   <Text style={{fontSize: 16, color: "#6c6c6c", marginTop: "0.5%", marginRight: "25%"}}>BAC units</Text>
-  <TouchableOpacity onPress={()=>setUnit("European")}><Image style={{width: 182, height: 28}} source={require("./assets/thumbnail_EU_White.png")}></Image></TouchableOpacity>
+  <TouchableOpacity onPress={()=>setUnit("European")}><Image style={{width: imageWidth/2.25, height: imageHeight/8.3}} source={require("./assets/thumbnail_EU_White.png")}></Image></TouchableOpacity>
   </View>
 }
 
-  let minus = <TouchableOpacity onPress={() => setLimit(limit-0.1)}><Image style={{width: 24, height: 24}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
+  let minus = <TouchableOpacity onPress={() => setLimit(limit-0.1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
   
   if (limit<0.1){
-    minus = <Image style={{width: 24, height: 24, opacity: 0.5}} source={require("./assets/minus.png")}></Image>
+    minus = <Image style={{width: imageWidth/16, height: imageHeight/9, opacity: 0.5}} source={require("./assets/minus.png")}></Image>
   }
 
   let newNumber6 = Number(limit).toFixed(1);
@@ -217,7 +221,7 @@ if(unit=="American"){
       <DataTable.Row style={{borderColor: "lightgrey"}}> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Allowed level</Text></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center"}}>{minus}</DataTable.Cell>
-        <DataTable.Cell><TouchableOpacity onPress={() => setLimit(limit+0.1)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell><TouchableOpacity onPress={() => setLimit(limit+0.1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "red", fontSize: 16}}>{newNumber6}‰({newNumber7}%)</Text></DataTable.Cell>
 
       </DataTable.Row> 
@@ -231,7 +235,7 @@ if(unit=="American"){
 
       <View style={styles.parent}>
         <TouchableOpacity onPress={Home} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
-        <TouchableOpacity onPress={Save} style={{backgroundColor: "#e5191c", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
+        <TouchableOpacity onPress={Save} style={{backgroundColor: "#bbbbbb", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
       </View>
 
       </SafeAreaView>

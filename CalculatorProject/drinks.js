@@ -229,11 +229,11 @@ if(noFile && amount!="" && content!= ""){
 
       <DataTable.Row style={{borderColor: "white"}}> 
         <DataTable.Cell style={{justifyContent: "center"}}>{minus}</DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(5)}><Text>5%</Text></TouchableOpacity></DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(10)}><Text>10%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center", opacity: 0.7}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(5)}><Text>5%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center", opacity: 0.7}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(10)}><Text>10%</Text></TouchableOpacity></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "red", fontSize: 20}}>{content}%</Text></DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(20)}><Text>20%</Text></TouchableOpacity></DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(40)}><Text>40%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center", opacity: 0.7}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(20)}><Text>20%</Text></TouchableOpacity></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center", opacity: 0.7}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(40)}><Text>40%</Text></TouchableOpacity></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={() => setContent(content+1)}><Image style={{width: 24, height: 24}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
