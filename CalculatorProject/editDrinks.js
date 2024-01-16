@@ -44,15 +44,6 @@ export default function Drinks(){
             case 'ExpiredError':
               break;
           }
-        })
-
-        .catch(err => {
-          switch (err.name) {
-            case 'NotFoundError':
-              break;
-            case 'ExpiredError':
-              break;
-          }
         });
       
     }, []);
@@ -176,7 +167,7 @@ useEffect(() => {
       <FlatList
          style={{paddingBottom: `${ padding }`}} 
          data={oldResult}
-         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "white", borderColor: "lightgrey", borderWidth: 0.5}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text style={{paddingBottom: "2%", marginLeft: "3.5%", paddingTop: "2%"}}>{item.amount/factor}{visualUnit}, {item.content}%</Text><Text style={{paddingBottom: "2%", marginLeft: "3.5%", color: "#6c6c6c"}}>Created {(Date.now()-item.timeOfDrink)/3600000|0} hours and {(((Date.now()-item.timeOfDrink)/3600000*60)%60).toFixed(0)} minutes ago</Text></TouchableOpacity> }
+         renderItem={({item}) => <TouchableOpacity style={{backgroundColor: "white", borderColor: "lightgrey", borderWidth: 0.5}} onPress={() => setList(oldResult.slice(0, oldResult.indexOf(item)).concat(oldResult.slice(oldResult.indexOf(item)+1)))}><Text style={{paddingBottom: "2%", marginLeft: "3.5%", paddingTop: "2%"}}>{Math.round(item.amount/factor)}{visualUnit}, {item.content}%</Text><Text style={{paddingBottom: "2%", marginLeft: "3.5%", color: "#6c6c6c"}}>Created {(Date.now()-item.timeOfDrink)/3600000|0} hours and {(((Date.now()-item.timeOfDrink)/3600000*60)%60).toFixed(0)} minutes ago</Text></TouchableOpacity> }
          keyExtractor={(item) => item.timeOfDrink}
       />
       
