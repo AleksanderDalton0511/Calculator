@@ -117,13 +117,13 @@ useEffect(() => {
     navigation.navigate("Calculator");
   }
 
-  let padding = "102";
+  let padding = "103";
 
   if(oldResult!=undefined){
     padding = padding - oldResult.length*15.5+"%";
   }
   else{
-    padding = "102%";
+    padding = "103%";
   }
 
   let visualUnit;
