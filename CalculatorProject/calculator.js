@@ -251,9 +251,9 @@ export default function Calculator(route) {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink", marginTop: "3%"}}> 
-      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#c5c5c5"}}>Gender</Text></DataTable.Cell> 
-      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{marginTop: "10%", color: "#c5c5c5"}}>Units</Text></DataTable.Cell> 
-      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#c5c5c5"}}>Weight</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#a7a7a7"}}>Gender</Text></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{marginTop: "10%", color: "#a7a7a7"}}>Units</Text></DataTable.Cell> 
+      <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#a7a7a7"}}>Weight</Text></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderBottomWidth: 0}}> 

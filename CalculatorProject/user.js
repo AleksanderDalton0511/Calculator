@@ -89,7 +89,7 @@ export default function User(){
     });
   }
 
-  let warning = <Text style={{fontSize: 16, color: "#c5c5c5", textAlign: "center"}}>To estimate your blood alcohol level correctly we need some information.</Text>
+  let warning = <Text style={{fontSize: 16, color: "#a7a7a7", textAlign: "center"}}>To estimate your blood alcohol level correctly we need some information.</Text>
   if (weight.indexOf('-') > -1 || weight.indexOf('.') > -1){
     warning = <Text style={{fontSize: 16, color: "red", textAlign: "center"}}>Weight must be a whole number!</Text>
   }
