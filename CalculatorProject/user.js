@@ -231,7 +231,7 @@ if(unit=="American"){
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Allowed level</Text></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center"}}>{minus}</DataTable.Cell>
         <DataTable.Cell><TouchableOpacity onPress={() => setLimit(limit+0.1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
-        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "red", fontSize: 16}}>{newNumber6}‰({newNumber7}%)</Text></DataTable.Cell>
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "red", fontSize: 16}}>{newNumber6}‰/{newNumber7}%</Text></DataTable.Cell>
 
       </DataTable.Row> 
 
