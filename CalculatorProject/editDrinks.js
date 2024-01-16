@@ -44,6 +44,15 @@ export default function Drinks(){
             case 'ExpiredError':
               break;
           }
+        })
+
+        .catch(err => {
+          switch (err.name) {
+            case 'NotFoundError':
+              break;
+            case 'ExpiredError':
+              break;
+          }
         });
       
     }, []);
@@ -84,6 +93,15 @@ export default function Drinks(){
       const PureHours = OutInMin/60;
       const PureMins = OutInMin% 60;
       setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink, content: person.content, amount: person.amount })));
+    })
+
+    .catch(err => {
+      switch (err.name) {
+        case 'NotFoundError':
+          break;
+        case 'ExpiredError':
+          break;
+      }
     });
   
 }, [factor]);

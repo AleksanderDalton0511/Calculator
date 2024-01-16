@@ -60,6 +60,15 @@ export default function User(){
         setLimit(ret.Limit.limit);
         setName(ret.Name.name);
         setUnit(ret.Unit.unit);
+      })
+
+      .catch(err => {
+        switch (err.name) {
+          case 'NotFoundError':
+            break;
+          case 'ExpiredError':
+            break;
+        }
       });
     
   }, []);

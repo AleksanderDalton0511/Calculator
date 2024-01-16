@@ -107,6 +107,15 @@ export default function Drinks(){
 
       oldResult.push(newResult);
       
+    })
+
+    .catch(err => {
+      switch (err.name) {
+        case 'NotFoundError':
+          break;
+        case 'ExpiredError':
+          break;
+      }
     });
   
 }, [newResult]);

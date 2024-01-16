@@ -43,6 +43,15 @@ export default function Backwards() {
         setMemoGender(ret.Gender);
         setLimit(ret.Limit.limit/0.1);
         setUnit(ret.Unit.unit);
+      })
+
+      .catch(err => {
+        switch (err.name) {
+          case 'NotFoundError':
+            break;
+          case 'ExpiredError':
+            break;
+        }
       });
     
   }, []);
