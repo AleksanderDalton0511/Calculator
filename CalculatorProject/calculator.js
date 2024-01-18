@@ -91,12 +91,12 @@ export default function Calculator(route) {
       const timeElapsed = Date.now() - oldResult[0].timeOfDrink;
       const finalTime = timeElapsed/3600000;
 
-      ret.Data.oldResult[0].promille = ret.Data.oldResult[0].promille-finalTime * 0.1;
+      oldResult[0].promille = oldResult[0].promille-finalTime * 0.1;
 
       let finaal = [];
       let result0= 0;
-      for (let i = 0; i < ret.Data.oldResult.length; i++) {
-        finaal.push(ret.Data.oldResult[i].promille);
+      for (let i = 0; i < oldResult.length; i++) {
+        finaal.push(oldResult[i].promille);
       }
       for (let i = 0; i < finaal.length; i++) {
         result0 += finaal[i]
