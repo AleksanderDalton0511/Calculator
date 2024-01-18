@@ -194,13 +194,18 @@ if(noFile && amount!="" && content!= ""){
     minus2 = <Image style={{width: imageWidth/16, height: imageHeight/9, opacity: 0.5, marginLeft: "7.5%"}} source={require("./assets/minus.png")}></Image>
   }
 
+  let newNumber = Number(AlcoholInBlood).toFixed(4)+"‰";
+  if(unit=="American"){
+    newNumber = Number(AlcoholInBlood*0.1).toFixed(4)+"%";
+  }
+
   return(
     <SafeAreaView style={styles.container}>
 
       <DataTable style={{marginTop: "8%"}}> 
       
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}> 
-        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 36, color: "white"}}>{AlcoholInBlood.toFixed(4)}‰</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 36, color: "white"}}>{newNumber}</Text></DataTable.Cell> 
       </DataTable.Row> 
   
       <DataTable.Row style={{backgroundColor: "#61a22d", borderBottomWidth: 0}}>   
