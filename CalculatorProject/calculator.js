@@ -88,7 +88,20 @@ export default function Calculator(route) {
     .then(ret => {
       let oldResult = ret.Data.oldResult;
 
-      const timeElapsed = Date.now() - oldResult[0].timeOfDrink;
+      let toTop = Date.now();
+
+      if(oldResult[0].toTop==undefined){
+        oldResult[0].toTop = toTop;
+        storage.save({
+          key: 'result1', // Note: Do not use underscore("_") in key!
+          data: {
+            Data: {oldResult}
+          },
+          expires: null
+        });
+      }
+
+      const timeElapsed = Date.now() - oldResult[0].toTop;
       const finalTime = timeElapsed/3600000;
 
       oldResult[0].promille = oldResult[0].promille-finalTime * 0.1;
