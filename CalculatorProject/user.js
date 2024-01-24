@@ -90,12 +90,12 @@ export default function User(){
   }
 
   let warning = <Text style={{fontSize: 16, color: "#a7a7a7", textAlign: "center"}}>To estimate your blood alcohol level correctly we need some information.</Text>
-  if (weight.indexOf('-') > -1 || weight.indexOf('.') > -1){
+  if (weight.indexOf('-') > -1 || weight.indexOf('.') > -1 || isNaN(weight)){
     warning = <Text style={{fontSize: 16, color: "red", textAlign: "center"}}>Weight must be a whole number!</Text>
   }
 
   function Save(){
-  if (weight.indexOf('-') > -1 || weight.indexOf('.') > -1){
+  if (weight.indexOf('-') > -1 || weight.indexOf('.') > -1 || isNaN(weight)){
     warning = <Text style={{fontSize: 16, color: "red", textAlign: "center"}}>Weight must be a whole number!</Text>
   }
   else{
@@ -136,7 +136,7 @@ keyboardType="numeric"
 if(unit=="American"){
   weightSetter = <TextInput
   style={{fontWeight: "bold", width: "100%", fontSize: 16}}
-  onChangeText={newText => setWeight(newText/2.2)}
+  onChangeText={newText => setWeight(''+(newText/2.2).toFixed(0))}
   placeholder="lbs"
   keyboardType="numeric"
   />
