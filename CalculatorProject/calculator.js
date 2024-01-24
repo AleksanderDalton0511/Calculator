@@ -103,7 +103,7 @@ export default function Calculator(route) {
 
       for(let i=1; i<oldResult.length; i++){
         if(oldResult[i].toTop==undefined && oldResult[i]!=undefined){
-          oldResult[i].toTop = oldResult[i-1].toTop + (oldResult[i-1].promille/MinusPerHour - limit)*3600000;
+          oldResult[i].toTop = oldResult[i-1].toTop + (oldResult[i-1].promille/MinusPerHour)*3600000;
         }
       }
 
