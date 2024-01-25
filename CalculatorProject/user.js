@@ -253,11 +253,14 @@ if(unit=="American"){
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#e5191c"
+    backgroundColor: "#e5191c",
+    height: "100%"
   },
   parent: {
     flexDirection: "row",
     justifyContent: "space-around",
-    height: "10%"
+    height: "10%",
+    position: 'absolute', //Here is the trick
+    bottom: 0, //Here is the trick
   },
 });
