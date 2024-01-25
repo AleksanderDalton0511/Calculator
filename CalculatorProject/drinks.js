@@ -263,11 +263,14 @@ if(noFile && amount!="" && content!= ""){
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#61a22d"
+    backgroundColor: "#61a22d",
+    height: "100%"
   },
   parent: {
     flexDirection: "row",
     justifyContent: "space-around",
     height: "10%",
+    position: 'absolute', //Here is the trick
+    bottom: 0, //Here is the trick
   },
 });
