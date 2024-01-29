@@ -83,7 +83,7 @@ export default function Drinks(){
       const OutInMin = OutIn*60;
       const PureHours = OutInMin/60;
       const PureMins = OutInMin% 60;
-      setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink, content: person.content, amount: person.amount })));
+      setList(ret.Data.oldResult.map(person => ({ promille: person.promille, timeOfDrink: person.timeOfDrink, content: person.content, amount: person.amount, toTop: person.toTop })));
     })
 
     .catch(err => {
