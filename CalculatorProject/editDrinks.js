@@ -97,7 +97,7 @@ export default function Drinks(){
   
 }, [factor]);
 
-const [sliced, setSliced] = useState(0);
+const [sliced, setSliced] = useState(-1);
 
 useEffect(() => {
   setSliced(sliced+1);
@@ -135,11 +135,11 @@ useEffect(() => {
     visualUnit="ml";
   }
 
-  if(oldResult!=undefined){
+  /*if(oldResult!=undefined){
     if(oldResult.length==0){
       navigation.navigate("Calculator");
     }
-  }
+  }*/
 
   return(
     <SafeAreaView style={styles.container}>
