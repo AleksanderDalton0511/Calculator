@@ -141,6 +141,13 @@ useEffect(() => {
     }
   }*/
 
+  let redText = "TAP TO DELETE";
+  if(oldResult!=undefined){
+    if(oldResult.length<1){
+      redText=""
+    }
+  }
+
   return(
     <SafeAreaView style={styles.container}>
 
@@ -161,7 +168,7 @@ useEffect(() => {
       <DataTable style={{paddingTop: "7%", backgroundColor: "white"}}> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
-        <Text style={{color: "red"}}>TAP TO DELETE</Text>
+        <Text style={{color: "red"}}>{redText}</Text>
       </DataTable.Row> 
 
       <FlatList
