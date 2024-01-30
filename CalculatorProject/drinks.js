@@ -253,8 +253,8 @@ if(noFile && amount!="" && content!= ""){
       </DataTable> 
 
       <View style={styles.parent}>
-        <TouchableOpacity onPress={GoBack} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
-        <TouchableOpacity onPress={SaveResult} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
+        <TouchableOpacity activeOpacity={1} onPress={GoBack} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
+        <TouchableOpacity activeOpacity={1} onPress={SaveResult} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "42%"}}>Save</Text></TouchableOpacity>
       </View>
 
       </SafeAreaView>

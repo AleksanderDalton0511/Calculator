@@ -181,8 +181,8 @@ useEffect(() => {
       </DataTable> 
 
       <View style={styles.parent}>
-        <TouchableOpacity onPress={GoHome} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
-        <TouchableOpacity onPress={AddNew} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "26%"}}>Add new drink</Text></TouchableOpacity>
+        <TouchableOpacity activeOpacity={1} onPress={GoHome} style={{backgroundColor: "#f4f6f5", width:"50%"}}><Text style={{marginTop: "15%", marginLeft: "42%"}}>Back</Text></TouchableOpacity>
+        <TouchableOpacity activeOpacity={1} onPress={AddNew} style={{backgroundColor: "#81b458", width:"50%"}}><Text style={{color: "white", marginTop: "15%", marginLeft: "26%"}}>Add new drink</Text></TouchableOpacity>
       </View>
 
       </SafeAreaView>
