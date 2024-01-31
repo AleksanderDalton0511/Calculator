@@ -3,6 +3,7 @@ import User from "./user";
 import Backwards from "./backwards";
 import EditDrinks from "./editDrinks";
 import Drinks from "./drinks";
+import Disclaimer from "./disclaimer";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text} from 'react-native';
@@ -29,6 +30,7 @@ export default function App() {
                 <Stack.Screen name="EditDrinks" component={EditDrinks} />
                 <Stack.Screen name="User" component={User}/>
                 <Stack.Screen name="Backwards" component={Backwards} />
+                <Stack.Screen name="Disclaimer" component={Disclaimer}/>
             </Stack.Navigator>
             <StatusBar hidden />
         </NavigationContainer>

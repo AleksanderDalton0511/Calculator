@@ -89,7 +89,7 @@ export default function User(){
     });
   }
 
-  let warning = <Text style={{fontSize: 16, color: "#a7a7a7", textAlign: "center"}}>To estimate your blood alcohol level correctly we need some information.<TouchableOpacity><Text style={{color: "#e5191c", opacity: 0.7}}>DISCLAIMER</Text></TouchableOpacity></Text>
+  let warning = <Text style={{fontSize: 16, color: "#a7a7a7", textAlign: "center"}}>To estimate your blood alcohol level correctly we need some information.<TouchableOpacity onPress={() => navigation.navigate("Disclaimer")}><Text style={{color: "#e5191c", opacity: 0.7}}>DISCLAIMER</Text></TouchableOpacity></Text>
   if (weight.indexOf('-') > -1 || weight.indexOf('.') > -1 || isNaN(weight)){
     warning = <Text style={{fontSize: 16, color: "red", textAlign: "center"}}>Weight must be a whole number!</Text>
   }
@@ -203,7 +203,7 @@ if(unit=="American"){
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "white", borderColor: "lightgrey", borderBottomWidth: 0, borderTopWidth: 0.5}}> 
+      <DataTable.Row style={{backgroundColor: "white", borderColor: "lightgrey", borderBottomWidth: 0, borderTopWidth: 0}}> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Name</Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
         <DataTable.Cell><Text></Text></DataTable.Cell>
@@ -227,7 +227,7 @@ if(unit=="American"){
         <DataTable.Cell>{weightSetter}</DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{borderColor: "lightgrey", borderBottomWidth: 0.5}}> 
+      <DataTable.Row style={{borderColor: "lightgrey", borderBottomWidth: 0}}> 
         <DataTable.Cell><Text style={{fontSize: 16, color: "#6c6c6c"}}>Allowed level</Text></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center"}}>{minus}</DataTable.Cell>
         <DataTable.Cell><TouchableOpacity onPress={() => setLimit(limit+0.1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
