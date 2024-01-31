@@ -1,4 +1,4 @@
-import { Text, Image, ScrollView } from 'react-native';
+import { Text, Image, ScrollView, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { DataTable } from 'react-native-paper'; 
 
@@ -75,6 +75,10 @@ export default function Disclaimer(){
       </DataTable.Row> 
 
       </DataTable> 
+
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate("Calculator")} style={{backgroundColor: "#f4f6f5", width:"100%"}}><Text style={{color: "black", paddingTop: "10%", paddingBottom: "10%", marginLeft: "45%"}}>Accept</Text></TouchableOpacity>
+      </View>
 
       </ScrollView>
   )
