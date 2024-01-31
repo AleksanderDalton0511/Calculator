@@ -265,13 +265,13 @@ export default function Calculator(route) {
       <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>{memoName} </Text><TouchableOpacity onPress={Selection}><Image style={{width: imageWidth/18, height: imageHeight/10, opacity: 0.3}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink", marginTop: "3%", marginRight: "4.5%"}}> 
+      <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderColor: "pink", marginTop: "3%"}}> 
       <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#a7a7a7"}}>Gender</Text></DataTable.Cell> 
       <DataTable.Cell style={{justifyContent: "center"}}><Text style={{marginTop: "10%", color: "#a7a7a7"}}>Units</Text></DataTable.Cell> 
       <DataTable.Cell><Text style={{marginTop: "10%", marginLeft: "30%", color: "#a7a7a7"}}>Weight</Text></DataTable.Cell> 
       </DataTable.Row> 
 
-      <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderBottomWidth: 0, marginRight: "4.5%"}}> 
+      <DataTable.Row style={{backgroundColor: "#00a400", backgroundColor: "white", borderBottomWidth: 0}}> 
       <DataTable.Cell><Text style={{marginLeft: "30.2%", marginBottom: "15%", color: "#282828"}}>{memoGender.gender}</Text></DataTable.Cell> 
       <DataTable.Cell style={{justifyContent: "center"}}><Text style={{marginBottom: "15%", color: "#282828"}}>{unit}</Text></DataTable.Cell> 
       <DataTable.Cell><Text style={{marginLeft: "30.2%", marginBottom: "15%", color: "#282828"}}>{newNumber3}</Text></DataTable.Cell> 
