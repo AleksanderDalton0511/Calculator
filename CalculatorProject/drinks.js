@@ -176,7 +176,7 @@ if(noFile && amount!="" && content!= ""){
   if (unit=="American"){
     input1 = <TextInput
   style={{fontWeight: "bold", width: "100%", fontSize: 20}}
-  onChangeText={newText => setAmount(newText*29,573)}
+  onChangeText={newText => setAmount(newText*29.573)}
   placeholder="oz"
   keyboardType="numeric"
 />
