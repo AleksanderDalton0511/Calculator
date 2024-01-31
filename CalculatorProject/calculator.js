@@ -219,10 +219,6 @@ export default function Calculator(route) {
       backgroundColor: `${ color }`}}>
 
       <DataTable style={{marginTop: "8%"}}>
-
-      <DataTable.Row style={{borderBottomWidth: 0}}> 
-        <DataTable.Cell><TouchableOpacity style={{width: "5%", marginLeft: "85%", marginTop: "20%"}} onPress={Selection}><Image style={{width: imageWidth/13, height: imageHeight/7, marginLeft: "91%", marginTop: "25%"}} source={require("./assets/settings_icon.png")}></Image></TouchableOpacity></DataTable.Cell> 
-      </DataTable.Row>
       
       <DataTable.Row style={{borderBottomWidth: 0, marginTop: "10%"}}> 
         <DataTable.Cell><TouchableOpacity style={{fontSize: 16, color: "white", borderWidth: 1, borderColor: "white", backgroundColor: "white", borderTopLeftRadius: 6, borderBottomLeftRadius: 6, color: "green", paddingBottom: "2.5%", paddingTop: "2.5%", width: "70%", marginLeft: "30%"}}><Text style={{marginLeft: "23%", color: `${ color }`}}>REAL TIME</Text></TouchableOpacity></DataTable.Cell> 
