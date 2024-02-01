@@ -259,7 +259,7 @@ export default function Calculator(route) {
 
       <Image style={{width: "100%", height: "8%", marginTop: "8%"}} source={require("./assets/Valge3.png")}></Image>
 
-      <DataTable style={{backgroundColor: "white"}}>
+      <DataTable style={{backgroundColor: "white", paddingBottom: "5%"}}>
 
       <DataTable.Row style={{backgroundColor: "#00a400", borderBottomWidth: 0, backgroundColor: "white"}}> 
       <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "black", fontSize: 26}}>{memoName} </Text><TouchableOpacity onPress={Selection}><Image style={{width: imageWidth/18, height: imageHeight/10, opacity: 0.3}} source={require("./assets/Edit33.png")}></Image></TouchableOpacity></DataTable.Cell> 
