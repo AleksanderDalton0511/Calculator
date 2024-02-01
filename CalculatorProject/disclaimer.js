@@ -12,7 +12,7 @@ export default function Disclaimer(){
       
       <DataTable.Row style={{backgroundColor: "#e5191c", borderBottomWidth: 0}}> 
         <DataTable.Cell></DataTable.Cell> 
-        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 26, color: "white"}}>Disclaimer</Text></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 24, color: "white"}}>Disclaimer</Text></DataTable.Cell> 
         <DataTable.Cell></DataTable.Cell> 
       </DataTable.Row> 
   
