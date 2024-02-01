@@ -194,7 +194,7 @@ if(unit=="American"){
 
       <Image style={{width: "100%", height: "14.5%"}} source={require("./assets/Valge3.png")}></Image>
 
-      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "14%"}}> 
+      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "16%"}}> 
 
       <DataTable.Row style={{backgroundColor: "white", borderBottomWidth: 0}}> 
         <DataTable.Cell style={{justifyContent: "center"}}>{warning}</DataTable.Cell> 

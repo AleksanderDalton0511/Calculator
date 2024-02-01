@@ -216,7 +216,7 @@ if(noFile && amount!="" && content!= ""){
 
       <Image style={{width: "100%", height: "14.5%"}} source={require("./assets/Valge3.png")}></Image>
 
-      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "35%"}}> 
+      <DataTable style={{paddingTop: "7%", backgroundColor: "white", paddingBottom: "37.5%"}}> 
 
       <DataTable.Row style={{borderColor: "white"}}> 
         <DataTable.Cell style={{justifyContent: "left"}}><Text style={{fontSize: 18, color: "grey"}}>CONTENT</Text></DataTable.Cell>
