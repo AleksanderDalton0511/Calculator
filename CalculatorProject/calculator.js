@@ -238,7 +238,7 @@ export default function Calculator(route) {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`, borderBottomWidth: 0}}> 
-      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 18, color: "white", marginBottom: "6%"}}>Allowed level {newNumber2}</Text></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={Selection}><Text style={{fontSize: 18, color: "white", marginBottom: "6%"}}>Allowed level {newNumber2}</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: `${ color }`}}> 

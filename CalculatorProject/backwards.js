@@ -165,7 +165,7 @@ export default function Backwards() {
       </DataTable.Row> 
 
       <DataTable.Row style={{backgroundColor: "#61a22d", borderColor: "white", borderColor: "#61a22d"}}> 
-      <DataTable.Cell style={{justifyContent: "center"}}><Text style={{fontSize: 18, color: "white"}}>Allowed level {newNumber2}</Text></DataTable.Cell> 
+      <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={Selection}><Text style={{fontSize: 18, color: "white"}}>Allowed level {newNumber2}</Text></TouchableOpacity></DataTable.Cell> 
       </DataTable.Row>
 
       </DataTable> 
