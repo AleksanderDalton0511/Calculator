@@ -80,7 +80,8 @@ export default function Drinks(){
     "promille": AlcoholInBlood,
     "timeOfDrink": Date.now(),
     "amount": amount,
-    "content": content
+    "content": content,
+    "ago": ago
   }
 
   const [noFile, setNoFile] = useState(true);

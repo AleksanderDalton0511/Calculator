@@ -77,7 +77,7 @@ export default function Disclaimer(){
       </DataTable> 
 
       <View>
-        <TouchableOpacity onPress={() => navigation.navigate("Calculator")} style={{backgroundColor: "#f4f6f5", width:"100%"}}><Text style={{color: "black", paddingTop: "10%", paddingBottom: "10%", marginLeft: "45%"}}>Accept</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("User")} style={{backgroundColor: "#f4f6f5", width:"100%"}}><Text style={{color: "black", paddingTop: "10%", paddingBottom: "10%", marginLeft: "45%"}}>Accept</Text></TouchableOpacity>
       </View>
 
       </ScrollView>
