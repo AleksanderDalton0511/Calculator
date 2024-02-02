@@ -210,6 +210,7 @@ if(unit=="American"){
         <DataTable.Cell>
       <TextInput
         value={name}
+        maxLength={25}
         style={{fontWeight: "bold", width: "100%", fontSize: 16}}
         onChangeText={newText => setName(newText)}
         placeholder="Your name"
