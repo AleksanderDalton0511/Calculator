@@ -96,6 +96,12 @@ export default function Backwards() {
   let PureHours = hoursToDrive|0;
   let PureMins = OutInMin% 60;
 
+  let plus = <TouchableOpacity onPress={() => setStrongness(Strongness+1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
+
+  if(Strongness>99){
+    plus = <Image style={{width: imageWidth/16, height: imageHeight/9, opacity: 0.5}} source={require("./assets/plus.png")}></Image>
+  }
+
   let minus2= <TouchableOpacity style={{marginLeft: "7.5%"}} onPress={() => setHoursToDrive(hoursToDrive-0.25)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
 
   if (hoursToDrive==0){
@@ -157,7 +163,7 @@ export default function Backwards() {
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "white", fontSize: 20}}>{Strongness}%</Text></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%", opacity: 0.5}} onPress={() => setStrongness(20)}><Text>20%</Text></TouchableOpacity></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%", opacity: 0.5}} onPress={() => setStrongness(40)}><Text>40%</Text></TouchableOpacity></DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={() => setStrongness(Strongness+1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}>{plus}</DataTable.Cell> 
       </DataTable.Row>    
 
       <DataTable.Row style={{backgroundColor: "#61a22d", marginTop: "10%", borderColor: "#61a22d"}}> 

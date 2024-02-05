@@ -183,6 +183,12 @@ if(noFile && amount!="" && content!= ""){
 />
   }
 
+  let plus = <TouchableOpacity onPress={() => setContent(content+1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity>
+
+  if (content>99){
+    plus = <Image style={{width: imageWidth/16, height: imageHeight/9, opacity: 0.5}} source={require("./assets/plus.png")}></Image>
+  }
+
   let minus = <TouchableOpacity onPress={() => setContent(content-1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/minus.png")}></Image></TouchableOpacity>
   
   if (content==0){
@@ -230,7 +236,7 @@ if(noFile && amount!="" && content!= ""){
         <DataTable.Cell style={{justifyContent: "center"}}><Text style={{color: "red", fontSize: 20}}>{content}%</Text></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center", opacity: 0.7}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(20)}><Text>20%</Text></TouchableOpacity></DataTable.Cell>
         <DataTable.Cell style={{justifyContent: "center", opacity: 0.7}}><TouchableOpacity style={{backgroundColor: "lightgrey", padding: "15%"}} onPress={() => setContent(40)}><Text>40%</Text></TouchableOpacity></DataTable.Cell>
-        <DataTable.Cell style={{justifyContent: "center"}}><TouchableOpacity onPress={() => setContent(content+1)}><Image style={{width: imageWidth/16, height: imageHeight/9}} source={require("./assets/plus.png")}></Image></TouchableOpacity></DataTable.Cell> 
+        <DataTable.Cell style={{justifyContent: "center"}}>{plus}</DataTable.Cell> 
       </DataTable.Row> 
 
       <DataTable.Row style={{borderColor: "white"}}> 
