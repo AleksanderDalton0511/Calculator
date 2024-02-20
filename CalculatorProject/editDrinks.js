@@ -135,16 +135,10 @@ useEffect(() => {
     visualUnit="ml";
   }
 
-  /*if(oldResult!=undefined){
-    if(oldResult.length==0){
-      navigation.navigate("Calculator");
-    }
-  }*/
-
   let redText = "TAP TO DELETE";
   if(oldResult!=undefined){
     if(oldResult.length<1){
-      redText=""
+      redText="NO EXISTING DRINKS(Add new drinks/go back)"
     }
   }
 
